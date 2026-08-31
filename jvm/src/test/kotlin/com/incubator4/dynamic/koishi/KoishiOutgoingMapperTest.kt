@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import dbk.v1.NormalUnit
 import dbk.v1.Segment

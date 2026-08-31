@@ -42,3 +42,9 @@ QQ / NapCat 的重连、图片投递、撤回已由 OneBot 插件处理。本桥
 
 **状态：** 接受
 对齐 OneBot 的 `OneBotSendOutcome.Uncertain` 与主程序 `SEND_UNKNOWN`。未确认的成功不能当失败重试，否则可能双发。
+
+## ADR-9 — 产物版本来自 git describe
+
+**状态：** 接受
+jar / handshake / `plugin.yml` 的产品版本用 `git describe --tags --always --abbrev=7 --dirty`，不手写 `0.1.0`。发布 tag 约定 `vX.Y.Z`；同一 tag 发 fatJar 和 npm。`protocol_version` 仍是协议合同，与 git 版本无关。
+npm 的 `package.json` `version` 必须是合法 semver，不能直接塞 SHA：发布时写成 tag 去掉 `v`；开发、无 git 时回退 `0.0.0-dev`。Koishi 握手的 `gateway_version` 在本仓库检出里走 git describe，安装后的 npm 包走 `package.json`。JVM 可用 `DBK_VERSION` 覆盖（浅克隆或无 git 的 CI）。

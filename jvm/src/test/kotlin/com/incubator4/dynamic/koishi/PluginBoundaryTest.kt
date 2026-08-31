@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import java.nio.file.Files
 import java.nio.file.Path

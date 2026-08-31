@@ -6,7 +6,7 @@ alwaysApply: false
 
 # JVM plugin
 
-- Depend on `dynamic-bot-core` public APIs only (same boundary as `dynamic-bot-onebot`).
+- Depend on `dynamic-bot-core` public APIs only (same boundary as `dynamic-bot-onebot`). This plugin lives in `com.incubator4.dynamic.koishi`; core types stay `top.colter.dynamic.core.*`.
 - Implement `AccountRoutedMessageSinkPlugin`: send, recall, `listMessageSinkRoutes`, `listMessageTargets`.
 - `supportedTargetPlatforms` is the live set of `bot.platform` from `bots.list` / `bot.changed`, excluding `qq`. Do not hardcode Discord/Telegram/KOOK/Lark.
 - `routeId` = `koishi:{platform}:{selfId}`. Do not store bot tokens in plugin config (only Gateway URL + token).
@@ -16,3 +16,4 @@ alwaysApply: false
 - Send timeout → `MessageSendResult.uncertain` (`UNKNOWN`), never automatic retry-as-failure.
 - Media: pass URIs. Do not copy OneBot local-file / base64 probing unless measured necessary.
 - FatJar into dynamic-bot `plugins/`. Do not shade Koishi or Node.
+- Do not hardcode the product version. `plugin.yml` and `DBK_APP_VERSION` come from `git describe` (override with `DBK_VERSION`).

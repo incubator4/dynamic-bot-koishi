@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import top.colter.dynamic.core.data.IncomingMessageSegment
 import top.colter.dynamic.core.data.Message

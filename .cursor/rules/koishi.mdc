@@ -14,3 +14,4 @@ alwaysApply: false
 - Map `bot.status` to DBK `READY` / `CONNECTING` / `UNAVAILABLE`. Do not use `bot.isActive` (CONNECT/RECONNECT are active but not ready).
 - Declare `features` per bot (`message.recall`, `targets.list`, …). Do not pretend Telegram can list all chats.
 - Tokens for Discord/Telegram stay in Koishi config, not in dynamic-bot.
+- Do not hardcode `GATEWAY_VERSION`. In this repo it is `git describe`; published npm falls back to `package.json`.

@@ -11,6 +11,7 @@
     "proto:format": "pnpm --filter @dynamic-bot-koishi/proto format",
     "proto:generate": "pnpm --filter @dynamic-bot-koishi/proto generate",
     "jvm:build": "./jvm/gradlew -p jvm fatJar",
+    "version:print": "git describe --tags --always --abbrev=7 --dirty",
     "koishi:dev": "cross-env NODE_ENV=development koishi start -r esbuild-register -r yml-register"
   },
   "devDependencies": {

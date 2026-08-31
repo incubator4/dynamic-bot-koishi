@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import com.squareup.wire.OneOf
 import dbk.v1.Bot

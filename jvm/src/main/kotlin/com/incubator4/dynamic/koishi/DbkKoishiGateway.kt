@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import dbk.v1.BotChangeType
 import dbk.v1.BotChangedEvent

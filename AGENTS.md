@@ -23,7 +23,7 @@ docs/      design notes; do not fork rules from memory
 6. **Do not use kotlinx.serialization protobuf** for the wire format. It is not interoperable with Node proto3. Use Wire (JVM) + protobuf-es (TS) from the same `.proto`.
 7. **Koishi must not parse commands, draw cards, or** `session.send` **business replies.** Incoming events go to the JVM; replies go back through `message.send`.
 8. **Send results must distinguish** `OK` **/** `PARTIAL` **/** `UNKNOWN` **/** `FAILED`**.** Timeouts are `UNKNOWN` (do not retry as failure).
-9. **Same git tag versions the jar and the npm package.** Do not release them independently.
+9. **Same git tag versions the jar and the npm package.** Do not release them independently. Product version is `git describe --tags --always --abbrev=7 --dirty` (exact tag, or tag-N-sha, or short SHA if untagged). Handshake `app_version` / `gateway_version`, `plugin.yml`, and the fatJar name use that string. npm `package.json` version is the release tag without a leading `v` (must be semver); until the first tag it stays `0.0.0-dev` as a no-git fallback. Do not hardcode `0.1.0`.
 10. **Encoding is secondary.** Prefer protobuf binary; protojson is allowed for local debug. Changing encoding must not fork the schema.
 
 ## When implementing

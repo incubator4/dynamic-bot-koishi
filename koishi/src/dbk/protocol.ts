@@ -33,7 +33,7 @@ import {
 } from "../gen/dbk/v1/rpc_pb";
 
 export const PROTOCOL_VERSION = "1";
-export const GATEWAY_VERSION = "0.1.0";
+export { GATEWAY_VERSION } from "./version";
 
 export const PING_INTERVAL_MS = 10_000;
 export const PONG_TIMEOUT_MS = 20_000;

@@ -1,7 +1,6 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 internal const val DBK_PROTOCOL_VERSION: String = "1"
-internal const val DBK_APP_VERSION: String = "0.1.0"
 
 internal const val DBK_PING_INTERVAL_MS: Long = 10_000L
 internal const val DBK_PONG_TIMEOUT_MS: Long = 20_000L

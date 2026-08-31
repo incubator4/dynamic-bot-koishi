@@ -141,7 +141,7 @@ package dbk.v1;
 - 枚举 `ENUM_UNSPECIFIED = 0`
 - 互斥结构用 `oneof`，不要用字符串 `type` + 可选字段
 - 字段只用新号；禁止复用号
-- 文件选项（`java_package` 等）能不写就不写；Kotlin 包名跟 `package dbk.v1` 走即可。若要 `top.colter.dynamic...`，用 Buf managed mode 或 Wire 的包配置，不要在每个文件手写两套 package
+- 文件选项（`java_package` 等）能不写就不写；Kotlin 包名跟 `package dbk.v1` 走即可。若要 `com.incubator4.dynamic...`，用 Buf managed mode 或 Wire 的包配置，不要在每个文件手写两套 package
 
 ## 演进
 

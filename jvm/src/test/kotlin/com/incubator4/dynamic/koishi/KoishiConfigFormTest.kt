@@ -1,4 +1,4 @@
-package top.colter.dynamic.koishi
+package com.incubator4.dynamic.koishi
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

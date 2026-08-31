@@ -51,7 +51,11 @@ plugins:
     database-sqlite:e4gl21:
       path: data/koishi.db
   group:adapter:
-    ~adapter-onebot:03cwhl: {}
+    adapter-onebot:03cwhl:
+      selfId: '376722900'
+      token: 8En8Lf9!6kF9qrc*
+      protocol: ws
+      endpoint: ws://192.168.16.5:3001
     ~adapter-dingtalk:se6e92: {}
     ~adapter-discord:kb30xp: {}
     ~adapter-kook:df54ff: {}

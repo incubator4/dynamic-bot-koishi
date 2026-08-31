@@ -8,8 +8,72 @@ plugins {
 
 apply(from = "gradle/dynamic-plugin-fatjar.gradle.kts")
 
-group = "top.colter.dynamic"
-version = "0.1.0"
+group = "com.incubator4.dynamic"
+version = dbkGitVersion()
+
+val generateDbkVersion by tasks.registering {
+    val outputDir = layout.buildDirectory.dir("generated/sources/dbkVersion")
+    inputs.property("dbkVersion", version.toString())
+    outputs.dir(outputDir)
+    doLast {
+        val file = outputDir.get().asFile.resolve("com/incubator4/dynamic/koishi/DbkVersion.kt")
+        file.parentFile.mkdirs()
+        file.writeText(
+            """
+            package com.incubator4.dynamic.koishi
+
+            internal const val DBK_APP_VERSION: String = ${version.toString().asKotlinStringLiteral()}
+
+            """.trimIndent() + "\n",
+        )
+    }
+}
+
+tasks.named("compileKotlin") {
+    dependsOn(generateDbkVersion)
+}
+
+tasks.processResources {
+    inputs.property("dbkVersion", version.toString())
+    filesMatching("plugin.yml") {
+        expand("dbkVersion" to version.toString())
+    }
+}
+
+fun dbkGitVersion(): String {
+    val override = System.getenv("DBK_VERSION")?.trim()
+    if (!override.isNullOrEmpty()) return override
+    return try {
+        val process = ProcessBuilder("git", "describe", "--tags", "--always", "--abbrev=7", "--dirty")
+            .directory(rootDir)
+            .redirectErrorStream(true)
+            .start()
+        val output = process.inputStream.bufferedReader().use { it.readText() }.trim()
+        if (process.waitFor() == 0 && output.isNotEmpty() && !output.startsWith("fatal:")) {
+            output
+        } else {
+            "0.0.0-dev"
+        }
+    } catch (_: Exception) {
+        "0.0.0-dev"
+    }
+}
+
+fun String.asKotlinStringLiteral(): String =
+    buildString {
+        append('"')
+        for (ch in this@asKotlinStringLiteral) {
+            when (ch) {
+                '\\' -> append("\\\\")
+                '"' -> append("\\\"")
+                '$' -> append("\\u0024")
+                '\n' -> append("\\n")
+                '\r' -> append("\\r")
+                else -> append(ch)
+            }
+        }
+        append('"')
+    }
 
 repositories {
     mavenLocal()
@@ -75,4 +139,7 @@ kotlin {
         freeCompilerArgs.add("-Xjdk-release=17")
     }
     jvmToolchain(21)
+    sourceSets.getByName("main").kotlin.srcDir(
+        layout.buildDirectory.dir("generated/sources/dbkVersion"),
+    )
 }
