@@ -66,6 +66,8 @@ message TargetInfo {
   string guild_id = 3;
   string guild_name = 4;
   repeated string bot_keys = 5;
+  // HTTP(S) URI. Empty if the adapter did not provide one.
+  string avatar = 6;
 }
 
 message SendParams {

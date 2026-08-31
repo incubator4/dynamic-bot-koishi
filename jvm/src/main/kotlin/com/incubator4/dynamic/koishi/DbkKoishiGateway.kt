@@ -107,6 +107,7 @@ internal abstract class DbkKoishiGateway(
                 message_id = messageId,
             ),
             responseAdapter = RecallResult.ADAPTER,
+            timeoutMs = DBK_RECALL_TIMEOUT_MS,
         )
         when (result.status) {
             SendStatus.SEND_STATUS_OK -> Unit
@@ -140,6 +141,7 @@ internal abstract class DbkKoishiGateway(
                 accountId = account.accountId,
                 platformId = account.platformId,
                 kind = targetKind,
+                avatar = info.avatar.trim(),
             )
         }
     }
@@ -166,6 +168,7 @@ internal abstract class DbkKoishiGateway(
             accountId = account.accountId,
             platformId = account.platformId,
             kind = kind,
+            avatar = info.avatar.trim(),
         )
     }
 

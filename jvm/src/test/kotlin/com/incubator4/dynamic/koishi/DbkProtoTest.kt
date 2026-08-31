@@ -27,16 +27,26 @@ class DbkProtoTest {
         assertEquals(MessageSinkRouteState.UNAVAILABLE, account?.state)
     }
 
+    @Test
+    fun `gateway features pass through to runtime account`() {
+        val account = bot(
+            BotStatus.BOT_STATUS_READY,
+            features = listOf("message.recall", "targets.list", "mention.all"),
+        ).toRuntimeAccount()
+        assertEquals(setOf("message.recall", "targets.list", "mention.all"), account?.features)
+    }
+
     private fun connectingRouteExpectation(): MessageSinkRouteState {
         return MessageSinkRouteState.entries.firstOrNull { it.name == "CONNECTING" }
             ?: MessageSinkRouteState.UNAVAILABLE
     }
 
-    private fun bot(status: BotStatus): Bot = Bot(
+    private fun bot(status: BotStatus, features: List<String> = emptyList()): Bot = Bot(
         bot_key = "discord:42",
         platform = "discord",
         self_id = "42",
         name = "Discord Bot",
         status = status,
+        features = features,
     )
 }

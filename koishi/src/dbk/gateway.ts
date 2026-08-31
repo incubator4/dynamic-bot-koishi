@@ -2,7 +2,7 @@ import { create } from "@bufbuild/protobuf";
 import type { Context } from "koishi";
 import { BotChangeType } from "../gen/dbk/v1/common_pb";
 import { BotChangedEventSchema } from "../gen/dbk/v1/rpc_pb";
-import { toDbkBot } from "./handlers";
+import { toDbkBot } from "./bots";
 import { DbkEvent, type DbkEncoding, type DbkEventMap, type DbkGatewayHandlers } from "./protocol";
 import { DbkGatewaySession } from "./session";
 import { attachSocket, sendSocket, type DbkSocket } from "./socket";

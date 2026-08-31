@@ -48,6 +48,7 @@ v1 不做 `media.upload`。图片 segment 只带 URI。
 
 可过滤 `botKey`、`kind`。同一目标被多 bot 看见时合并，`bot_keys` 列出。`incomplete=true` 表示列表不全（典型 Telegram）。
 Discord 文本频道 → `CHANNEL`（带 `guild_id` / `guild_name`）。Telegram 群 → `GROUP`。私聊 → `USER`。不要把 CATEGORY/VOICE 当可发送目标。
+`TargetInfo.avatar` 是适配器给出的头像 URI（用户/好友用 `user.avatar`，群用 `guild.avatar`，Discord 频道没有独立头像时回落到 guild）。空字符串表示没有。
 
 ### message.send
 

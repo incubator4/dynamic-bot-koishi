@@ -7,6 +7,7 @@ internal const val DBK_PONG_TIMEOUT_MS: Long = 20_000L
 internal const val DBK_HELLO_TIMEOUT_MS: Long = 15_000L
 internal const val DBK_RPC_TIMEOUT_MS: Long = 15_000L
 internal const val DBK_SEND_TIMEOUT_MS: Long = 30_000L
+internal const val DBK_RECALL_TIMEOUT_MS: Long = 30_000L
 
 internal object DbkMethods {
     const val SESSION_HELLO: String = "session.hello"

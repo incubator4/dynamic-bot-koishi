@@ -30,6 +30,7 @@ public data class KoishiTargetCandidate(
     val accountId: String,
     val platformId: PlatformId,
     val kind: TargetKind,
+    val avatar: String = "",
 )
 
 public data class KoishiRuntimeAccount(

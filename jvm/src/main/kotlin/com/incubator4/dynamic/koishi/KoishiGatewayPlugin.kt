@@ -10,6 +10,8 @@ import kotlinx.coroutines.launch
 import top.colter.dynamic.core.config.ConfigApplyResult
 import top.colter.dynamic.core.config.ConfigurablePlugin
 import top.colter.dynamic.core.config.loadOrCreate
+import top.colter.dynamic.core.data.MediaKind
+import top.colter.dynamic.core.data.MediaRef
 import top.colter.dynamic.core.data.PlatformId
 import top.colter.dynamic.core.data.TargetAddress
 import top.colter.dynamic.core.data.TargetKind
@@ -228,6 +230,7 @@ public class KoishiGatewayPlugin :
                             accountId = candidate.accountId,
                         ),
                         name = candidate.name,
+                        avatar = candidate.avatar.toAvatarRef(),
                         sources = listOfNotNull(accounts[account.accountKey()]?.toRoute()?.toTargetSource()),
                     )
                 }
@@ -237,7 +240,10 @@ public class KoishiGatewayPlugin :
             .values
             .map { duplicates ->
                 val first = duplicates.first()
-                first.copy(sources = duplicates.flatMap { it.sources }.distinctBy { it.routeId })
+                first.copy(
+                    sources = duplicates.flatMap { it.sources }.distinctBy { it.routeId },
+                    avatar = duplicates.mapNotNull { it.avatar }.firstOrNull(),
+                )
             }
             .sortedWith(compareBy<MessageTargetCandidate> { it.address.kind.name }.thenBy { it.name })
     }
@@ -254,6 +260,7 @@ public class KoishiGatewayPlugin :
                     accountId = listed.accountId,
                 ),
                 name = listed.name,
+                avatar = listed.avatar.toAvatarRef(),
             )
         }
         return MessageTargetCandidate(
@@ -341,6 +348,7 @@ public class KoishiGatewayPlugin :
         targetPlatformId = platformId,
         accountId = accountId,
         accountName = name,
+        accountAvatar = avatar.toAvatarRef(),
         enabled = true,
         state = state,
     )
@@ -394,3 +402,9 @@ private fun String.sha256Hex(): String {
 }
 
 private val QQ_PLATFORM_ID: PlatformId = PlatformId.of("qq")
+
+private fun String.toAvatarRef(): MediaRef? {
+    val uri = trim()
+    if (uri.isBlank()) return null
+    return MediaRef(uri = uri, kind = MediaKind.AVATAR)
+}
