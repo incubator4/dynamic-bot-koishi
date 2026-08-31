@@ -1,0 +1,14 @@
+---
+description: Keep ADRs, AGENTS.md, and Cursor rules in sync when design changes
+globs: docs/**/*.md,AGENTS.md,README.md
+alwaysApply: false
+---
+
+# Updating constraints
+
+When a design choice changes (protocol, codegen, what Koishi may do):
+
+1. Update `docs/decisions.md` (ADR) and the relevant spec in `docs/`.
+2. Update `AGENTS.md` and the matching `.cursor/rules/*.mdc` in the same PR.
+3. Do not leave a rule that contradicts a doc.
+   Do not paste long chat logs into the repo. Extract MUST / MUST NOT only.

@@ -1,0 +1,40 @@
+services:
+  dynamic-bot:
+    image: ghcr.io/colter23/dynamic-bot:latest
+    platform: linux/amd64
+    container_name: dynamic-bot
+    restart: unless-stopped
+    ports:
+      - "2233:2233"
+      - "9800:9800"
+    volumes:
+      # 数据持久化
+      - ./dynamic-bot/data:/app/data
+      # 配置文件
+      - ./dynamic-bot/config:/app/config
+      # 插件目录
+      - ./dynamic-bot/plugins:/app/plugins
+      # 文件日志
+      - ./dynamic-bot/logs:/app/logs
+    environment:
+      # 启动脚本会先修复挂载目录权限，再以该 UID/GID 运行 Java 主进程
+      APP_UID: ${APP_UID:-1000}
+      APP_GID: ${APP_GID:-1000}
+      FIX_VOLUME_PERMISSIONS: ${FIX_VOLUME_PERMISSIONS:-auto}
+      # 默认使用亚洲上海时区，可通过 TZ 覆盖
+      TZ: ${TZ:-Asia/Shanghai}
+      # Skiko 原生库、临时文件等运行时缓存目录；默认不挂载，避免污染 data 目录
+      APP_RUNTIME_DIR: ${APP_RUNTIME_DIR:-/app/.runtime}
+      # 文件日志目录；控制台日志仍然会输出到 docker logs
+      LOG_DIR: ${LOG_DIR:-/app/logs}
+      # Docker 首次生成主配置时默认监听所有网卡，避免容器内 127.0.0.1 导致宿主机无法访问后台
+      DYNAMIC_BOT_WEB_ADMIN_HOST: ${DYNAMIC_BOT_WEB_ADMIN_HOST:-0.0.0.0}
+      # JVM 内存配置，可根据实际需求调整
+      JAVA_OPTS: ${JAVA_OPTS:--Xms256m -Xmx1g -XX:+UseG1GC -XX:MaxGCPauseMillis=200}
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2233/api/health"]
+      interval: 30s
+      timeout: 3s
+      start_period: 40s
+      retries: 3

@@ -1,0 +1,22 @@
+{
+  "name": "koishi-plugin-dynamic-bot",
+  "version": "0.1.0",
+  "description": "dynamic-bot Koishi gateway (DBK)",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "peerDependencies": {
+    "koishi": "^4.18.7"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.12.1"
+  },
+  "koishi": {
+    "description": {
+      "zh": "将 Koishi 已连接账号作为 dynamic-bot 的消息出口",
+      "en": "Expose connected Koishi bots as a dynamic-bot message gateway"
+    },
+    "service": {
+      "required": ["server", "http"]
+    }
+  }
+}

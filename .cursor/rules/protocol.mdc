@@ -1,0 +1,15 @@
+---
+description: DBK WebSocket RPC (hello, send, incoming, list bots/targets)
+globs: docs/protocol.md,docs/codegen.md,jvm/**/*.kt,koishi/**/*.ts
+alwaysApply: false
+---
+
+# DBK protocol
+
+Frames: `call` / `ok` / `error` / `event` / `ping` / `pong`. Handshake `session.hello` with shared token before other RPCs.
+App (JVM) calls Gateway (Koishi): `bots.list`, `targets.list`, `targets.get`, `message.send`, `message.recall`.
+Gateway events: `bot.changed`, `message.created`.
+`message.send` returns `OK | PARTIAL | UNKNOWN | FAILED`. RPC `error` is only for transport/params (missing bot, bad token), not for “Discord said 403”.
+Identity: `botKey = platform:selfId`. Target `kind` matches core `TargetKind`. Bot `status`: `READY` (online) / `CONNECTING` / `UNAVAILABLE`.
+v1 out of scope: event resume by `seq`, media probe, buttons, QQ via this bridge, Koishi command plugins for dynamic-bot.
+Spec: `docs/protocol.md`.

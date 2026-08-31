@@ -1,0 +1,16 @@
+---
+description: Koishi plugin that executes DBK, not a platform Adapter
+globs: koishi/**
+alwaysApply: false
+---
+
+# Koishi plugin
+
+- Export a normal Koishi **Plugin**. Do not `extend Adapter` / `extend Bot` for dynamic-bot.
+- Use official adapters already in the Koishi instance (`ctx.bots`, `bot.sendMessage`, `h()`).
+- Translate **generated** proto types ↔ `h()` / `session` only. Do not define parallel TS interfaces for DBK messages.
+- On `message` events: emit `message.created`; drop the bot’s own messages; **do not** parse commands or reply with `session.send`.
+- Implement `bots.list`, `targets.list`, `targets.get`, `message.send`, `message.recall`.
+- Map `bot.status` to DBK `READY` / `CONNECTING` / `UNAVAILABLE`. Do not use `bot.isActive` (CONNECT/RECONNECT are active but not ready).
+- Declare `features` per bot (`message.recall`, `targets.list`, …). Do not pretend Telegram can list all chats.
+- Tokens for Discord/Telegram stay in Koishi config, not in dynamic-bot.

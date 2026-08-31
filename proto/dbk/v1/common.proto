@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package dbk.v1;
+
+// Shared identity, status, and error types. JVM `routeId` (`koishi:{bot_key}`)
+// is not part of this contract.
+
+enum TargetKind {
+  TARGET_KIND_UNSPECIFIED = 0;
+  TARGET_KIND_USER = 1;
+  TARGET_KIND_GROUP = 2;
+  TARGET_KIND_CHANNEL = 3;
+  TARGET_KIND_THREAD = 4;
+}
+
+enum BotStatus {
+  BOT_STATUS_UNSPECIFIED = 0;
+  BOT_STATUS_READY = 1;
+  BOT_STATUS_UNAVAILABLE = 2;
+  BOT_STATUS_CONNECTING = 3;
+}
+
+enum SendStatus {
+  SEND_STATUS_UNSPECIFIED = 0;
+  SEND_STATUS_OK = 1;
+  SEND_STATUS_PARTIAL = 2;
+  SEND_STATUS_UNKNOWN = 3;
+  SEND_STATUS_FAILED = 4;
+}
+
+enum ErrorCode {
+  ERROR_CODE_UNSPECIFIED = 0;
+  ERROR_CODE_UNAUTHORIZED = 1;
+  ERROR_CODE_PROTOCOL = 2;
+  ERROR_CODE_NOT_FOUND = 3;
+  ERROR_CODE_UNSUPPORTED = 4;
+  ERROR_CODE_INTERNAL = 5;
+}
+
+enum BotChangeType {
+  BOT_CHANGE_TYPE_UNSPECIFIED = 0;
+  BOT_CHANGE_TYPE_ADDED = 1;
+  BOT_CHANGE_TYPE_UPDATED = 2;
+  BOT_CHANGE_TYPE_REMOVED = 3;
+}
+
+message Target {
+  TargetKind kind = 1;
+  string id = 2;
+  string guild_id = 3;
+}
+
+message RpcError {
+  ErrorCode code = 1;
+  string detail = 2;
+}

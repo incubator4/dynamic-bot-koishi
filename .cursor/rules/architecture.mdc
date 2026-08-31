@@ -1,0 +1,16 @@
+---
+description: dynamic-bot-koishi architecture non-negotiables
+alwaysApply: true
+---
+
+# Architecture
+
+Monorepo for **one** product: JVM dynamic-bot plugin + Koishi plugin + shared proto.
+
+- Brain: dynamic-bot. Hands: Koishi adapters already installed by the user.
+- Chain: `dynamic-bot` → `jvm/` (MessageSink) → DBK WebSocket → `koishi/` (Plugin) → `ctx.bots` → Discord/Telegram/…
+- `koishi/` is a **Koishi Plugin**, never a Koishi **Adapter**.
+- Two processes. Do not spawn Node from the JAR. Do not put this into the dynamic-bot core repo.
+- Do not implement QQ here; do not reimplement Discord/Telegram adapters.
+- Field shapes live only in `proto/`. Generate; do not duplicate DTOs.
+- Full notes: `AGENTS.md`, `docs/architecture.md`, `docs/decisions.md`.

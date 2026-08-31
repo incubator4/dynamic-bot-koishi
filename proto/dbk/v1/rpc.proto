@@ -1,0 +1,193 @@
+syntax = "proto3";
+
+package dbk.v1;
+
+import "dbk/v1/common.proto";
+
+// RPC and event bodies. Method names live on Frame.method, not here.
+// App (JVM) calls Gateway (Koishi). No gRPC service.
+
+message HelloRequest {
+  string token = 1;
+  string app_version = 2;
+  string protocol_version = 3;
+}
+
+message HelloResponse {
+  string protocol_version = 1;
+  string gateway_version = 2;
+  repeated Bot bots = 3;
+}
+
+message ListBotsRequest {}
+
+message ListBotsResponse {
+  repeated Bot bots = 1;
+}
+
+message Bot {
+  string bot_key = 1;
+  string platform = 2;
+  string self_id = 3;
+  string name = 4;
+  string avatar = 5;
+  BotStatus status = 6;
+  repeated string features = 7;
+}
+
+message BotChangedEvent {
+  BotChangeType type = 1;
+  Bot bot = 2;
+}
+
+message ListTargetsRequest {
+  string bot_key = 1;
+  TargetKind kind = 2;
+}
+
+message ListTargetsResponse {
+  repeated TargetInfo targets = 1;
+  bool incomplete = 2;
+}
+
+message GetTargetRequest {
+  string bot_key = 1;
+  Target target = 2;
+}
+
+message GetTargetResponse {
+  TargetInfo target = 1;
+  bool unresolved = 2;
+}
+
+message TargetInfo {
+  Target target = 1;
+  string name = 2;
+  string guild_id = 3;
+  string guild_name = 4;
+  repeated string bot_keys = 5;
+}
+
+message SendParams {
+  string bot_key = 1;
+  Target target = 2;
+  string reply_to_message_id = 3;
+  repeated SendUnit units = 4;
+}
+
+message SendUnit {
+  oneof body {
+    NormalUnit normal = 1;
+    ForwardUnit forward = 2;
+  }
+}
+
+message NormalUnit {
+  repeated Segment segments = 1;
+}
+
+message ForwardUnit {
+  repeated ForwardNode nodes = 1;
+}
+
+message ForwardNode {
+  string sender_id = 1;
+  string sender_name = 2;
+  string sender_avatar = 3;
+  int64 time = 4;
+  repeated Segment segments = 5;
+}
+
+message Segment {
+  oneof body {
+    TextSegment text = 1;
+    ImageSegment image = 2;
+    VideoSegment video = 3;
+    AudioSegment audio = 4;
+    MentionSegment mention = 5;
+    MentionAllSegment mention_all = 6;
+    ReplySegment reply = 7;
+    LinkSegment link = 8;
+    UnknownSegment unknown = 9;
+  }
+}
+
+message TextSegment {
+  string text = 1;
+}
+
+message ImageSegment {
+  string uri = 1;
+  string file = 2;
+  string alt = 3;
+}
+
+message VideoSegment {
+  string uri = 1;
+  string file = 2;
+  string alt = 3;
+}
+
+message AudioSegment {
+  string uri = 1;
+  string file = 2;
+  string alt = 3;
+}
+
+message MentionSegment {
+  string id = 1;
+}
+
+message MentionAllSegment {}
+
+message ReplySegment {
+  string message_id = 1;
+}
+
+message LinkSegment {
+  string url = 1;
+  string title = 2;
+}
+
+message UnknownSegment {
+  string type = 1;
+  string raw = 2;
+}
+
+message SendResult {
+  SendStatus status = 1;
+  string reason = 2;
+  bool retryable = 3;
+  repeated SendReceipt receipts = 4;
+}
+
+message SendReceipt {
+  string message_id = 1;
+  bool recallable = 2;
+}
+
+message RecallParams {
+  string bot_key = 1;
+  Target target = 2;
+  string message_id = 3;
+}
+
+message RecallResult {
+  SendStatus status = 1;
+  string reason = 2;
+  bool retryable = 3;
+}
+
+message IncomingMessage {
+  string bot_key = 1;
+  string platform = 2;
+  Target target = 3;
+  string sender_id = 4;
+  string message_id = 5;
+  int64 timestamp = 6;
+  string text = 7;
+  string reply_to_message_id = 8;
+  repeated string mentions = 9;
+  repeated Segment segments = 10;
+  string raw = 11;
+}

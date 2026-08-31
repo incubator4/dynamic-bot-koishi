@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "koishi-plugin-dynamic-bot": ["koishi/src"],
+
+      // Catch-all required by tsconfig-paths/register even if unused.
+      // See: https://github.com/dividab/tsconfig-paths/issues/209
+      "*": ["packages/*/src"]
+    }
+  }
+}

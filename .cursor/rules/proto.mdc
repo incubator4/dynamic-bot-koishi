@@ -1,0 +1,16 @@
+---
+description: DBK proto is the only cross-runtime contract
+globs: proto/**/*.proto,proto/**/*.md,proto/buf.yaml,proto/buf.gen.yaml
+alwaysApply: false
+---
+
+# Proto
+
+- `proto/dbk/v1/` is the source of truth for JVM and Koishi types.
+- Add fields with new numbers. Never reuse numbers. Keep `UNSPECIFIED = 0` on enums.
+- Prefer `oneof` for segments and mutually exclusive payloads.
+- After edits: `buf lint`, `buf breaking` (when a previous tag exists), `buf generate` (TS only), and Gradle Wire (Kotlin).
+- Do not emit kotlinx.serialization protobuf. Do not copy `.proto` into `jvm/`.
+- No gRPC `service` in these files. Wire `rpcRole = none`. Segment oneof uses Wire boxed `OneOf` (`boxOneOfsMinSize = 1`).
+- Encoding (binary vs protojson) is not defined in the schema; do not split messages per encoding.
+- Details: `docs/protocol.md`, `docs/codegen.md`.

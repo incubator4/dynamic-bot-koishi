@@ -1,0 +1,7 @@
+id: koishi-gateway
+name: Koishi 网关插件
+version: 0.1.0
+mainClass: top.colter.dynamic.koishi.KoishiGatewayPlugin
+apiVersion: 3.0.0
+description: 连接独立运行的 Koishi 进程，通过 DBK 协议投递消息并接收入站事件。
+author: dynamic-bot

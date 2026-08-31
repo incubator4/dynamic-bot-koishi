@@ -1,0 +1,18 @@
+---
+description: Kotlin dynamic-bot plugin (MessageSink fatJar)
+globs: jvm/**
+alwaysApply: false
+---
+
+# JVM plugin
+
+- Depend on `dynamic-bot-core` public APIs only (same boundary as `dynamic-bot-onebot`).
+- Implement `AccountRoutedMessageSinkPlugin`: send, recall, `listMessageSinkRoutes`, `listMessageTargets`.
+- `supportedTargetPlatforms` is the live set of `bot.platform` from `bots.list` / `bot.changed`, excluding `qq`. Do not hardcode Discord/Telegram/KOOK/Lark.
+- `routeId` = `koishi:{platform}:{selfId}`. Do not store bot tokens in plugin config (only Gateway URL + token).
+- Map `core.Message` → **generated** proto `SendParams`. Do not send raw `Message` JSON to Koishi.
+- Map proto `message.created` → `IncomingMessage` + `IncomingMessagePublishRequest`. Build `dedupeKey` / `traceId` on the JVM; do not ask Koishi to classify commands.
+- Bot `status`: `READY` = Koishi `ONLINE`; `CONNECTING` = `CONNECT`/`RECONNECT`; `UNAVAILABLE` = `OFFLINE`/`DISCONNECT`. Only `READY` may send.
+- Send timeout → `MessageSendResult.uncertain` (`UNKNOWN`), never automatic retry-as-failure.
+- Media: pass URIs. Do not copy OneBot local-file / base64 probing unless measured necessary.
+- FatJar into dynamic-bot `plugins/`. Do not shade Koishi or Node.
