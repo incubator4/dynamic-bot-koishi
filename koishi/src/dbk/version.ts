@@ -4,6 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const FALLBACK = "0.0.0-dev";
+const PACKAGE_NAME = "koishi-plugin-dynamic-bot";
 
 function hereDir(): string {
   try {
@@ -13,9 +14,33 @@ function hereDir(): string {
   }
 }
 
+function readName(dir: string): string | undefined {
+  try {
+    const pkg = JSON.parse(readFileSync(join(dir, "package.json"), "utf8")) as {
+      name?: string;
+    };
+    return pkg.name;
+  } catch {
+    return undefined;
+  }
+}
+
+function findPackageDir(start: string): string | undefined {
+  let dir = start;
+  for (let i = 0; i < 8; i++) {
+    if (existsSync(join(dir, "package.json")) && readName(dir) === PACKAGE_NAME) {
+      return dir;
+    }
+    const parent = join(dir, "..");
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return undefined;
+}
+
 function packageDir(): string {
-  const fromHere = join(hereDir(), "..", "..");
-  if (existsSync(join(fromHere, "package.json"))) return fromHere;
+  const found = findPackageDir(hereDir());
+  if (found) return found;
   const fromCwd = join(process.cwd(), "koishi");
   if (existsSync(join(fromCwd, "package.json"))) return fromCwd;
   return process.cwd();

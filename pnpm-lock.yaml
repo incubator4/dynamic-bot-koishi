@@ -168,6 +168,22 @@ importers:
       koishi:
         specifier: ^4.18.7
         version: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+    devDependencies:
+      '@koishijs/plugin-http':
+        specifier: ^0.6.3
+        version: 0.6.3(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-server':
+        specifier: ^3.2.4
+        version: 3.2.9(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@types/node':
+        specifier: ^24.5.2
+        version: 24.13.3
+      esbuild:
+        specifier: ^0.23.1
+        version: 0.23.1
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.3
 
   proto:
     dependencies:

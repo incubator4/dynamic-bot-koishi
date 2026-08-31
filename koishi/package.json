@@ -13,11 +13,33 @@
   "description": "dynamic-bot Koishi gateway (DBK)",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "publishConfig": {
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "typings": "lib/index.d.ts"
+  },
+  "scripts": {
+    "build": "pnpm build:js && pnpm build:dts",
+    "build:js": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=lib/index.js --packages=external",
+    "build:dts": "tsc -p tsconfig.json",
+    "prepublishOnly": "pnpm build"
+  },
   "peerDependencies": {
     "koishi": "^4.18.7"
   },
   "dependencies": {
     "@bufbuild/protobuf": "^2.12.1"
+  },
+  "devDependencies": {
+    "@koishijs/plugin-http": "^0.6.3",
+    "@koishijs/plugin-server": "^3.2.4",
+    "@types/node": "^24.5.2",
+    "esbuild": "^0.23.1",
+    "typescript": "^5.9.2"
   },
   "koishi": {
     "description": {

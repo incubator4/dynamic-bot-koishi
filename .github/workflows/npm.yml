@@ -26,6 +26,7 @@ jobs:
           cache: pnpm
           registry-url: "https://registry.npmjs.org"
       - run: pnpm install --frozen-lockfile --filter ./koishi...
+      - run: pnpm --filter koishi-plugin-dynamic-bot build
       - name: Set npm version from tag
         if: startsWith(github.ref, 'refs/tags/v')
         working-directory: koishi
