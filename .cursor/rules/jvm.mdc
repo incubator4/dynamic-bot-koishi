@@ -9,6 +9,7 @@ alwaysApply: false
 - Depend on `dynamic-bot-core` public APIs only (same boundary as `dynamic-bot-onebot`). This plugin lives in `com.incubator4.dynamic.koishi`; core types stay `top.colter.dynamic.core.*`.
 - Implement `AccountRoutedMessageSinkPlugin`: send, recall, `listMessageSinkRoutes`, `listMessageTargets`.
 - `supportedTargetPlatforms` is the live set of `bot.platform` from `bots.list` / `bot.changed`, excluding `qq`. Do not hardcode Discord/Telegram/KOOK/Lark.
+- `supportedTargetKinds` is the live union of `target.user` / `target.group` / `target.channel` / `target.thread` from those bots. Match kind against the bots on that platform. Do not hardcode USER/GROUP/CHANNEL/THREAD.
 - `routeId` = `koishi:{platform}:{selfId}`. Do not store bot tokens in plugin config (only Gateway URL + token).
 - Map `core.Message` → **generated** proto `SendParams`. Do not send raw `Message` JSON to Koishi.
 - Map proto `message.created` → `IncomingMessage` + `IncomingMessagePublishRequest`. Build `dedupeKey` / `traceId` on the JVM; do not ask Koishi to classify commands.

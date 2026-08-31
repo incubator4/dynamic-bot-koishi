@@ -1,6 +1,6 @@
 import { create } from "@bufbuild/protobuf";
 import type { Bot, Context } from "koishi";
-import { BotStatus } from "../gen/dbk/v1/common_pb";
+import { BotStatus, TargetKind } from "../gen/dbk/v1/common_pb";
 import { BotSchema, type Bot as DbkBot } from "../gen/dbk/v1/rpc_pb";
 
 /** Koishi/Satori `Status`: OFFLINE=0 ONLINE=1 CONNECT=2 DISCONNECT=3 RECONNECT=4 */
@@ -13,6 +13,38 @@ const SATORI_GUILD_LIST = "guild.list";
 const SATORI_CHANNEL_LIST = "channel.list";
 const SATORI_GUILD_GET = "guild.get";
 const SATORI_CHANNEL_GET = "channel.get";
+const SATORI_FRIEND_LIST = "friend.list";
+const SATORI_USER_GET = "user.get";
+const SATORI_USER_CHANNEL_CREATE = "user.channel.create";
+
+export const BotFeature = {
+  MESSAGE_RECALL: "message.recall",
+  MESSAGE_FORWARD: "message.forward",
+  MENTION_ALL: "mention.all",
+  TARGETS_LIST: "targets.list",
+  TARGET_USER: "target.user",
+  TARGET_GROUP: "target.group",
+  TARGET_CHANNEL: "target.channel",
+  TARGET_THREAD: "target.thread",
+} as const;
+
+const TARGET_KIND_FEATURES: ReadonlyArray<readonly [TargetKind, string]> = [
+  [TargetKind.USER, BotFeature.TARGET_USER],
+  [TargetKind.GROUP, BotFeature.TARGET_GROUP],
+  [TargetKind.CHANNEL, BotFeature.TARGET_CHANNEL],
+  [TargetKind.THREAD, BotFeature.TARGET_THREAD],
+];
+
+const THREAD_METHODS = [
+  "getThreadList",
+  "listActiveThreads",
+  "listPublicArchivedThreads",
+  "listPrivateArchivedThreads",
+  "startThread",
+  "startThreadFromMessage",
+  "startThreadWithoutMessage",
+  "createThread",
+] as const;
 
 /** Native merged-forward APIs (OneBot / NapCat style). Discord thread-forwards do not count. */
 const MERGED_FORWARD_METHODS = [
@@ -63,11 +95,78 @@ export function toDbkBotStatus(status: number): BotStatus {
 
 export function botFeatures(bot: Bot): string[] {
   const features: string[] = [];
-  if (canRecall(bot)) features.push("message.recall");
-  if (canMergedForward(bot)) features.push("message.forward");
-  if (canMentionAll(bot)) features.push("mention.all");
-  if (canListTargets(bot)) features.push("targets.list");
+  if (canRecall(bot)) features.push(BotFeature.MESSAGE_RECALL);
+  if (canMergedForward(bot)) features.push(BotFeature.MESSAGE_FORWARD);
+  if (canMentionAll(bot)) features.push(BotFeature.MENTION_ALL);
+  if (canListTargets(bot)) features.push(BotFeature.TARGETS_LIST);
+  for (const kind of botTargetKinds(bot)) {
+    const feature = targetKindFeature(kind);
+    if (feature) features.push(feature);
+  }
   return features;
+}
+
+export function botTargetKinds(bot: Bot): TargetKind[] {
+  const kinds: TargetKind[] = [];
+  const nested = hasNestedChannels(bot);
+  const guilds = hasGuildSurface(bot);
+  if (canDirectMessage(bot)) kinds.push(TargetKind.USER);
+  if (nested) {
+    kinds.push(TargetKind.CHANNEL);
+    kinds.push(TargetKind.THREAD);
+  } else if (guilds) {
+    kinds.push(TargetKind.GROUP);
+    kinds.push(TargetKind.CHANNEL);
+  }
+  if (hasThreadSurface(bot) && !kinds.includes(TargetKind.THREAD)) {
+    kinds.push(TargetKind.THREAD);
+  }
+  return kinds;
+}
+
+export function targetKindFeature(kind: TargetKind): string | undefined {
+  return TARGET_KIND_FEATURES.find(([value]) => value === kind)?.[1];
+}
+
+/** Nested `channel.list` under a guild: Discord/KOOK-style servers, not sendable GROUP. */
+export function hasNestedChannels(bot: Bot): boolean {
+  return hasBotMethod(bot, "getChannelList") || satoriFeatures(bot).includes(SATORI_CHANNEL_LIST);
+}
+
+/** Guild/chat list or get, including flat adapters where the guild is the sendable target. */
+export function hasGuildSurface(bot: Bot): boolean {
+  return (
+    hasBotMethod(bot, "getGuildList")
+    || hasBotMethod(bot, "getGuild")
+    || satoriFeatures(bot).includes(SATORI_GUILD_LIST)
+    || satoriFeatures(bot).includes(SATORI_GUILD_GET)
+  );
+}
+
+export function canListDirectUsers(bot: Bot): boolean {
+  return (
+    hasBotMethod(bot, "getFriendList")
+    || hasBotMethod(bot, "getUserList")
+    || satoriFeatures(bot).includes(SATORI_FRIEND_LIST)
+  );
+}
+
+function canDirectMessage(bot: Bot): boolean {
+  return (
+    canListDirectUsers(bot)
+    || hasBotMethod(bot, "getUser")
+    || hasBotMethod(bot, "createDirectChannel")
+    || satoriFeatures(bot).includes(SATORI_USER_GET)
+    || satoriFeatures(bot).includes(SATORI_USER_CHANNEL_CREATE)
+    || looksDirectMessageOnly(bot)
+  );
+}
+
+function hasThreadSurface(bot: Bot): boolean {
+  if (THREAD_METHODS.some((name) => hasBotMethod(bot, name) || hasInternalMethod(bot, name))) {
+    return true;
+  }
+  return satoriFeatures(bot).some((feature) => feature.includes("thread"));
 }
 
 function canRecall(bot: Bot): boolean {

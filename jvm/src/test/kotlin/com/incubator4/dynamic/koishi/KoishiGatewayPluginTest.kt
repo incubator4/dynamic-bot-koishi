@@ -69,6 +69,44 @@ class KoishiGatewayPluginTest {
     }
 
     @Test
+    fun `supported target kinds should come from koishi bot features`() {
+        val plugin = KoishiGatewayPlugin()
+        plugin.setPrivate(
+            "gateway",
+            FakeGateway(
+                MessageSinkRouteState.READY,
+                accounts = listOf(
+                    runtimeAccount(
+                        "discord",
+                        "42",
+                        features = setOf("target.user", "target.channel", "target.thread"),
+                    ),
+                    runtimeAccount(
+                        "telegram",
+                        "42",
+                        features = setOf("target.user", "target.group", "target.channel"),
+                    ),
+                    runtimeAccount(
+                        "matrix",
+                        "7",
+                        features = setOf("target.group", "target.user"),
+                    ),
+                ),
+            ),
+        )
+
+        assertEquals(
+            setOf(TargetKind.USER, TargetKind.GROUP, TargetKind.CHANNEL, TargetKind.THREAD),
+            plugin.supportedTargetKinds,
+        )
+        assertTrue(plugin.supportsTarget(TargetAddress.of("discord", TargetKind.CHANNEL, "111")))
+        assertFalse(plugin.supportsTarget(TargetAddress.of("discord", TargetKind.GROUP, "111")))
+        assertTrue(plugin.supportsTarget(TargetAddress.of("telegram", TargetKind.GROUP, "-100")))
+        assertFalse(plugin.supportsTarget(TargetAddress.of("matrix", TargetKind.CHANNEL, "room")))
+        assertFalse(plugin.supportsTarget(TargetAddress.of("kook", TargetKind.CHANNEL, "1")))
+    }
+
+    @Test
     fun `message send should accept platform discovered from koishi`() = runBlocking {
         val plugin = KoishiGatewayPlugin()
         val gateway = FakeGateway(
@@ -334,12 +372,14 @@ private fun runtimeAccount(
     accountId: String,
     name: String = accountId,
     state: MessageSinkRouteState = MessageSinkRouteState.READY,
+    features: Set<String> = emptySet(),
 ): KoishiRuntimeAccount {
     return KoishiRuntimeAccount(
         accountId = accountId,
         platformId = PlatformId.of(platform),
         name = name,
         state = state,
+        features = features,
     )
 }
 

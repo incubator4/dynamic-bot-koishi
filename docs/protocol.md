@@ -22,7 +22,7 @@ routeId = "koishi:{botKey}"         // 只存在 JVM，不进协议
 ```
 
 `platform` 使用 Koishi `bot.platform` 原样，JVM `PlatformId.of(platform)`。
-目标 `kind` 对齐 `TargetKind`：`USER` | `GROUP` | `CHANNEL` | `THREAD`。`id` 一律字符串。
+目标 `kind` 对齐 `TargetKind`：`USER` | `GROUP` | `CHANNEL` | `THREAD`。每个 bot 实际支持哪些 kind 看 `features` 里的 `target.*`，不要按平台名写死。`id` 一律字符串。
 
 ## RPC（App → Gateway）
 
@@ -41,13 +41,13 @@ v1 不做 `media.upload`。图片 segment 只带 URI。
 
 每条 bot：`botKey`、`platform`、`selfId`、`name`、`avatar`、`status`（`READY` | `CONNECTING` | `UNAVAILABLE`）、`features`。
 `status` 对齐 Koishi `bot.status`：`ONLINE` → `READY`；`CONNECT` / `RECONNECT` → `CONNECTING`；`OFFLINE` / `DISCONNECT` → `UNAVAILABLE`。不要用 `bot.isActive`（它把正在连接也当成可用）。
-`features` 示例：`message.recall`、`message.forward`、`mention.all`、`targets.list`。JVM 不按平台名猜能力。
+`features` 示例：`message.recall`、`message.forward`、`mention.all`、`targets.list`、`target.user` / `target.group` / `target.channel` / `target.thread`。JVM 不按平台名猜能力或目标类型。
 只有 `READY` 可发送；`CONNECTING` 与 `UNAVAILABLE` 都不可发送。
 
 ### targets.list
 
-可过滤 `botKey`、`kind`。同一目标被多 bot 看见时合并，`bot_keys` 列出。`incomplete=true` 表示列表不全（典型 Telegram）。
-Discord 文本频道 → `CHANNEL`（带 `guild_id` / `guild_name`）。Telegram 群 → `GROUP`。私聊 → `USER`。不要把 CATEGORY/VOICE 当可发送目标。
+可过滤 `botKey`、`kind`。同一目标被多 bot 看见时合并，`bot_keys` 列出。`incomplete=true` 表示列表不全（典型：没有嵌套 `channel.list` 的 Bot API，如 Telegram）。
+有嵌套 `channel.list` 的 bot：文本频道 → `CHANNEL`（带 `guild_id` / `guild_name`），thread → `THREAD`。只有 guild、没有嵌套 channel 的 bot：聊天 → `GROUP`（适配器给出 `guild.type=channel` 时为 `CHANNEL`）。私聊 → `USER`。不要把 CATEGORY/VOICE 当可发送目标。不要用 `bot.platform` 写死 Discord=`CHANNEL` / Telegram=`GROUP`。
 `TargetInfo.avatar` 是适配器给出的头像 URI（用户/好友用 `user.avatar`，群用 `guild.avatar`，Discord 频道没有独立头像时回落到 guild）。空字符串表示没有。
 
 ### message.send

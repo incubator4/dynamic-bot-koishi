@@ -20,6 +20,13 @@ internal object DbkMethods {
     const val EVENT_MESSAGE_CREATED: String = "message.created"
 }
 
+internal object DbkBotFeatures {
+    const val TARGET_USER: String = "target.user"
+    const val TARGET_GROUP: String = "target.group"
+    const val TARGET_CHANNEL: String = "target.channel"
+    const val TARGET_THREAD: String = "target.thread"
+}
+
 internal class DbkRpcException(
     val code: dbk.v1.ErrorCode,
     override val message: String,

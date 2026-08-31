@@ -5,6 +5,7 @@ import dbk.v1.BotStatus
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
+import top.colter.dynamic.core.data.TargetKind
 import top.colter.dynamic.core.plugin.MessageSinkRouteState
 
 class DbkProtoTest {
@@ -34,6 +35,18 @@ class DbkProtoTest {
             features = listOf("message.recall", "targets.list", "mention.all"),
         ).toRuntimeAccount()
         assertEquals(setOf("message.recall", "targets.list", "mention.all"), account?.features)
+    }
+
+    @Test
+    fun `target kind features map to core kinds`() {
+        val account = bot(
+            BotStatus.BOT_STATUS_READY,
+            features = listOf("target.user", "target.channel", "target.thread"),
+        ).toRuntimeAccount()
+        assertEquals(
+            setOf(TargetKind.USER, TargetKind.CHANNEL, TargetKind.THREAD),
+            account?.targetKinds(),
+        )
     }
 
     private fun connectingRouteExpectation(): MessageSinkRouteState {

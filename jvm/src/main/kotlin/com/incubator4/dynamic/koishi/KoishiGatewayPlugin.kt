@@ -57,12 +57,11 @@ public class KoishiGatewayPlugin :
             .map { it.platformId }
             .filterNot { it == QQ_PLATFORM_ID }
             .toSet()
-    override val supportedTargetKinds: Set<TargetKind> = setOf(
-        TargetKind.CHANNEL,
-        TargetKind.GROUP,
-        TargetKind.USER,
-        TargetKind.THREAD,
-    )
+    override val supportedTargetKinds: Set<TargetKind>
+        get() = gateway.cachedAccounts()
+            .filterNot { it.platformId == QQ_PLATFORM_ID }
+            .flatMap { it.targetKinds() }
+            .toSet()
 
     override suspend fun onLoad(context: PluginContext) {
         pluginId = context.pluginId
@@ -206,7 +205,7 @@ public class KoishiGatewayPlugin :
 
     override suspend fun listMessageTargets(kind: TargetKind?): List<MessageTargetCandidate> {
         if (!running) return emptyList()
-        val kinds = kind?.let { setOf(it) } ?: supportedTargetKinds
+        val kinds = kind?.let { setOf(it) }
         val accounts = koishiAccounts()
             .filter { it.state == MessageSinkRouteState.READY }
             .associateBy { it.accountKey() }
@@ -220,7 +219,7 @@ public class KoishiGatewayPlugin :
                     emptyList()
                 }
             targets += listed
-                .filter { it.kind in kinds }
+                .filter { kinds == null || it.kind in kinds }
                 .map { candidate ->
                     MessageTargetCandidate(
                         address = TargetAddress.of(
@@ -317,7 +316,9 @@ public class KoishiGatewayPlugin :
 
     private fun isExcludedTarget(address: TargetAddress): Boolean {
         if (address.platformId == QQ_PLATFORM_ID) return true
-        return supportedTargetKinds.isNotEmpty() && address.kind !in supportedTargetKinds
+        val accounts = gateway.cachedAccounts().filter { it.platformId == address.platformId }
+        val kinds = accounts.flatMap { it.targetKinds() }.toSet()
+        return kinds.isNotEmpty() && address.kind !in kinds
     }
 
     private suspend fun koishiAccounts(): List<KoishiRuntimeAccount> {

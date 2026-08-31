@@ -9,6 +9,7 @@ import {
   type TargetInfo,
 } from "../gen/dbk/v1/rpc_pb";
 import { pickAvatar } from "./avatar";
+import { hasNestedChannels } from "./bots";
 import { DbkRpcError } from "./error";
 
 /** Satori `Universal.Channel.Type` (Koishi 4.18). TEXT=0 DIRECT=1 CATEGORY=2 VOICE=3. */
@@ -18,9 +19,6 @@ const CHANNEL_CATEGORY = 2;
 const CHANNEL_VOICE = 3;
 /** Discord native thread types if an adapter leaks them instead of Satori TEXT. */
 const DISCORD_THREAD_TYPES = new Set([10, 11, 12]);
-
-/** Platforms whose guilds are containers (servers), not sendable GROUP targets. */
-const CHANNEL_PLATFORMS = new Set(["discord", "kook", "lark", "feishu"]);
 
 interface ChannelLike {
   id?: string | number;
@@ -86,10 +84,6 @@ function botKeyOf(bot: Bot): string {
   return platform && selfId ? `${platform}:${selfId}` : "";
 }
 
-function platformOf(bot: Bot): string {
-  return (bot.platform ?? "").toLowerCase();
-}
-
 async function resolveOnBot(bot: Bot, target: Target | undefined): Promise<TargetInfo | undefined> {
   const id = target?.id.trim() ?? "";
   if (!id) return undefined;
@@ -126,18 +120,17 @@ async function resolveUser(bot: Bot, id: string, guildId: string): Promise<Targe
   if (friend) return toUserInfo(bot, friend, guildId);
 
   const channel = await callBot(bot, "getChannel", () => bot.getChannel(id, guildId || undefined));
-  if (channel && channelKind(platformOf(bot), channel, TargetKind.USER) === TargetKind.USER) {
+  if (channel && channelKind(bot, channel, TargetKind.USER) === TargetKind.USER) {
     return toChannelInfo(bot, channel, TargetKind.USER, guildId);
   }
   return undefined;
 }
 
 async function resolveGroup(bot: Bot, id: string, guildId: string): Promise<TargetInfo | undefined> {
-  const platform = platformOf(bot);
-  if (!CHANNEL_PLATFORMS.has(platform)) {
+  if (!hasNestedChannels(bot)) {
     const guild = await callBot(bot, "getGuild", () => bot.getGuild(id));
     if (guild) {
-      const kind = kindFromGuild(platform, guild);
+      const kind = kindFromGuild(bot, guild);
       if (kind) return toGuildInfo(bot, guild, kind);
     }
   }
@@ -152,33 +145,36 @@ async function resolveChannelKind(
 ): Promise<TargetInfo | undefined> {
   const channel = await callBot(bot, "getChannel", () => bot.getChannel(id, guildId || undefined));
   if (!channel) return undefined;
-  const kind = channelKind(platformOf(bot), channel, requested);
+  const kind = channelKind(bot, channel, requested);
   if (!kind) return undefined;
   return toChannelInfo(bot, channel, kind, guildId);
 }
 
-function channelKind(platform: string, channel: ChannelLike, requested: TargetKind): TargetKind | undefined {
+function channelKind(bot: Bot, channel: ChannelLike, requested: TargetKind): TargetKind | undefined {
+  const nested = hasNestedChannels(bot);
   const type = channel.type ?? CHANNEL_TEXT;
   if (type === CHANNEL_DIRECT) return TargetKind.USER;
   if (type === CHANNEL_CATEGORY || type === CHANNEL_VOICE) return undefined;
   if (DISCORD_THREAD_TYPES.has(type) || requested === TargetKind.THREAD) {
     if (requested === TargetKind.USER) return undefined;
-    if (requested === TargetKind.GROUP && CHANNEL_PLATFORMS.has(platform)) return undefined;
+    if (requested === TargetKind.GROUP && nested) return undefined;
     return TargetKind.THREAD;
   }
   if (requested === TargetKind.USER) return undefined;
-  if (platform === "telegram") return TargetKind.GROUP;
-  if (requested === TargetKind.GROUP && CHANNEL_PLATFORMS.has(platform)) return undefined;
-  if (requested === TargetKind.GROUP) return TargetKind.GROUP;
+  if (!nested) {
+    if (requested === TargetKind.CHANNEL) return TargetKind.CHANNEL;
+    return TargetKind.GROUP;
+  }
+  if (requested === TargetKind.GROUP) return undefined;
   return TargetKind.CHANNEL;
 }
 
-function kindFromGuild(platform: string, guild: GuildLike): TargetKind | undefined {
+function kindFromGuild(bot: Bot, guild: GuildLike): TargetKind | undefined {
   const chatType = guild.type;
   if (chatType === "private") return TargetKind.USER;
   if (chatType === "channel") return TargetKind.CHANNEL;
   if (chatType === "group" || chatType === "supergroup") return TargetKind.GROUP;
-  if (CHANNEL_PLATFORMS.has(platform)) return undefined;
+  if (hasNestedChannels(bot)) return undefined;
   return TargetKind.GROUP;
 }
 

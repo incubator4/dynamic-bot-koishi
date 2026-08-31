@@ -33,8 +33,8 @@ docs/      design notes; do not fork rules from memory
 - Account discovery = `bots.list` (`ctx.bots`). Target discovery = `targets.list` (guild/channel APIs). Do not put bot tokens or account IDs in dynamic-bot config.
 - Platform ids follow Koishi `bot.platform` (`discord`, `telegram`, …) → `PlatformId.of(platform)`. JVM `supportedTargetPlatforms` is that live set from `bots.list` / `bot.changed`; do not hardcode adapter names. Exclude `qq` (stays on `dynamic-bot-onebot`).
 - Bot status follows Koishi `bot.status`: `ONLINE` → `READY`, `CONNECT`/`RECONNECT` → `CONNECTING`, `OFFLINE`/`DISCONNECT` → `UNAVAILABLE`. Do not use `bot.isActive`.
-- `TargetKind`: Discord text channels are `CHANNEL`; Telegram groups are `GROUP`; DMs are `USER`.
-- Telegram `targets.list` may be empty with `incomplete=true`. Hand-filled IDs must still send.
+- `TargetKind` is the live union of modes each connected Koishi bot actually supports (`target.user` / `target.group` / `target.channel` / `target.thread` in `features`). Nested `channel.list` → `CHANNEL` (+ `THREAD`); flat guilds (no nested channels) → `GROUP` (and `CHANNEL` when the adapter uses that chat type); DMs → `USER`. Do not hardcode Discord=`CHANNEL` / Telegram=`GROUP`.
+- Flat-guild `targets.list` may be empty with `incomplete=true` (typical Telegram). Hand-filled IDs must still send.
 
 ## Docs map
 

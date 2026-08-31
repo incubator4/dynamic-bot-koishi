@@ -47,6 +47,15 @@ internal fun Bot.toRuntimeAccount(): KoishiRuntimeAccount? {
     )
 }
 
+internal fun KoishiRuntimeAccount.targetKinds(): Set<TargetKind> {
+    val kinds = mutableSetOf<TargetKind>()
+    if (DbkBotFeatures.TARGET_USER in features) kinds += TargetKind.USER
+    if (DbkBotFeatures.TARGET_GROUP in features) kinds += TargetKind.GROUP
+    if (DbkBotFeatures.TARGET_CHANNEL in features) kinds += TargetKind.CHANNEL
+    if (DbkBotFeatures.TARGET_THREAD in features) kinds += TargetKind.THREAD
+    return kinds
+}
+
 internal fun BotStatus.toRouteState(): MessageSinkRouteState = when (this) {
     BotStatus.BOT_STATUS_READY -> MessageSinkRouteState.READY
     BotStatus.BOT_STATUS_CONNECTING -> connectingRouteState()

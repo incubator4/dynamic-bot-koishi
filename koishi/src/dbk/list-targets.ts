@@ -7,6 +7,7 @@ import {
   type ListTargetsResponse,
 } from "../gen/dbk/v1/rpc_pb";
 import { pickAvatar } from "./avatar";
+import { botTargetKinds, canListDirectUsers, hasGuildSurface, hasNestedChannels } from "./bots";
 import { DbkRpcError } from "./error";
 
 /** TEXT is 0 in both Koishi and Satori. CATEGORY is 2 in both. DIRECT/VOICE swapped: old Koishi DIRECT=3 VOICE=1; current Satori DIRECT=1 VOICE=3. */
@@ -23,6 +24,7 @@ interface GuildLike {
   id?: string;
   name?: string;
   avatar?: string;
+  type?: string;
 }
 
 interface ChannelLike {
@@ -104,10 +106,6 @@ function isQq(bot: Bot): boolean {
   return (bot.platform ?? "").toLowerCase() === "qq";
 }
 
-function isTelegramLike(bot: Bot): boolean {
-  return (bot.platform ?? "").toLowerCase() === "telegram";
-}
-
 function wantsKind(filter: TargetKind, kind: TargetKind): boolean {
   return filter === TargetKind.UNSPECIFIED || filter === kind;
 }
@@ -119,7 +117,13 @@ async function listTargetsForBot(
 ): Promise<{ targets: ListedTarget[]; incomplete: boolean }> {
   const botKey = botKeyOf(bot);
   const targets: ListedTarget[] = [];
-  let incomplete = isTelegramLike(bot);
+  const nested = hasNestedChannels(bot);
+  const supported = botTargetKinds(bot);
+  if (kindFilter !== TargetKind.UNSPECIFIED && supported.length > 0 && !supported.includes(kindFilter)) {
+    return { targets, incomplete: false };
+  }
+
+  let incomplete = hasGuildSurface(bot) && !nested;
   const wantGuilds =
     wantsKind(kindFilter, TargetKind.GROUP) ||
     wantsKind(kindFilter, TargetKind.CHANNEL) ||
@@ -133,8 +137,7 @@ async function listTargetsForBot(
       ctx.logger?.debug("targets.list: %s getGuildList failed", botKey);
     }
 
-    const nested = isTelegramLike(bot) ? "flat" : "unknown";
-    let channelMode: "unknown" | "nested" | "flat" = nested;
+    let channelMode: "unknown" | "nested" | "flat" = nested ? "unknown" : "flat";
 
     for (const guild of guilds.items) {
       const guildId = String(guild.id ?? "").trim();
@@ -143,7 +146,7 @@ async function listTargetsForBot(
 
       if (channelMode === "flat") {
         pushTarget(targets, kindFilter, {
-          kind: TargetKind.GROUP,
+          kind: kindFromListedGuild(guild),
           id: guildId,
           guildId: "",
           name: guildName || guildId,
@@ -159,7 +162,7 @@ async function listTargetsForBot(
       if (channels.unsupported) {
         channelMode = "flat";
         pushTarget(targets, kindFilter, {
-          kind: TargetKind.GROUP,
+          kind: kindFromListedGuild(guild),
           id: guildId,
           guildId: "",
           name: guildName || guildId,
@@ -183,22 +186,26 @@ async function listTargetsForBot(
   }
 
   if (wantUsers) {
-    const friends = await listDirectUsers(bot);
-    if (friends.truncated) incomplete = true;
-    if (friends.failed && !friends.unsupported) {
+    if (canListDirectUsers(bot)) {
+      const friends = await listDirectUsers(bot);
+      if (friends.truncated) incomplete = true;
+      if (friends.failed && !friends.unsupported) {
+        incomplete = true;
+        ctx.logger?.debug("targets.list: %s friend/user list failed", botKey);
+      }
+      for (const user of friends.items) {
+        pushTarget(targets, kindFilter, {
+          kind: TargetKind.USER,
+          id: user.id,
+          guildId: "",
+          name: user.name,
+          guildName: "",
+          avatar: user.avatar,
+          botKeys: [botKey],
+        });
+      }
+    } else if (supported.includes(TargetKind.USER) || supported.length === 0) {
       incomplete = true;
-      ctx.logger?.debug("targets.list: %s friend/user list failed", botKey);
-    }
-    for (const user of friends.items) {
-      pushTarget(targets, kindFilter, {
-        kind: TargetKind.USER,
-        id: user.id,
-        guildId: "",
-        name: user.name,
-        guildName: "",
-        avatar: user.avatar,
-        botKeys: [botKey],
-      });
     }
   }
 
@@ -256,6 +263,14 @@ function classifyChannel(channel: ChannelLike, byId: Map<string, ChannelLike>): 
     }
   }
   return TargetKind.CHANNEL;
+}
+
+function kindFromListedGuild(guild: GuildLike): TargetKind {
+  const chatType = guild.type;
+  if (chatType === "private") return TargetKind.USER;
+  if (chatType === "channel") return TargetKind.CHANNEL;
+  if (chatType === "group" || chatType === "supergroup") return TargetKind.GROUP;
+  return TargetKind.GROUP;
 }
 
 function isTextLikeChannel(channel: ChannelLike): boolean {

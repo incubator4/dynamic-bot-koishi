@@ -12,6 +12,6 @@ alwaysApply: false
 - On `message` events: emit `message.created`; drop the bot’s own messages; **do not** parse commands or reply with `session.send`.
 - Implement `bots.list`, `targets.list`, `targets.get`, `message.send`, `message.recall`.
 - Map `bot.status` to DBK `READY` / `CONNECTING` / `UNAVAILABLE`. Do not use `bot.isActive` (CONNECT/RECONNECT are active but not ready).
-- Declare `features` per bot (`message.recall`, `targets.list`, …). Do not pretend Telegram can list all chats.
+- Declare `features` per bot (`message.recall`, `targets.list`, `target.user` / `target.group` / `target.channel` / `target.thread`, …). Detect TargetKind from bot methods (`getChannelList` vs flat `getGuildList`), not from `bot.platform` names. Do not pretend a bot can list all chats when it has no nested `channel.list`.
 - Tokens for Discord/Telegram stay in Koishi config, not in dynamic-bot.
 - Do not hardcode `GATEWAY_VERSION`. In this repo it is `git describe`; published npm falls back to `package.json`.

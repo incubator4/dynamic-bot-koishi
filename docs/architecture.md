@@ -65,8 +65,9 @@ OneBot 实现位置备忘（上游插件）：
   本仓库对应：
 - 账号：`bots.list` ← `ctx.bots`（`platform` + `selfId` + 昵称 + status）
 - `status`：Koishi `ONLINE` → `READY`，`CONNECT`/`RECONNECT` → `CONNECTING`，其余 → `UNAVAILABLE`
-- 目标：`targets.list` ← guild/channel 列表；Telegram 可 `incomplete=true`
+- 目标：`targets.list` ← guild/channel 列表；无嵌套 `channel.list` 的 bot 可 `incomplete=true`（典型 Telegram）
 - JVM `supportedTargetPlatforms`：上述 bot 的 `platform` 去重，排除 `qq`。用户新装 Koishi Adapter 后会自动出现，不要在 JVM 写死平台名
+- JVM `supportedTargetKinds`：上述 bot 的 `target.user` / `target.group` / `target.channel` / `target.thread` features 去重。按该 bot 实际 API 探测（嵌套 `channel.list` vs 扁平 `guild.list`），不要写死 Discord=`CHANNEL`、Telegram=`GROUP`
 - JVM `routeId`：`koishi:{platform}:{selfId}`
 
 ## 第一版范围
