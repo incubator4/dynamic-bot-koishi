@@ -2,14 +2,14 @@
 
 ## 产品定位
 
-本仓库是 [dynamic-bot](https://github.com/Colter23/dynamic-bot) 的 **Koishi 消息出口**，对标 [dynamic-bot-onebot](https://github.com/Colter23/dynamic-bot-onebot)，但对接的是 Koishi 已连接的多平台账号，而不是 NapCat / OneBot。
-主程序保持平台无关。本插件不检测 B 站动态、不绘图、不解析命令。
+本仓库是 [dynamic-bot](https://github.com/Colter23/dynamic-bot) 的 **Koishi 消息出口**，对标 [dynamic-bot-onebot](https://github.com/Colter23/dynamic-bot-onebot)：对接 Koishi 里已经连上的账号（Discord / Telegram / KOOK / 飞书 / **OneBot** 等 Adapter），而不是在本仓库实现各平台协议。
+主程序保持平台无关。本插件不检测 B 站动态、不绘图、不解析命令。NapCat / Lagrange 既可以继续走原生 `dynamic-bot-onebot`，也可以接到 Koishi 的 `adapter-onebot` 再经本桥投递。
 
 ## 运行时链路
 
 ```
-Discord / Telegram / KOOK / 飞书 / …
-        ↕  Koishi 官方 Adapter（用户在 Koishi 里安装）
+Discord / Telegram / KOOK / 飞书 / OneBot（NapCat / Lagrange / …） / …
+        ↕  Koishi Adapter（用户在 Koishi 里安装，含 adapter-onebot）
 Koishi 实例
         ↕  koishi/  （本仓库的 Koishi Plugin，不是 Adapter）
         ↕  DBK（WebSocket；字段由 proto/ 定义）
@@ -27,7 +27,7 @@ dynamic-bot 主程序（订阅、绘图、命令、链接解析、投递状态�
 | Brain   | dynamic-bot       | 订阅、绘图、命令前缀、链接解析、投递/撤回/重试    |
 | App     | `jvm/`            | 实现 `AccountRoutedMessageSinkPlugin`，编解码 DBK |
 | Gateway | `koishi/`         | 执行 RPC，把 `session` 推成入站事件               |
-| Hands   | Koishi 官方适配器 | 真正的 Discord/Telegram 协议                      |
+| Hands   | Koishi Adapter    | 各平台协议（含 OneBot，本仓库不实现）             |
 
 箭头是 dynamic-bot **调用** Koishi，不是 Koishi 把 dynamic-bot 当成聊天平台。
 
@@ -40,20 +40,34 @@ Koishi 的 **Adapter** 含义是：`Koishi 核心 → Adapter → 某个聊天�
 ## 配置落在哪
 
 - dynamic-bot 插件配置：Gateway 地址、端口、共享 Token、正向/反向。 **没有** Discord Bot Token、没有账号列表。
-- Koishi 控制台：各平台 Adapter 的 Token。账号在连接后由 `bots.list` 发现。
-  这与 OneBot 插件一致：配置里只有 WS，账号来自 `get_login_info`。
+- Koishi 控制台：各平台 Adapter 的 Token / OneBot WS。账号在连接后由 `bots.list` 发现。
+  这与原生 OneBot 插件一致：配置里只有到 Gateway 的 WS，账号来自对端发现。
 
 ## 和 OneBot / Satori 的关系
 
+OneBot 有两条互斥路径（不要绑同一个账号）：
+
 ```
-NapCat              ↔  用户的 Koishi + 官方 Adapter
-dynamic-bot-onebot  ↔  本仓库 jvm/
-OneBot 协议         ↔  DBK（自有协议，proto 约束）
-（无自定义 Node）    ↔  本仓库 koishi/
+路径 A（原生，不经本仓）
+  NapCat / Lagrange  ↔  dynamic-bot-onebot  ↔  dynamic-bot
+
+路径 B（经 Koishi Adapter）
+  NapCat / Lagrange  ↔  Koishi adapter-onebot  ↔  本仓库 koishi/  ↔  DBK  ↔  本仓库 jvm/  ↔  dynamic-bot
+```
+
+本仓库对路径 B 只看到 `ctx.bots`（`platform` 一般为 `onebot`），不实现 OneBot 协议。其它平台同样只走 Koishi Adapter。
+
+两进程对照（说明「本仓不内嵌 Node」，不是「禁止 OneBot」）：
+
+```
+hands 进程     NapCat                      ↔  用户的 Koishi + Adapter（含 adapter-onebot）
+JVM 插件       dynamic-bot-onebot          ↔  本仓库 jvm/
+协议           OneBot                      ↔  DBK（自有协议，proto 约束）
+Node           无（NapCat 已是独立进程）    ↔  本仓库 koishi/（不塞进 fatJar）
 ```
 
 不使用 `@koishijs/plugin-server-satori` 作为第一版合同：Satori 的 Login/Channel 模型和 core 的 MessageSink（四种发送状态、TargetKind、多账号 route）不完全同构。若以后编码改成 protojson，那也是 DBK 的编码，不是实现 Satori。
-QQ 继续走 `dynamic-bot-onebot`，不把 QQ 迁到本桥。
+Koishi 官方 `adapter-qq`（`platform=qq`）仍排除，避免和路径 A 的 QQ 路由抢同一 platform id。
 
 ## 账号与目标发现（对标 OneBot）
 
@@ -66,7 +80,7 @@ OneBot 实现位置备忘（上游插件）：
 - 账号：`bots.list` ← `ctx.bots`（`platform` + `selfId` + 昵称 + status）
 - `status`：Koishi `ONLINE` → `READY`，`CONNECT`/`RECONNECT` → `CONNECTING`，其余 → `UNAVAILABLE`
 - 目标：`targets.list` ← guild/channel 列表；无嵌套 `channel.list` 的 bot 可 `incomplete=true`（典型 Telegram）
-- JVM `supportedTargetPlatforms`：上述 bot 的 `platform` 去重，排除 `qq`。用户新装 Koishi Adapter 后会自动出现，不要在 JVM 写死平台名
+- JVM `supportedTargetPlatforms`：上述 bot 的 `platform` 去重（含 `onebot`），排除官方 `adapter-qq` 的 `qq`。用户新装 Koishi Adapter 后会自动出现，不要在 JVM 写死平台名
 - JVM `supportedTargetKinds`：上述 bot 的 `target.user` / `target.group` / `target.channel` / `target.thread` features 去重。按该 bot 实际 API 探测（嵌套 `channel.list` vs 扁平 `guild.list`），不要写死 Discord=`CHANNEL`、Telegram=`GROUP`
 - JVM `routeId`：`koishi:{platform}:{selfId}`
 

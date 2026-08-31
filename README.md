@@ -1,8 +1,8 @@
 # dynamic-bot-koishi
 
-[dynamic-bot](https://github.com/Colter23/dynamic-bot) 的 **Koishi 消息出口**：把 Koishi 里已经连上的 Discord / Telegram / KOOK / 飞书等账号，接到 dynamic-bot 的投递与入站链路。
+[dynamic-bot](https://github.com/Colter23/dynamic-bot) 的 **Koishi 消息出口**：把 Koishi 里已经连上的账号接到 dynamic-bot 的投递与入站链路。平台由用户在 Koishi 安装的 Adapter 决定，包括 Discord / Telegram / KOOK / 飞书，以及 **OneBot**（NapCat / Lagrange 等）。
 
-对标 [dynamic-bot-onebot](https://github.com/Colter23/dynamic-bot-onebot)，但对接的是 Koishi 官方 Adapter，而不是 NapCat / OneBot。QQ 继续走 OneBot，本仓库不承接。
+对标 [dynamic-bot-onebot](https://github.com/Colter23/dynamic-bot-onebot)：本仓库不实现 OneBot 或其它聊天协议。QQ / OneBot 既可以继续走原生 JVM 插件，也可以把后端接到 Koishi 的 `adapter-onebot` 再经本桥投递（不要两条路径绑同一个账号）。
 
 一份 git tag 同时版本化两端产物：
 
@@ -19,13 +19,13 @@ dynamic-bot 是大脑：订阅、绘图、命令、链接解析、投递状态�
 - **不是** Koishi Adapter，也不会把 dynamic-bot 伪装成聊天平台。
 - **不** 在 fatJar 里启动 Node / 内嵌 Koishi。必须两个进程。
 - **不** 在 Koishi 侧解析命令、画卡片或 `session.send` 业务回复。
-- Discord / Telegram 等平台 Token 只写在 Koishi 控制台，不要写进 dynamic-bot 配置。
+- 各平台 Token 和 OneBot WebSocket 只写在 Koishi Adapter 配置里，不要写进 dynamic-bot。
 
 ## 运行时
 
 ```
-Discord / Telegram / KOOK / 飞书 / …
-        ↕  Koishi 官方 Adapter（用户自行安装）
+Discord / Telegram / KOOK / 飞书 / OneBot / …
+        ↕  Koishi Adapter（用户自行安装，含 adapter-onebot）
 Koishi 实例
         ↕  koishi/  （本仓库 Plugin）
         ↕  DBK（WebSocket；字段由 proto/ 定义）
@@ -38,7 +38,7 @@ dynamic-bot 主程序
 
 ## 快速开始
 
-需要已经能跑的 [dynamic-bot](https://github.com/Colter23/dynamic-bot) 和 [Koishi](https://koishi.chat/) 4.18+（Node 20+）。Koishi 里先装好目标平台的官方 Adapter 并完成登录。
+需要已经能跑的 [dynamic-bot](https://github.com/Colter23/dynamic-bot) 和 [Koishi](https://koishi.chat/) 4.18+（Node 20+）。Koishi 里先装好目标平台的 Adapter 并完成登录（Discord / Telegram 等官方 Adapter，或 `adapter-onebot`）。
 
 ### 1. 安装 JVM 插件
 
@@ -117,7 +117,7 @@ git describe --tags --always --abbrev=7 --dirty
 
 | 文档 | 内容 |
 | --- | --- |
-| [docs/architecture.md](docs/architecture.md) | 链路、职责、和 OneBot / Satori 的差别 |
+| [docs/architecture.md](docs/architecture.md) | 链路、职责、OneBot 两条路径、和 Satori 的差别 |
 | [docs/protocol.md](docs/protocol.md) | DBK RPC、身份、错误、发送结果 |
 | [docs/codegen.md](docs/codegen.md) | proto 作为 IDL、Buf、Wire、protobuf-es |
 | [docs/decisions.md](docs/decisions.md) | 已拍板的决策 |

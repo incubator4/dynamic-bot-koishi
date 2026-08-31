@@ -18,7 +18,7 @@ docs/      design notes; do not fork rules from memory
 1. **dynamic-bot is the brain.** Subscriptions, drawing, commands, link parsing, and delivery state live there. Koishi is hands and feet only.
 2. **Koishi-side code is a Plugin, not an Adapter.** An Adapter would invert control (Koishi treating dynamic-bot as a chat platform). Use `ctx.bots` / `session` / `h()`.
 3. **Do not embed Node in the JVM or start Koishi from the fatJar.** Two processes, like NapCat + `dynamic-bot-onebot`.
-4. **Do not replace QQ OneBot.** QQ stays `dynamic-bot-onebot`. This repo is for Discord / Telegram / KOOK / Feishu and other Koishi adapters.
+4. **Do not implement OneBot or platform adapters here.** OneBot (NapCat / Lagrange / …) may connect through Koishi `adapter-onebot` on this bridge. Native [`dynamic-bot-onebot`](https://github.com/Colter23/dynamic-bot-onebot) remains a valid direct path without Koishi. Do not reimplement Discord / Telegram / OneBot protocols.
 5. `proto/` **is the only field contract.** After changing `.proto`, run codegen. Never hand-write a second `IncomingMessage` / `SendParams` in Kotlin or TypeScript.
 6. **Do not use kotlinx.serialization protobuf** for the wire format. It is not interoperable with Node proto3. Use Wire (JVM) + protobuf-es (TS) from the same `.proto`.
 7. **Koishi must not parse commands, draw cards, or** `session.send` **business replies.** Incoming events go to the JVM; replies go back through `message.send`.
@@ -31,7 +31,7 @@ docs/      design notes; do not fork rules from memory
 - Map JVM `Message` → generated `SendParams` only in `jvm/`.
 - Map generated types → Koishi `h()` only in `koishi/`.
 - Account discovery = `bots.list` (`ctx.bots`). Target discovery = `targets.list` (guild/channel APIs). Do not put bot tokens or account IDs in dynamic-bot config.
-- Platform ids follow Koishi `bot.platform` (`discord`, `telegram`, …) → `PlatformId.of(platform)`. JVM `supportedTargetPlatforms` is that live set from `bots.list` / `bot.changed`; do not hardcode adapter names. Exclude `qq` (stays on `dynamic-bot-onebot`).
+- Platform ids follow Koishi `bot.platform` (`discord`, `telegram`, `onebot`, …) → `PlatformId.of(platform)`. JVM `supportedTargetPlatforms` is that live set from `bots.list` / `bot.changed`; do not hardcode adapter names. Include `adapter-onebot` (`onebot`). Exclude Koishi official `adapter-qq` (`qq`) so it does not collide with native `dynamic-bot-onebot` routes.
 - Bot status follows Koishi `bot.status`: `ONLINE` → `READY`, `CONNECT`/`RECONNECT` → `CONNECTING`, `OFFLINE`/`DISCONNECT` → `UNAVAILABLE`. Do not use `bot.isActive`.
 - `TargetKind` is the live union of modes each connected Koishi bot actually supports (`target.user` / `target.group` / `target.channel` / `target.thread` in `features`). Nested `channel.list` → `CHANNEL` (+ `THREAD`); flat guilds (no nested channels) → `GROUP` (and `CHANNEL` when the adapter uses that chat type); DMs → `USER`. Do not hardcode Discord=`CHANNEL` / Telegram=`GROUP`.
 - Flat-guild `targets.list` may be empty with `incomplete=true` (typical Telegram). Hand-filled IDs must still send.
@@ -40,7 +40,7 @@ docs/      design notes; do not fork rules from memory
 
 | Topic                           | File                   |
 | ------------------------------- | ---------------------- |
-| Chain, roles, what not to build | `docs/architecture.md` |
+| Chain, roles, OneBot via Koishi vs native | `docs/architecture.md` |
 | Why proto-as-IDL and monorepo   | `docs/decisions.md`    |
 | RPC, frames, identity, errors   | `docs/protocol.md`     |
 | Buf / Wire / protobuf-es        | `docs/codegen.md`      |

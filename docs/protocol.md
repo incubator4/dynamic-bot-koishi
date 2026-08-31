@@ -93,4 +93,5 @@ JVM 生成：
 
 ## v1 明确不做
 
-断线 `seq` 补推、媒体探测/本地文件/base64、按钮与反应、经本桥发 QQ、Koishi 命令系统。
+断线 `seq` 补推、媒体探测/本地文件/base64、按钮与反应、Koishi 命令系统。
+不在本仓库实现 OneBot 协议；经 Koishi `adapter-onebot` 投递是支持的。

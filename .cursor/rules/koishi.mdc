@@ -7,11 +7,11 @@ alwaysApply: false
 # Koishi plugin
 
 - Export a normal Koishi **Plugin**. Do not `extend Adapter` / `extend Bot` for dynamic-bot.
-- Use official adapters already in the Koishi instance (`ctx.bots`, `bot.sendMessage`, `h()`).
+- Use adapters already in the Koishi instance (`ctx.bots`, `bot.sendMessage`, `h()`), including `adapter-onebot`. Do not implement OneBot or platform Adapters here.
 - Translate **generated** proto types ↔ `h()` / `session` only. Do not define parallel TS interfaces for DBK messages.
 - On `message` events: emit `message.created`; drop the bot’s own messages; **do not** parse commands or reply with `session.send`.
 - Implement `bots.list`, `targets.list`, `targets.get`, `message.send`, `message.recall`.
 - Map `bot.status` to DBK `READY` / `CONNECTING` / `UNAVAILABLE`. Do not use `bot.isActive` (CONNECT/RECONNECT are active but not ready).
 - Declare `features` per bot (`message.recall`, `targets.list`, `target.user` / `target.group` / `target.channel` / `target.thread`, …). Detect TargetKind from bot methods (`getChannelList` vs flat `getGuildList`), not from `bot.platform` names. Do not pretend a bot can list all chats when it has no nested `channel.list`.
-- Tokens for Discord/Telegram stay in Koishi config, not in dynamic-bot.
+- Platform tokens and OneBot WS stay in Koishi adapter config, not in dynamic-bot.
 - Do not hardcode `GATEWAY_VERSION`. In this repo it is `git describe`; published npm falls back to `package.json`.

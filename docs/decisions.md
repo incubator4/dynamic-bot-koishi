@@ -2,10 +2,10 @@
 
 改这些结论时，同步改 `AGENTS.md` 和 `.cursor/rules/`。
 
-## ADR-1 — 用 Koishi 做多平台出口，不写 Discord/Telegram 原生插件
+## ADR-1 — 用 Koishi 做多平台出口，不写 Discord/Telegram/OneBot 原生插件
 
 **状态：** 接受
-要接两个以上非 QQ 平台时，重复实现各平台 API 不划算。Koishi 已有 Adapter 生态。只接一个平台时，原生插件可以更干净；本仓库仍按多平台网关来做。
+要接两个以上平台时，重复实现各平台 API 不划算。Koishi 已有 Adapter 生态（含 `adapter-onebot`）。只接一个平台时，原生插件可以更干净；本仓库仍按多平台网关来做。
 
 ## ADR-2 — 自有协议 DBK，第一版不接 Satori
 
@@ -28,10 +28,14 @@ Adapter 会把主从写反。Gateway 使用 `ctx.bots`、`bot.sendMessage`、`h(
 不并进 dynamic-bot 主仓库。本仓是一个插件产品、两份产物（fatJar + npm）。同一 git tag 发两端，避免 0.1 jar 配 0.2 npm。
 不使用 Nx/Turbo；根目录脚本调用 `buf generate`、Gradle、pnpm 即可。
 
-## ADR-6 — 不替代 dynamic-bot-onebot
+## ADR-6 — 不替代 dynamic-bot-onebot；OneBot 也可经 Koishi Adapter 接入
 
-**状态：** 接受
-QQ / NapCat 的重连、图片投递、撤回已由 OneBot 插件处理。本桥不承载 QQ。
+**状态：** 接受（修订）
+本仓库不实现 OneBot 协议，也不替换 [dynamic-bot-onebot](https://github.com/Colter23/dynamic-bot-onebot)。NapCat / Lagrange 等仍可直接走原生 JVM OneBot 插件。
+
+同一类 OneBot 后端也可以接到 Koishi 的 `adapter-onebot`，再经本桥（DBK）到达 dynamic-bot。此时本仓库只使用 `ctx.bots`（`bot.platform` 一般为 `onebot`），不直连 OneBot。
+
+不要让两条路径绑定同一个账号。Koishi 官方 `adapter-qq`（`platform=qq`）仍排除，避免和原生 OneBot 插件的 QQ 路由抢同一 platform id。
 
 ## ADR-7 — 入站不做命令判定
 
