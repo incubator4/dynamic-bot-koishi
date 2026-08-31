@@ -17,9 +17,6 @@ importers:
       koishi:
         specifier: 4.18.9
         version: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-      koishi-plugin-adapter-onebot:
-        specifier: 6.9.4
-        version: 6.9.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
       koishi-plugin-dynamic-bot:
         specifier: workspace:*
         version: link:koishi
@@ -135,9 +132,9 @@ importers:
       esbuild-register:
         specifier: npm:@shigma/esbuild-register@^1.1.1
         version: '@shigma/esbuild-register@1.1.1(esbuild@0.23.1)'
-      koishi-plugin-cron:
-        specifier: ^3.1.0
-        version: 3.1.0(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      koishi-plugin-adapter-onebot:
+        specifier: ^6.9.0
+        version: 6.9.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
       koishi-plugin-dataview:
         specifier: ^2.6.1
         version: 2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
@@ -1795,11 +1792,6 @@ packages:
   cosmokit@1.8.1:
     resolution: {integrity: sha512-PDBv4l90xZKrUsZ0vtoycgZpO/j4iFsqJXrAxsyBDsnQRI7ZMJXIjgDJsKNjd5L8jnVnnlrDCdhkFbTncgCVjQ==}
 
-  cron-parser@4.9.0:
-    resolution: {integrity: sha512-p0SaNjrHOnQeR8/VnfGbmg9te2kfyYSQ7Sc/j/6DtPL3JQvKxmjO9TSjNFpujqV3vEYYBvNNvXSxzyksBWAx1Q==}
-    engines: {node: '>=12.0.0'}
-    deprecated: v4 is no longer maintained, upgrade to v5
-
   cross-env@7.0.3:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
     engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
@@ -2256,11 +2248,6 @@ packages:
     peerDependencies:
       koishi: ^4.18.6
 
-  koishi-plugin-cron@3.1.0:
-    resolution: {integrity: sha512-otBrjpLnYXyWRr2PxPEuwyyoQvIqP6HbCa1Ql/dIM69cPApPMtJdVFqUf9EGnyijZtbDzM4NBpZcghcvbkpl1g==}
-    peerDependencies:
-      koishi: ^4.15.6
-
   koishi-plugin-dataview@2.7.8:
     resolution: {integrity: sha512-uMWa44aaXXu3GGTVj5wQKMinXbdt8/BREiPdEw5Nso0HW9I5CKfjdcO6CFI2+Hy6eBzEFzrST+aKgsm34/GKYA==}
     peerDependencies:
@@ -2313,10 +2300,6 @@ packages:
   log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
     engines: {node: '>=10'}
-
-  luxon@3.7.2:
-    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
-    engines: {node: '>=12'}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -4573,10 +4556,6 @@ snapshots:
 
   cosmokit@1.8.1: {}
 
-  cron-parser@4.9.0:
-    dependencies:
-      luxon: 3.7.2
-
   cross-env@7.0.3:
     dependencies:
       cross-spawn: 7.0.6
@@ -5114,11 +5093,6 @@ snapshots:
       koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
       qface: 1.4.1
 
-  koishi-plugin-cron@3.1.0(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
-    dependencies:
-      cron-parser: 4.9.0
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-
   koishi-plugin-dataview@2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
     dependencies:
       '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
@@ -5194,8 +5168,6 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       is-unicode-supported: 0.1.0
-
-  luxon@3.7.2: {}
 
   magic-string@0.30.21:
     dependencies:

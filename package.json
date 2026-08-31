@@ -58,7 +58,6 @@
     "koishi-plugin-dataview": "^2.6.1",
     "koishi-plugin-rate-limit": "^2.0.4",
     "koishi-plugin-theme-vanilla": "^1.1.0",
-    "koishi-plugin-cron": "^3.1.0",
     "koishi-plugin-adapter-onebot": "^6.9.0",
     "typescript": "^5.9.2",
     "yakumo": "^1.0.0-beta.21",
