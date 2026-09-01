@@ -86,6 +86,6 @@ OneBot 实现位置备忘（上游插件）：
 
 ## 第一版范围
 
-打通：`session.hello` → `bots.list` → `message.send`（文本+图片 URI）→ `message.created`。
+打通：`session.hello` → `bots.list` → `message.send`（文本+图片 URI；Gateway 拉 URI 后上传）→ `message.created`。
 随后：`targets.list` / `targets.get`、撤回、正向+反向 WS。
 明确不做：合并转发完美还原、媒体本地文件探测、Koishi 侧命令/订阅插件、事件断线补推。

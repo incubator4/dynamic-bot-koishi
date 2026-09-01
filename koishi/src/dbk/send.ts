@@ -1,5 +1,6 @@
 import { create } from "@bufbuild/protobuf";
 import { h, type Bot, type Context } from "koishi";
+import type {} from "@koishijs/plugin-http";
 import { BotStatus, ErrorCode, SendStatus } from "../gen/dbk/v1/common_pb";
 import {
   SendReceiptSchema,
@@ -15,6 +16,11 @@ import { DbkRpcError } from "./error";
 
 const SEND_TIMEOUT_MS = 25_000;
 const MENTION_ALL_FALLBACK = "@全体成员";
+const MEDIA_FALLBACK_TYPE = {
+  image: "image/png",
+  video: "video/mp4",
+  audio: "audio/mpeg",
+} as const;
 
 type El = ReturnType<typeof h>;
 
@@ -101,11 +107,29 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
     }
   };
 
+  const sendRendered = async (render: Promise<El[]>): Promise<void> => {
+    if (aborted) return;
+    let elements: El[];
+    try {
+      elements = await render;
+    } catch (error) {
+      if (aborted) return;
+      if (isTimeoutError(error)) {
+        unknownReasons.push(errorMessage(error) || "media fetch timed out");
+        return;
+      }
+      failuresRetryable = failuresRetryable && isRetryableSendError(error);
+      failures.push(errorMessage(error) || "media fetch failed");
+      return;
+    }
+    await sendElements(elements);
+  };
+
   const work = (async (): Promise<SendResult> => {
     for (const unit of request.units) {
       if (aborted) break;
       if (unit.body.case === "normal") {
-        await sendElements(segmentsToElements(unit.body.value.segments, { mentionAll }));
+        await sendRendered(segmentsToElements(ctx, unit.body.value.segments, { mentionAll }));
       } else if (unit.body.case === "forward") {
         // v1: never emit a single merged-forward receipt. Always one send per node.
         const nodes = unit.body.value.nodes;
@@ -116,7 +140,7 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
         }
         for (const node of nodes) {
           if (aborted) break;
-          await sendElements(forwardNodeElements(node, { mentionAll }));
+          await sendRendered(forwardNodeElements(ctx, node, { mentionAll }));
         }
       } else {
         failuresRetryable = false;
@@ -148,7 +172,11 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
   }
 }
 
-export function segmentsToElements(segments: Segment[], options?: SegmentRenderOptions): El[] {
+export async function segmentsToElements(
+  ctx: Context,
+  segments: Segment[],
+  options?: SegmentRenderOptions,
+): Promise<El[]> {
   const elements: El[] = [];
   const quoted = new Set<string>();
 
@@ -169,17 +197,17 @@ export function segmentsToElements(segments: Segment[], options?: SegmentRenderO
       }
       case "image": {
         const uri = segment.body.value.uri.trim();
-        if (uri) elements.push(h.image(uri));
+        if (uri) elements.push(await fetchMediaElement(ctx, "image", uri));
         break;
       }
       case "video": {
         const uri = segment.body.value.uri.trim();
-        if (uri) elements.push(h.video(uri));
+        if (uri) elements.push(await fetchMediaElement(ctx, "video", uri));
         break;
       }
       case "audio": {
         const uri = segment.body.value.uri.trim();
-        if (uri) elements.push(h.audio(uri));
+        if (uri) elements.push(await fetchMediaElement(ctx, "audio", uri));
         break;
       }
       case "mention": {
@@ -215,11 +243,63 @@ export function segmentsToElements(segments: Segment[], options?: SegmentRenderO
   return elements;
 }
 
-function forwardNodeElements(node: ForwardNode, options?: SegmentRenderOptions): El[] {
-  const body = segmentsToElements(node.segments, options);
+async function forwardNodeElements(
+  ctx: Context,
+  node: ForwardNode,
+  options?: SegmentRenderOptions,
+): Promise<El[]> {
+  const body = await segmentsToElements(ctx, node.segments, options);
   const name = node.senderName.trim();
   if (!name) return body;
   return [h.text(`${name}\n`), ...body];
+}
+
+type MediaKind = keyof typeof MEDIA_FALLBACK_TYPE;
+
+async function fetchMediaElement(ctx: Context, kind: MediaKind, uri: string): Promise<El> {
+  const http = ctx.http;
+  if (typeof http?.file !== "function") {
+    throw mediaFetchError(kind, uri, new Error("Koishi http service is required to send media"));
+  }
+  let file: { data?: unknown; mime?: string; type?: string };
+  try {
+    file = await http.file(uri);
+  } catch (error) {
+    throw mediaFetchError(kind, uri, error);
+  }
+  let buffer: Buffer;
+  try {
+    buffer = mediaBytes(file.data);
+  } catch (error) {
+    throw mediaFetchError(kind, uri, error);
+  }
+  if (buffer.length === 0) {
+    throw mediaFetchError(kind, uri, new Error("empty body"));
+  }
+  const mime = (file.mime ?? file.type ?? "").trim() || MEDIA_FALLBACK_TYPE[kind];
+  if (kind === "image") return h.image(buffer, mime);
+  if (kind === "video") return h.video(buffer, mime);
+  return h.audio(buffer, mime);
+}
+
+function mediaBytes(data: unknown): Buffer {
+  if (Buffer.isBuffer(data)) return data;
+  if (data instanceof ArrayBuffer) return Buffer.from(data);
+  if (ArrayBuffer.isView(data)) {
+    return Buffer.from(data.buffer, data.byteOffset, data.byteLength);
+  }
+  throw new Error("media body is not binary");
+}
+
+function mediaFetchError(kind: MediaKind, uri: string, cause: unknown): Error {
+  const error = new Error(`failed to fetch ${kind} ${displayUri(uri)}: ${errorMessage(cause) || "unknown error"}`);
+  error.cause = cause;
+  return error;
+}
+
+function displayUri(uri: string): string {
+  if (uri.startsWith("data:")) return "data:...";
+  return uri.length > 200 ? `${uri.slice(0, 200)}...` : uri;
 }
 
 function withQuote(elements: El[], quoteId: string | undefined): El[] {
@@ -297,30 +377,35 @@ function failed(reason: string, retryable: boolean): SendResult {
 }
 
 function isRetryableSendError(error: unknown): boolean {
-  const text = errorMessage(error);
-  const lower = text.toLowerCase();
-  const status = httpStatusOf(error);
+  for (const item of errorChain(error)) {
+    const text = errorMessage(item);
+    const lower = text.toLowerCase();
+    const status = httpStatusOf(item);
 
-  if (status === 401 || status === 403 || isForbidden(lower)) return false;
-  if (status === 400 || status === 404) return false;
-  if (status === 429 || (status !== undefined && status >= 500)) return true;
-  if (isRetryableNetwork(error, lower)) return true;
-  if (/\brate.?limit\b|too many requests/.test(lower)) return true;
+    if (status === 401 || status === 403 || isForbidden(lower)) return false;
+    if (status === 400 || status === 404) return false;
+    if (status === 429 || (status !== undefined && status >= 500)) return true;
+    if (isRetryableNetwork(item, lower)) return true;
+    if (/\brate.?limit\b|too many requests/.test(lower)) return true;
+  }
   return false;
 }
 
 function isTimeoutError(error: unknown): boolean {
-  const text = errorMessage(error).toLowerCase();
-  const status = httpStatusOf(error);
-  if (error instanceof SendTimeoutError) return true;
-  if (status === 408 || status === 504) return true;
-  if (error && typeof error === "object") {
-    const name = (error as { name?: unknown }).name;
-    if (name === "TimeoutError" || name === "AbortError") return true;
-    const code = (error as { code?: unknown }).code;
-    if (code === "ETIMEDOUT" || code === "UND_ERR_CONNECT_TIMEOUT" || code === "ABORT_ERR") return true;
+  for (const item of errorChain(error)) {
+    const text = errorMessage(item).toLowerCase();
+    const status = httpStatusOf(item);
+    if (item instanceof SendTimeoutError) return true;
+    if (status === 408 || status === 504) return true;
+    if (item && typeof item === "object") {
+      const name = (item as { name?: unknown }).name;
+      if (name === "TimeoutError" || name === "AbortError") return true;
+      const code = (item as { code?: unknown }).code;
+      if (code === "ETIMEDOUT" || code === "UND_ERR_CONNECT_TIMEOUT" || code === "ABORT_ERR") return true;
+    }
+    if (text.includes("timed out") || text.includes("timeout")) return true;
   }
-  return text.includes("timed out") || text.includes("timeout");
+  return false;
 }
 
 function httpStatusOf(error: unknown): number | undefined {
@@ -335,6 +420,20 @@ function httpStatusOf(error: unknown): number | undefined {
   }
   if (typeof record.code === "number" && record.code >= 400 && record.code < 600) return record.code;
   return undefined;
+}
+
+function errorChain(error: unknown): unknown[] {
+  const seen = new Set<unknown>();
+  const chain: unknown[] = [];
+  let current: unknown = error;
+  while (current != null && !seen.has(current) && chain.length < 4) {
+    seen.add(current);
+    chain.push(current);
+    current = typeof current === "object" && "cause" in current
+      ? (current as { cause?: unknown }).cause
+      : undefined;
+  }
+  return chain;
 }
 
 function errorMessage(error: unknown): string {

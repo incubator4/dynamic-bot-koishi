@@ -35,7 +35,7 @@ routeId = "koishi:{botKey}"         // 只存在 JVM，不进协议
 | `message.send`   | `sendMessage`           | `bot.sendMessage` / 私聊 API               |
 | `message.recall` | `recallMessage`         | `bot.deleteMessage`                        |
 
-v1 不做 `media.upload`。图片 segment 只带 URI。
+v1 不做 `media.upload`。图片 / 视频 / 音频 segment 在 DBK 上只带 URI。Gateway 在调用 adapter 前用 `ctx.http.file` 把 URI 拉成字节，再交给 `h.image` / `h.video` / `h.audio`，避免 Discord / Telegram 去拉 dynamic-bot 本机或内网地址。拉失败记该 unit `FAILED`（网络错误可 `retryable`），不要静默丢段，也不要把原 URL 回退给平台。
 
 ### bots.list
 
@@ -63,7 +63,7 @@ segment 用 proto `oneof`：text / image / video / audio / mention / mention_all
 | `UNKNOWN` | `uncertain`（超时、无响应）**禁止当失败重试** |
 | `FAILED` | `failed`，尊重 `retryable` |
 业务失败用 `OK` 帧 + `SendResult.status=FAILED`。`op=ERROR` 只用于 RPC 没执行成（bot 不存在、未握手）。
-发送超时建议 20–30s，由 Gateway 回 `UNKNOWN`，不要自己重发。
+发送超时建议 20–30s，由 Gateway 回 `UNKNOWN`，不要自己重发。媒体拉取耗时算进同一超时。
 
 ### message.recall
 
@@ -93,5 +93,5 @@ JVM 生成：
 
 ## v1 明确不做
 
-断线 `seq` 补推、媒体探测/本地文件/base64、按钮与反应、Koishi 命令系统。
+断线 `seq` 补推、媒体本地文件探测、按钮与反应、Koishi 命令系统。不要在 DBK 上走 `media.upload` 或把文件/base64 打进帧；Gateway 只拉取协议里已经给出的 URI。
 不在本仓库实现 OneBot 协议；经 Koishi `adapter-onebot` 投递是支持的。

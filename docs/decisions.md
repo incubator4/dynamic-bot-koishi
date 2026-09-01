@@ -52,3 +52,8 @@ Adapter 会把主从写反。Gateway 使用 `ctx.bots`、`bot.sendMessage`、`h(
 **状态：** 接受
 jar / handshake / `plugin.yml` 的产品版本用 `git describe --tags --always --abbrev=7 --dirty`，不手写 `0.1.0`。发布 tag 约定 `vX.Y.Z`；同一 tag 发 fatJar 和 npm。`protocol_version` 仍是协议合同，与 git 版本无关。
 npm 的 `package.json` `version` 必须是合法 semver，不能直接塞 SHA：发布时写成 tag 去掉 `v`；开发、无 git 时回退 `0.0.0-dev`。Koishi 握手的 `gateway_version` 在本仓库检出里走 git describe，安装后的 npm 包走 `package.json`。JVM 可用 `DBK_VERSION` 覆盖（浅克隆或无 git 的 CI）。
+
+## ADR-10 — Gateway 把媒体 URI 拉成字节再交给 adapter
+
+**状态：** 接受
+DBK 仍只传 URI（无 `media.upload`）。Discord / Telegram 无法访问 dynamic-bot 的本机或内网地址。Koishi 在 `message.send` 里用 `ctx.http.file` 拉取 image / video / audio，再 `h.image` / `h.video` / `h.audio`(data, mime)，由 adapter 上传文件。不要把 URL 原样交给平台，也不要在拉取失败后回退成外链。这不是本地文件探测：URI 已经在 segment 里。
