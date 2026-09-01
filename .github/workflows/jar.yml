@@ -73,7 +73,7 @@ jobs:
           fetch-depth: 0
 
       - name: Download plugin jar
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: dynamic-bot-koishi-jar
           path: release
