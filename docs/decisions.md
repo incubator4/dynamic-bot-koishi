@@ -56,4 +56,4 @@ npm 的 `package.json` `version` 必须是合法 semver，不能直接塞 SHA：
 ## ADR-10 — Gateway 把媒体 URI 拉成字节再交给 adapter
 
 **状态：** 接受
-DBK 仍只传 URI（无 `media.upload`）。Discord / Telegram 无法访问 dynamic-bot 的本机或内网地址。Koishi 在 `message.send` 里用 `ctx.http.file` 拉取 image / video / audio，再 `h.image` / `h.video` / `h.audio`(data, mime)，由 adapter 上传文件。不要把 URL 原样交给平台，也不要在拉取失败后回退成外链。这不是本地文件探测：URI 已经在 segment 里。
+DBK 仍只传 URI（无 `media.upload`）。Discord / Telegram 无法访问 dynamic-bot 的本机或内网地址。Koishi 在 `message.send` 里把 image / video / audio 的 URI 解析成字节，再 `h.image` / `h.video` / `h.audio`(data, mime)，由 adapter 上传文件。`data:` 与 dynamic-bot 的 `base64://` 本地解码；http(s) 等其余 URI 用 `ctx.http.file`。不要把 URL 原样交给平台，也不要在解析失败后回退成外链。这不是本地文件探测：URI 已经在 segment 里。

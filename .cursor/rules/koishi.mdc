@@ -9,7 +9,7 @@ alwaysApply: false
 - Export a normal Koishi **Plugin**. Do not `extend Adapter` / `extend Bot` for dynamic-bot.
 - Use adapters already in the Koishi instance (`ctx.bots`, `bot.sendMessage`, `h()`), including `adapter-onebot`. Do not implement OneBot or platform Adapters here.
 - Translate **generated** proto types ↔ `h()` / `session` only. Do not define parallel TS interfaces for DBK messages.
-- On `message.send`, fetch image / video / audio URIs with `ctx.http.file` then `h.image` / `h.video` / `h.audio`(data, mime). Do not pass those URLs through to adapters (Discord / Telegram cannot fetch dynamic-bot localhost). Fetch failure fails that unit; do not silently drop the segment or fall back to the URL.
+- On `message.send`, resolve image / video / audio URIs to bytes then `h.image` / `h.video` / `h.audio`(data, mime). Decode `data:` and `base64://` locally; fetch other URIs with `ctx.http.file`. Do not pass those URLs through to adapters (Discord / Telegram cannot fetch dynamic-bot localhost). Resolve failure fails that unit; do not silently drop the segment or fall back to the URL.
 - On `message` events: emit `message.created`; drop the bot’s own messages; **do not** parse commands or reply with `session.send`.
 - Implement `bots.list`, `targets.list`, `targets.get`, `message.send`, `message.recall`.
 - Map `bot.status` to DBK `READY` / `CONNECTING` / `UNAVAILABLE`. Do not use `bot.isActive` (CONNECT/RECONNECT are active but not ready).

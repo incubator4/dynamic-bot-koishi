@@ -11,6 +11,6 @@ App (JVM) calls Gateway (Koishi): `bots.list`, `targets.list`, `targets.get`, `m
 Gateway events: `bot.changed`, `message.created`.
 `message.send` returns `OK | PARTIAL | UNKNOWN | FAILED`. RPC `error` is only for transport/params (missing bot, bad token), not for “Discord said 403”.
 Identity: `botKey = platform:selfId`. Target `kind` matches core `TargetKind` as declared by each bot (`target.*` features). Bot `status`: `READY` (online) / `CONNECTING` / `UNAVAILABLE`.
-Gateway fetches image / video / audio URIs with `ctx.http.file` before `h.image` / `h.video` / `h.audio`; do not add `media.upload` or put bytes on DBK.
+Gateway resolves image / video / audio URIs to bytes before `h.image` / `h.video` / `h.audio` (`data:` / `base64://` decode locally; others via `ctx.http.file`); do not add `media.upload` or put raw bytes on DBK.
 v1 out of scope: event resume by `seq`, local-file media probe, buttons, Koishi command plugins for dynamic-bot. OneBot via Koishi `adapter-onebot` is in scope; do not speak OneBot in this repo.
 Spec: `docs/protocol.md`.

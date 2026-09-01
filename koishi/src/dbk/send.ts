@@ -276,31 +276,95 @@ async function forwardNodeElements(
 type MediaKind = keyof typeof MEDIA_FALLBACK_TYPE;
 
 async function fetchMediaElement(ctx: Context, kind: MediaKind, uri: string): Promise<El> {
-  const http = ctx.http;
-  if (typeof http?.file !== "function") {
-    throw mediaFetchError(kind, uri, new Error("Koishi http service is required to send media"));
-  }
   ctx.logger.debug("message.send: fetch %s %s", kind, displayUri(uri));
-  let file: { data?: unknown; mime?: string; type?: string };
-  try {
-    file = await http.file(uri);
-  } catch (error) {
-    throw mediaFetchError(kind, uri, error);
-  }
   let buffer: Buffer;
+  let mime: string;
   try {
-    buffer = mediaBytes(file.data);
+    const inline = decodeInlineMedia(uri, kind);
+    if (inline) {
+      buffer = inline.buffer;
+      mime = inline.mime;
+    } else {
+      const fetched = await fetchRemoteMedia(ctx, kind, uri);
+      buffer = fetched.buffer;
+      mime = fetched.mime;
+    }
   } catch (error) {
     throw mediaFetchError(kind, uri, error);
   }
   if (buffer.length === 0) {
     throw mediaFetchError(kind, uri, new Error("empty body"));
   }
-  const mime = (file.mime ?? file.type ?? "").trim() || MEDIA_FALLBACK_TYPE[kind];
   ctx.logger.debug("message.send: fetched %s bytes=%d mime=%s", kind, buffer.length, mime);
   if (kind === "image") return h.image(buffer, mime);
   if (kind === "video") return h.video(buffer, mime);
   return h.audio(buffer, mime);
+}
+
+async function fetchRemoteMedia(
+  ctx: Context,
+  kind: MediaKind,
+  uri: string,
+): Promise<{ buffer: Buffer; mime: string }> {
+  const http = ctx.http;
+  if (typeof http?.file !== "function") {
+    throw new Error("Koishi http service is required to send media");
+  }
+  const file = await http.file(uri);
+  const buffer = mediaBytes(file.data);
+  const mime = (file.mime ?? file.type ?? "").trim() || MEDIA_FALLBACK_TYPE[kind];
+  return { buffer, mime };
+}
+
+function decodeInlineMedia(uri: string, kind: MediaKind): { buffer: Buffer; mime: string } | undefined {
+  if (/^data:/i.test(uri)) {
+    const parsed = decodeDataUri(uri);
+    if (!parsed) throw new Error("invalid data URI");
+    return { buffer: parsed.buffer, mime: parsed.mime || sniffMime(parsed.buffer, kind) };
+  }
+  const base64 = /^base64:\/\//i.exec(uri);
+  if (base64) {
+    const buffer = decodeBase64Payload(uri.slice(base64[0].length));
+    return { buffer, mime: sniffMime(buffer, kind) };
+  }
+  return undefined;
+}
+
+function decodeDataUri(uri: string): { buffer: Buffer; mime: string } | undefined {
+  const comma = uri.indexOf(",");
+  if (comma < 5) return undefined;
+  const parts = uri.slice(5, comma).split(";").map((part) => part.trim()).filter(Boolean);
+  const isBase64 = parts.some((part) => part.toLowerCase() === "base64");
+  const mime = parts.find((part) => part.includes("/")) ?? "";
+  const payload = uri.slice(comma + 1);
+  const buffer = isBase64
+    ? decodeBase64Payload(payload)
+    : Buffer.from(decodeURIComponent(payload.replace(/\+/g, " ")));
+  return { buffer, mime };
+}
+
+function decodeBase64Payload(payload: string): Buffer {
+  const cleaned = payload.replace(/\s/g, "").replace(/-/g, "+").replace(/_/g, "/");
+  if (!cleaned) throw new Error("empty base64 payload");
+  const buffer = Buffer.from(cleaned, "base64");
+  if (buffer.length === 0) throw new Error("invalid base64 payload");
+  return buffer;
+}
+
+function sniffMime(buffer: Buffer, kind: MediaKind): string {
+  if (buffer.length >= 8 && buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4e && buffer[3] === 0x47) {
+    return "image/png";
+  }
+  if (buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
+    return "image/jpeg";
+  }
+  if (buffer.length >= 6 && buffer.toString("ascii", 0, 6).startsWith("GIF8")) {
+    return "image/gif";
+  }
+  if (buffer.length >= 12 && buffer.toString("ascii", 0, 4) === "RIFF" && buffer.toString("ascii", 8, 12) === "WEBP") {
+    return "image/webp";
+  }
+  return MEDIA_FALLBACK_TYPE[kind];
 }
 
 function mediaBytes(data: unknown): Buffer {
@@ -319,7 +383,8 @@ function mediaFetchError(kind: MediaKind, uri: string, cause: unknown): Error {
 }
 
 function displayUri(uri: string): string {
-  if (uri.startsWith("data:")) return "data:...";
+  if (/^data:/i.test(uri)) return "data:...";
+  if (/^base64:\/\//i.test(uri)) return "base64://...";
   return uri.length > 200 ? `${uri.slice(0, 200)}...` : uri;
 }
 

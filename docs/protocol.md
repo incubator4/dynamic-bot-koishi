@@ -35,7 +35,7 @@ routeId = "koishi:{botKey}"         // 只存在 JVM，不进协议
 | `message.send`   | `sendMessage`           | `bot.sendMessage` / 私聊 API               |
 | `message.recall` | `recallMessage`         | `bot.deleteMessage`                        |
 
-v1 不做 `media.upload`。图片 / 视频 / 音频 segment 在 DBK 上只带 URI。Gateway 在调用 adapter 前用 `ctx.http.file` 把 URI 拉成字节，再交给 `h.image` / `h.video` / `h.audio`，避免 Discord / Telegram 去拉 dynamic-bot 本机或内网地址。拉失败记该 unit `FAILED`（网络错误可 `retryable`），不要静默丢段，也不要把原 URL 回退给平台。
+v1 不做 `media.upload`。图片 / 视频 / 音频 segment 在 DBK 上只带 URI。Gateway 在调用 adapter 前把 URI 解析成字节，再交给 `h.image` / `h.video` / `h.audio`，避免 Discord / Telegram 去拉 dynamic-bot 本机或内网地址。`data:` 与 `base64://` 在本地解码；其余 URI 用 `ctx.http.file` 拉取。拉失败记该 unit `FAILED`（网络错误可 `retryable`），不要静默丢段，也不要把原 URL 回退给平台。
 
 ### bots.list
 
@@ -93,5 +93,5 @@ JVM 生成：
 
 ## v1 明确不做
 
-断线 `seq` 补推、媒体本地文件探测、按钮与反应、Koishi 命令系统。不要在 DBK 上走 `media.upload` 或把文件/base64 打进帧；Gateway 只拉取协议里已经给出的 URI。
+断线 `seq` 补推、媒体本地文件探测、按钮与反应、Koishi 命令系统。不要在 DBK 上走 `media.upload` 或另开字段塞文件字节；Gateway 解析协议里已经给出的 URI（含 `data:` / `base64://`）。
 不在本仓库实现 OneBot 协议；经 Koishi `adapter-onebot` 投递是支持的。

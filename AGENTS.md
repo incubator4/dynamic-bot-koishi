@@ -29,7 +29,7 @@ docs/      design notes; do not fork rules from memory
 ## When implementing
 
 - Map JVM `Message` → generated `SendParams` only in `jvm/`.
-- Map generated types → Koishi `h()` only in `koishi/`. Fetch image / video / audio URIs with `ctx.http.file` before `h.image` / `h.video` / `h.audio` so adapters upload bytes; do not pass the URL through to Discord / Telegram.
+- Map generated types → Koishi `h()` only in `koishi/`. Resolve image / video / audio URIs to bytes before `h.image` / `h.video` / `h.audio` so adapters upload files; do not pass the URL through to Discord / Telegram. Decode `data:` and `base64://` locally; fetch other URIs with `ctx.http.file`.
 - Account discovery = `bots.list` (`ctx.bots`). Target discovery = `targets.list` (guild/channel APIs). Do not put bot tokens or account IDs in dynamic-bot config.
 - Platform ids follow Koishi `bot.platform` (`discord`, `telegram`, `onebot`, …) → `PlatformId.of(platform)`. JVM `supportedTargetPlatforms` is that live set from `bots.list` / `bot.changed`; do not hardcode adapter names. Include `adapter-onebot` (`onebot`). Exclude Koishi official `adapter-qq` (`qq`) so it does not collide with native `dynamic-bot-onebot` routes.
 - Bot status follows Koishi `bot.status`: `ONLINE` → `READY`, `CONNECT`/`RECONNECT` → `CONNECTING`, `OFFLINE`/`DISCONNECT` → `UNAVAILABLE`. Do not use `bot.isActive`.
