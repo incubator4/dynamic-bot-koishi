@@ -2,7 +2,7 @@ import org.gradle.kotlin.dsl.kotlin
 
 plugins {
     kotlin("jvm") version "2.4.0"
-    kotlin("plugin.serialization") version "2.4.0"
+    kotlin("plugin.serialization") version "2.4.10"
     id("com.squareup.wire") version "5.4.0"
 }
 
