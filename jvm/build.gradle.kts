@@ -104,7 +104,7 @@ dependencies {
     val kotlinLoggingVersion = "8.0.4"
     val log4jVersion = "2.26.0"
     val slf4jVersion = "2.0.18"
-    val wireVersion = "5.4.0"
+    val wireVersion = "6.4.7"
 
     compileOnly("top.colter.dynamic:dynamic-bot-core:$coreVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
