@@ -120,7 +120,7 @@ dependencies {
     testImplementation("org.apache.logging.log4j:log4j-api:$log4jVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
     testRuntimeOnly("org.slf4j:slf4j-api:$slf4jVersion")
-    testRuntimeOnly("ch.qos.logback:logback-classic:1.5.34")
+    testRuntimeOnly("ch.qos.logback:logback-classic:1.6.3")
     testRuntimeOnly("org.apache.logging.log4j:log4j-to-slf4j:$log4jVersion")
 }
 
