@@ -59,14 +59,28 @@ export async function getTarget(ctx: Context, request: GetTargetRequest): Promis
       throw new DbkRpcError(ErrorCode.NOT_FOUND, `bot not found: ${botKey}`);
     }
     const info = await resolveOnBot(bot, target);
-    return info ? resolved(info) : unresolved(target);
+    if (info) {
+      ctx.logger.debug("targets.get: resolved on %s kind=%s id=%s", botKey, TargetKind[info.target?.kind ?? 0], info.target?.id);
+      return resolved(info);
+    }
+    ctx.logger.debug("targets.get: unresolved on %s id=%s", botKey, target?.id.trim() || "-");
+    return unresolved(target);
   }
 
   // Empty bot_key: search non-hidden, non-qq bots in ctx.bots order; first successful resolve wins.
   for (const bot of listSearchableBots(ctx)) {
     const info = await resolveOnBot(bot, target);
-    if (info) return resolved(info);
+    if (info) {
+      ctx.logger.debug(
+        "targets.get: resolved on %s kind=%s id=%s",
+        botKeyOf(bot),
+        TargetKind[info.target?.kind ?? 0],
+        info.target?.id,
+      );
+      return resolved(info);
+    }
   }
+  ctx.logger.debug("targets.get: unresolved id=%s", target?.id.trim() || "-");
   return unresolved(target);
 }
 

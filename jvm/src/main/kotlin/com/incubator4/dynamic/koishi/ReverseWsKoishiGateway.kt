@@ -46,6 +46,7 @@ internal class ReverseWsKoishiGateway(
                 logger.warn { "已有 Koishi 反向连接，关闭旧连接" }
                 runCatching { previous.close(1000, "replaced") }
             }
+            logger.debug { "Koishi 反向 WebSocket 已接入 ${conn.remoteSocketAddress ?: "-"}" }
             val dbkSession = createSession(
                 sendBytes = { bytes ->
                     if (!conn.isOpen) error("WebSocket 未打开")

@@ -68,8 +68,12 @@ export class DbkGatewaySession {
   }
 
   emit<K extends keyof DbkEventMap>(method: K, event: DbkEventMap[K]): void {
-    if (!this.isHandshook) return;
+    if (!this.isHandshook) {
+      this.options.logger.debug("drop EVENT before handshake: method=%s", method);
+      return;
+    }
     this.seq += 1n;
+    this.options.logger.debug("DBK EVENT %s seq=%s", method, this.seq.toString());
     this.enqueueFrame(
       createFrame({
         op: FrameOp.EVENT,
@@ -126,6 +130,7 @@ export class DbkGatewaySession {
       this.replyError(frame.id, ErrorCode.UNSUPPORTED, `unknown method: ${frame.method}`);
       return;
     }
+    this.options.logger.debug("DBK CALL %s id=%s", frame.method, frame.id);
     try {
       const payload = await this.dispatchCall(frame.method, frame.payload);
       this.enqueueFrame(

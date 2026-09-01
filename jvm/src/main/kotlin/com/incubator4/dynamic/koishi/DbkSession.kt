@@ -65,6 +65,7 @@ internal class DbkSession(
             deferred.completeExceptionally(DbkRpcException(dbk.v1.ErrorCode.ERROR_CODE_INTERNAL, reason))
         }
         pending.clear()
+        logger.debug { "DBK session closed: $reason" }
     }
 
     suspend fun hello(token: String, appVersion: String): dbk.v1.HelloResponse {
@@ -105,6 +106,7 @@ internal class DbkSession(
         val id = nextId.getAndIncrement().toString()
         val deferred = CompletableDeferred<Frame>()
         pending[id] = deferred
+        logger.debug { "DBK CALL $method id=$id" }
         try {
             sendFrame(
                 Frame(
@@ -117,6 +119,7 @@ internal class DbkSession(
             val frame = withTimeout(timeoutMs) { deferred.await() }
             if (frame.op == FrameOp.FRAME_OP_ERROR) {
                 val error = frame.error ?: RpcError()
+                logger.warn { "DBK RPC 失败：method=$method code=${error.code} ${error.detail}" }
                 throw DbkRpcException(
                     code = error.code,
                     message = error.detail.trim().ifBlank { "DBK RPC 失败：method=$method code=${error.code}" },
@@ -127,6 +130,7 @@ internal class DbkSession(
             }
             return responseAdapter.decode(frame.payload)
         } catch (error: kotlinx.coroutines.TimeoutCancellationException) {
+            logger.debug { "DBK 调用超时：method=$method" }
             throw DbkRpcException(dbk.v1.ErrorCode.ERROR_CODE_INTERNAL, "DBK 调用超时：method=$method")
         } finally {
             pending.remove(id)
@@ -152,6 +156,7 @@ internal class DbkSession(
                     logger.debug { "握手前丢弃事件：method=${frame.method}" }
                     return
                 }
+                logger.debug { "DBK EVENT ${frame.method} seq=${frame.seq}" }
                 onEvent(frame.method, frame.payload)
             }
             FrameOp.FRAME_OP_CALL -> logger.warn { "App 端忽略对端 CALL：method=${frame.method}" }

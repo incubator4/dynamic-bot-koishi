@@ -60,7 +60,10 @@ export async function listTargets(ctx: Context, request: ListTargetsRequest): Pr
   let incomplete = false;
 
   for (const bot of bots) {
-    if (isQq(bot)) continue;
+    if (isQq(bot)) {
+      ctx.logger?.debug("targets.list: skip qq bot %s", botKeyOf(bot));
+      continue;
+    }
     const listed = await listTargetsForBot(ctx, bot, kindFilter);
     incomplete = incomplete || listed.incomplete;
     for (const target of listed.targets) {
@@ -120,6 +123,12 @@ async function listTargetsForBot(
   const nested = hasNestedChannels(bot);
   const supported = botTargetKinds(bot);
   if (kindFilter !== TargetKind.UNSPECIFIED && supported.length > 0 && !supported.includes(kindFilter)) {
+    ctx.logger?.debug(
+      "targets.list: %s skip kind=%s supported=%s",
+      botKey,
+      TargetKind[kindFilter] ?? kindFilter,
+      supported.map((kind) => TargetKind[kind] ?? kind).join(","),
+    );
     return { targets, incomplete: false };
   }
 
@@ -134,7 +143,12 @@ async function listTargetsForBot(
     const guilds = await paginate<GuildLike>((next) => callBotList(bot, "getGuildList", next));
     if (guilds.unsupported || guilds.failed || guilds.truncated) incomplete = true;
     if (guilds.failed && !guilds.unsupported) {
-      ctx.logger?.debug("targets.list: %s getGuildList failed", botKey);
+      ctx.logger?.debug(
+        "targets.list: %s getGuildList failed items=%d truncated=%s",
+        botKey,
+        guilds.items.length,
+        guilds.truncated,
+      );
     }
 
     let channelMode: "unknown" | "nested" | "flat" = nested ? "unknown" : "flat";
@@ -209,6 +223,13 @@ async function listTargetsForBot(
     }
   }
 
+  ctx.logger?.debug(
+    "targets.list: %s listed=%d incomplete=%s nested=%s",
+    botKey,
+    targets.length,
+    incomplete,
+    nested,
+  );
   return { targets, incomplete };
 }
 

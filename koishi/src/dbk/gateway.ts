@@ -1,6 +1,6 @@
 import { create } from "@bufbuild/protobuf";
 import type { Context } from "koishi";
-import { BotChangeType } from "../gen/dbk/v1/common_pb";
+import { BotChangeType, BotStatus } from "../gen/dbk/v1/common_pb";
 import { BotChangedEventSchema } from "../gen/dbk/v1/rpc_pb";
 import { toDbkBot } from "./bots";
 import { DbkEvent, type DbkEncoding, type DbkEventMap, type DbkGatewayHandlers } from "./protocol";
@@ -46,12 +46,20 @@ export class DbkGateway {
   }
 
   emit<K extends keyof DbkEventMap>(method: K, event: DbkEventMap[K]): void {
-    this.session?.emit(method, event);
+    if (!this.session) {
+      this.ctx.logger.debug("drop EVENT without session: method=%s", method);
+      return;
+    }
+    this.session.emit(method, event);
   }
 
   startForward(): void {
     const path = normalizePath(this.config.path);
-    this.ctx.logger.info("DBK forward WebSocket mounted on Koishi HTTP at %s", path);
+    this.ctx.logger.info(
+      "DBK forward WebSocket mounted on Koishi HTTP at %s encoding=%s",
+      path,
+      this.config.encoding,
+    );
     this.ctx.server.ws(path, (socket) => {
       this.attach("replaced", socket as DbkSocket);
     });
@@ -69,12 +77,17 @@ export class DbkGateway {
     this.session = undefined;
     this.socket?.close(1000, "plugin stop");
     this.socket = undefined;
+    this.ctx.logger.debug("DBK gateway stopped");
   }
 
   private connectReverse(): void {
     if (this.closing) return;
     const url = `ws://${this.config.host}:${this.config.port}`;
-    this.ctx.logger.info("DBK reverse WebSocket connecting to %s", url);
+    this.ctx.logger.info(
+      "DBK reverse WebSocket connecting to %s encoding=%s",
+      url,
+      this.config.encoding,
+    );
     const socket = this.ctx.http.ws(url) as DbkSocket;
     const onOpen = () => {
       this.reconnectAttempts = 0;
@@ -113,6 +126,7 @@ export class DbkGateway {
     });
     this.session = session;
     attachSocket(socket, session, this.config.encoding);
+    this.ctx.logger.debug("DBK connection attached encoding=%s", this.config.encoding);
   }
 
   private onReverseClosed(): void {
@@ -139,9 +153,16 @@ export class DbkGateway {
 export function watchBots(ctx: Context, gateway: DbkGateway): void {
   const emit = (type: BotChangeType, bot: Parameters<typeof toDbkBot>[0]) => {
     if (bot.hidden && type !== BotChangeType.REMOVED) return;
+    const mapped = toDbkBot(bot);
+    ctx.logger.debug(
+      "bot.changed: %s %s status=%s",
+      BotChangeType[type] ?? type,
+      mapped.botKey || "-",
+      BotStatus[mapped.status] ?? mapped.status,
+    );
     gateway.emit(DbkEvent.BOT_CHANGED, create(BotChangedEventSchema, {
       type,
-      bot: toDbkBot(bot),
+      bot: mapped,
     }));
   };
   ctx.on("bot-added", (bot) => emit(BotChangeType.ADDED, bot));

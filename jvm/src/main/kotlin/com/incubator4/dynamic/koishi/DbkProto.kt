@@ -4,6 +4,8 @@ import com.squareup.wire.OneOf
 import dbk.v1.Bot
 import dbk.v1.BotStatus
 import dbk.v1.Segment
+import dbk.v1.SendParams
+import dbk.v1.SendUnit
 import dbk.v1.Target
 import top.colter.dynamic.core.data.PlatformId
 import top.colter.dynamic.core.data.TargetAddress
@@ -90,4 +92,27 @@ internal fun <T> OneOf<*, *>.valueIf(key: OneOf.Key<T>): T? {
 
 internal fun textSegment(text: String): Segment {
     return Segment(body = Segment.BODY_TEXT.create(dbk.v1.TextSegment(text = text)))
+}
+
+internal fun TargetAddress.describe(): String {
+    val account = accountId?.trim()?.takeIf { it.isNotBlank() }
+    val base = "${kind.name}:$externalId platform=${platformId.value}"
+    return if (account != null) "$base account=$account" else base
+}
+
+internal fun Target.describe(): String {
+    val kindName = kind.toCore()?.name ?: "UNSPECIFIED"
+    val id = id.trim().ifBlank { "-" }
+    val guild = guild_id.trim()
+    return if (guild.isNotEmpty()) "$kindName:$id guild=$guild" else "$kindName:$id"
+}
+
+internal fun SendParams.unitsSummary(): String {
+    if (units.isEmpty()) return "-"
+    return units.joinToString(",") { unit ->
+        val body = unit.body ?: return@joinToString "empty"
+        body.valueIf(SendUnit.BODY_NORMAL)?.let { "normal:${it.segments.size}" }
+            ?: body.valueIf(SendUnit.BODY_FORWARD)?.let { "forward:${it.nodes.size}" }
+            ?: "empty"
+    }
 }

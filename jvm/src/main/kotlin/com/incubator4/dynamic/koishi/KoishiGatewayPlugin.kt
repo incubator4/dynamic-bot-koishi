@@ -121,11 +121,20 @@ public class KoishiGatewayPlugin :
     }
 
     override suspend fun listMessageSinkRoutes(target: TargetAddress?): List<MessageSinkRoute> {
-        if (target != null && isExcludedTarget(target)) return emptyList()
+        if (target != null && isExcludedTarget(target)) {
+            logger.debug { "listMessageSinkRoutes: 目标不受支持 ${target.describe()}" }
+            return emptyList()
+        }
         return koishiAccounts()
             .filter { account -> target == null || account.matches(target) }
             .map { account ->
                 account.toRoute(if (running) account.state else MessageSinkRouteState.UNAVAILABLE)
+            }
+            .also { routes ->
+                logger.debug {
+                    "listMessageSinkRoutes: target=${target?.describe() ?: "*"} count=${routes.size} " +
+                        "keys=${routes.joinToString(",") { it.routeId }.ifBlank { "-" }}"
+                }
             }
     }
 
@@ -133,19 +142,31 @@ public class KoishiGatewayPlugin :
         request: MessageSendRequest,
         routeId: String,
     ): MessageSendResult {
-        if (!running) return MessageSendResult.failed("Koishi 未运行")
+        if (!running) {
+            logger.debug { "sendMessage: 插件未运行 route=$routeId" }
+            return MessageSendResult.failed("Koishi 未运行")
+        }
         if (isExcludedTarget(request.target)) {
+            logger.debug { "sendMessage: 目标不受支持 route=$routeId ${request.target.describe()}" }
             return MessageSendResult.failed("目标平台或类型不受 Koishi 网关支持", retryable = false)
         }
         val route = parseRoute(routeId)
-            ?: return MessageSendResult.failed("Koishi 路线 ID 无效：$routeId", retryable = false)
+            ?: run {
+                logger.debug { "sendMessage: 路线 ID 无效 route=$routeId" }
+                return MessageSendResult.failed("Koishi 路线 ID 无效：$routeId", retryable = false)
+            }
         if (route.platformId != request.target.platformId) {
+            logger.debug { "sendMessage: 路线平台不一致 route=$routeId ${request.target.describe()}" }
             return MessageSendResult.failed("Koishi 路线平台与目标不一致", retryable = false)
         }
         if (!isAccountReady(route.accountId, route.platformId)) {
+            logger.debug { "sendMessage: 账号不可用 route=$routeId account=${route.accountId}" }
             return MessageSendResult.failed("Koishi 账号不可用：${route.accountId}")
         }
 
+        logger.debug {
+            "sendMessage: route=$routeId ${request.target.describe()} reply=${request.replyToMessageId ?: "-"}"
+        }
         return when (val outcome = gateway.sendMessage(
             accountId = route.accountId,
             target = request.target,
@@ -183,23 +204,39 @@ public class KoishiGatewayPlugin :
     }
 
     override suspend fun recallMessage(request: MessageRecallRequest, routeId: String): MessageRecallResult {
-        if (!running) return MessageRecallResult.failed("Koishi 未运行")
+        if (!running) {
+            logger.debug { "recallMessage: 插件未运行 route=$routeId" }
+            return MessageRecallResult.failed("Koishi 未运行")
+        }
         if (isExcludedTarget(request.target)) {
+            logger.debug { "recallMessage: 目标不受支持 route=$routeId ${request.target.describe()}" }
             return MessageRecallResult.failed("目标平台或类型不受 Koishi 网关支持")
         }
         val route = parseRoute(routeId)
-            ?: return MessageRecallResult.failed("Koishi 路线 ID 无效：$routeId")
+            ?: run {
+                logger.debug { "recallMessage: 路线 ID 无效 route=$routeId" }
+                return MessageRecallResult.failed("Koishi 路线 ID 无效：$routeId")
+            }
         if (!isAccountReady(route.accountId, route.platformId)) {
+            logger.debug { "recallMessage: 账号不可用 route=$routeId account=${route.accountId}" }
             return MessageRecallResult.failed("Koishi 账号不可用：${route.accountId}")
         }
         val messageId = request.sinkMessageId.trim()
         if (messageId.isBlank()) {
+            logger.debug { "recallMessage: 消息 ID 为空 route=$routeId" }
             return MessageRecallResult.failed("Koishi 消息 ID 为空，无法撤回")
         }
+        logger.debug { "recallMessage: route=$routeId ${request.target.describe()} message=$messageId" }
         return runCatching { gateway.recallMessage(route.accountId, request.target, messageId) }
             .fold(
-                onSuccess = { MessageRecallResult.recalled() },
-                onFailure = { error -> MessageRecallResult.failed(error.message ?: "Koishi 消息撤回失败") },
+                onSuccess = {
+                    logger.debug { "recallMessage: OK route=$routeId message=$messageId" }
+                    MessageRecallResult.recalled()
+                },
+                onFailure = { error ->
+                    logger.debug(error) { "recallMessage: 失败 route=$routeId message=$messageId" }
+                    MessageRecallResult.failed(error.message ?: "Koishi 消息撤回失败")
+                },
             )
     }
 
@@ -245,12 +282,19 @@ public class KoishiGatewayPlugin :
                 )
             }
             .sortedWith(compareBy<MessageTargetCandidate> { it.address.kind.name }.thenBy { it.name })
+            .also { merged ->
+                logger.debug { "listMessageTargets: kind=${kind?.name ?: "*"} accounts=${accounts.size} count=${merged.size}" }
+            }
     }
 
     override suspend fun resolveMessageTarget(address: TargetAddress): MessageTargetCandidate? {
-        if (isExcludedTarget(address)) return null
+        if (isExcludedTarget(address)) {
+            logger.debug { "resolveMessageTarget: 目标不受支持 ${address.describe()}" }
+            return null
+        }
         val listed = runCatching { gateway.getTarget(address) }.getOrNull()
         if (listed != null) {
+            logger.debug { "resolveMessageTarget: ${listed.kind.name}:${listed.id} name=${listed.name.ifBlank { "-" }}" }
             return MessageTargetCandidate(
                 address = TargetAddress.of(
                     platformId = listed.platformId.value,
@@ -262,6 +306,7 @@ public class KoishiGatewayPlugin :
                 avatar = listed.avatar.toAvatarRef(),
             )
         }
+        logger.debug { "resolveMessageTarget: unresolved 回退占位 ${address.describe()}" }
         return MessageTargetCandidate(
             address = address.copy(accountId = address.accountId?.trim()?.takeIf { it.isNotBlank() }),
             name = address.externalId,
@@ -278,6 +323,11 @@ public class KoishiGatewayPlugin :
 
         val incomingMessage = KoishiIncomingMapper.toIncomingMessage(incoming)
         val scope = incomingScope ?: return
+        logger.debug {
+            "message.created: 提交 message=${incoming.messageId.ifBlank { "-" }} " +
+                "platform=${incoming.platformId} ${incoming.targetKind.name}:${incoming.chatId} " +
+                "sender=${incoming.senderId}"
+        }
         scope.launch {
             if (!running) return@launch
             runCatching {

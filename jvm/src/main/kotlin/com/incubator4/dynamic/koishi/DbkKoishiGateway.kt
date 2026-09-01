@@ -80,14 +80,21 @@ internal abstract class DbkKoishiGateway(
         message: Message,
         replyToMessageId: String?,
     ): KoishiSendOutcome {
-        val current = requireSession() ?: return KoishiSendOutcome.Uncertain("Koishi 未连接，未收到发送响应")
+        val current = requireSession() ?: run {
+            logger.debug { "message.send: 无可用会话 bot=${botKeyOf(target.platformId, accountId)}" }
+            return KoishiSendOutcome.Uncertain("Koishi 未连接，未收到发送响应")
+        }
         val params = KoishiOutgoingMapper.toSendParams(
             botKey = botKeyOf(target.platformId, accountId),
             target = target,
             message = message,
             replyToMessageId = replyToMessageId,
         )
-        return runCatching {
+        logger.debug {
+            "message.send: bot=${params.bot_key} target=${params.target?.describe() ?: target.describe()} " +
+                "reply=${params.reply_to_message_id.ifBlank { "-" }} units=${params.unitsSummary()}"
+        }
+        val outcome = runCatching {
             current.call(
                 method = DbkMethods.MESSAGE_SEND,
                 request = params,
@@ -95,10 +102,15 @@ internal abstract class DbkKoishiGateway(
                 timeoutMs = DBK_SEND_TIMEOUT_MS,
             ).toOutcome()
         }.getOrElse { error -> error.toSendOutcome() }
+        logger.debug { "message.send: ${outcome.describe()}" }
+        return outcome
     }
 
     override suspend fun recallMessage(accountId: String, target: TargetAddress, messageId: String) {
         val current = requireSession() ?: error("Koishi 未连接")
+        logger.debug {
+            "message.recall: bot=${botKeyOf(target.platformId, accountId)} target=${target.describe()} message=$messageId"
+        }
         val result = current.call(
             method = DbkMethods.MESSAGE_RECALL,
             request = RecallParams(
@@ -109,6 +121,9 @@ internal abstract class DbkKoishiGateway(
             responseAdapter = RecallResult.ADAPTER,
             timeoutMs = DBK_RECALL_TIMEOUT_MS,
         )
+        logger.debug {
+            "message.recall: status=${result.status} retryable=${result.retryable} reason=${result.reason.ifBlank { "-" }}"
+        }
         when (result.status) {
             SendStatus.SEND_STATUS_OK -> Unit
             SendStatus.SEND_STATUS_UNKNOWN -> error(result.reason.ifBlank { "Koishi 撤回状态未知" })
@@ -120,8 +135,15 @@ internal abstract class DbkKoishiGateway(
     }
 
     override suspend fun listTargets(accountId: String, kind: TargetKind?): List<KoishiTargetCandidate> {
-        val account = accounts.values.firstOrNull { it.accountId == accountId } ?: return emptyList()
-        val current = requireSession() ?: return emptyList()
+        val account = accounts.values.firstOrNull { it.accountId == accountId } ?: run {
+            logger.debug { "targets.list: 账号不存在 accountId=$accountId" }
+            return emptyList()
+        }
+        val current = requireSession() ?: run {
+            logger.debug { "targets.list: 无可用会话 bot=${account.botKey}" }
+            return emptyList()
+        }
+        logger.debug { "targets.list: bot=${account.botKey} kind=${kind?.name ?: "*"}" }
         val response = current.call(
             method = DbkMethods.TARGETS_LIST,
             request = ListTargetsRequest(
@@ -130,7 +152,7 @@ internal abstract class DbkKoishiGateway(
             ),
             responseAdapter = ListTargetsResponse.ADAPTER,
         )
-        return response.targets.mapNotNull { info ->
+        val mapped = response.targets.mapNotNull { info ->
             val target = info.target ?: return@mapNotNull null
             val targetKind = target.kind.toCore() ?: return@mapNotNull null
             val id = target.id.trim()
@@ -144,11 +166,22 @@ internal abstract class DbkKoishiGateway(
                 avatar = info.avatar.trim(),
             )
         }
+        logger.debug {
+            "targets.list: count=${mapped.size} incomplete=${response.incomplete} dropped=${response.targets.size - mapped.size}"
+        }
+        return mapped
     }
 
     override suspend fun getTarget(address: TargetAddress): KoishiTargetCandidate? {
-        val account = accountFor(address) ?: return null
-        val current = requireSession() ?: return null
+        val account = accountFor(address) ?: run {
+            logger.debug { "targets.get: 无匹配账号 ${address.describe()}" }
+            return null
+        }
+        val current = requireSession() ?: run {
+            logger.debug { "targets.get: 无可用会话 bot=${account.botKey}" }
+            return null
+        }
+        logger.debug { "targets.get: bot=${account.botKey} target=${address.describe()}" }
         val response = current.call(
             method = DbkMethods.TARGETS_GET,
             request = GetTargetRequest(
@@ -157,11 +190,20 @@ internal abstract class DbkKoishiGateway(
             ),
             responseAdapter = GetTargetResponse.ADAPTER,
         )
-        if (response.unresolved) return null
-        val info = response.target ?: return null
+        if (response.unresolved) {
+            logger.debug { "targets.get: unresolved ${address.describe()}" }
+            return null
+        }
+        val info = response.target ?: run {
+            logger.debug { "targets.get: 空 target ${address.describe()}" }
+            return null
+        }
         val target = info.target ?: return null
         val kind = target.kind.toCore() ?: return null
         val id = target.id.trim().ifBlank { address.externalId }
+        logger.debug {
+            "targets.get: resolved kind=${kind.name} id=$id name=${info.name.ifBlank { "-" }} bots=${info.bot_keys.joinToString(",").ifBlank { "-" }}"
+        }
         return KoishiTargetCandidate(
             id = id,
             name = info.name.trim().ifBlank { id },
@@ -185,6 +227,7 @@ internal abstract class DbkKoishiGateway(
             session?.close("replaced")
             session = next
         }
+        logger.debug { "DBK session attached" }
     }
 
     protected suspend fun handshake(session: DbkSession) {
@@ -192,6 +235,11 @@ internal abstract class DbkKoishiGateway(
         replaceBots(response.bots)
         logger.info {
             "DBK 握手完成：bots=${response.bots.size} gateway=${response.gateway_version.ifBlank { "-" }}"
+        }
+        logger.debug {
+            "session.hello: protocol=${response.protocol_version.ifBlank { "-" }} keys=${
+                response.bots.joinToString(",") { it.bot_key.ifBlank { "-" } }.ifBlank { "-" }
+            }"
         }
     }
 
@@ -224,6 +272,11 @@ internal abstract class DbkKoishiGateway(
             )
         }.onSuccess { response ->
             replaceBots(response.bots)
+            logger.debug {
+                "bots.list: count=${response.bots.size} keys=${
+                    response.bots.joinToString(",") { it.bot_key.ifBlank { "-" } }.ifBlank { "-" }
+                }"
+            }
         }.onFailure { error ->
             logger.debug(error) { "DBK bots.list 失败" }
         }
@@ -231,8 +284,16 @@ internal abstract class DbkKoishiGateway(
 
     private fun replaceBots(bots: List<dbk.v1.Bot>) {
         val next = bots.mapNotNull { it.toRuntimeAccount() }.associateBy { it.botKey }
+        if (next.size != bots.size) {
+            logger.debug { "bots 快照有 ${bots.size - next.size} 条无法映射" }
+        }
         accounts.keys.retainAll(next.keys)
         next.forEach { (key, account) -> accounts[key] = account }
+        logger.debug {
+            "bots 缓存：${
+                next.values.joinToString(",") { "${it.botKey}/${it.state}" }.ifBlank { "-" }
+            }"
+        }
     }
 
     private fun onEvent(method: String, payload: ByteString) {
@@ -249,6 +310,9 @@ internal abstract class DbkKoishiGateway(
             return
         }
         val bot = event.bot ?: return
+        logger.debug {
+            "bot.changed: ${event.type} ${bot.bot_key.ifBlank { "-" }} status=${bot.status}"
+        }
         when (event.type) {
             BotChangeType.BOT_CHANGE_TYPE_REMOVED -> {
                 val key = bot.bot_key.trim().ifBlank {
@@ -277,6 +341,11 @@ internal abstract class DbkKoishiGateway(
         if (mapped == null) {
             logger.debug { "丢弃无法映射的入站消息：messageId=${incoming.message_id}" }
             return
+        }
+        logger.debug {
+            "message.created: bot=${incoming.bot_key.ifBlank { "-" }} " +
+                "target=${incoming.target?.describe() ?: "-"} " +
+                "message=${incoming.message_id.ifBlank { "-" }} sender=${incoming.sender_id.ifBlank { "-" }}"
         }
         incomingMessageHandler?.invoke(mapped)
     }
@@ -316,6 +385,14 @@ internal abstract class DbkKoishiGateway(
                 retryable = false,
             )
         }
+    }
+
+    private fun KoishiSendOutcome.describe(): String = when (this) {
+        is KoishiSendOutcome.Accepted -> "OK id=${sinkMessageId ?: "-"}"
+        is KoishiSendOutcome.Partial ->
+            "PARTIAL ids=${sinkMessageIds.joinToString(",").ifBlank { "-" }} reason=$reason"
+        is KoishiSendOutcome.Uncertain -> "UNKNOWN reason=$reason"
+        is KoishiSendOutcome.Failed -> "FAILED retryable=$retryable reason=$reason"
     }
 
     private fun Throwable.toSendOutcome(): KoishiSendOutcome {

@@ -77,20 +77,29 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
   const sendElements = async (elements: El[]): Promise<void> => {
     if (aborted) return;
     if (elements.length === 0) {
+      ctx.logger.debug("message.send: no sendable segments");
       failuresRetryable = false;
       failures.push("no sendable segments");
       return;
     }
     const outgoing = withQuote(elements, nextQuoteId());
+    ctx.logger.debug(
+      "message.send: bot.sendMessage channel=%s guild=%s elements=%d",
+      channelId,
+      guildId || "-",
+      outgoing.length,
+    );
     try {
       const ids = await bot.sendMessage(channelId, outgoing, guildId);
       if (aborted) return;
       quoteUsed = true;
       const kept = normalizeMessageIds(ids);
       if (kept.length === 0) {
+        ctx.logger.debug("message.send: adapter returned no message id");
         unknownReasons.push("send returned no message id");
         return;
       }
+      ctx.logger.debug("message.send: adapter ids=%s", kept.join(","));
       for (const messageId of kept) {
         receipts.push(create(SendReceiptSchema, { messageId, recallable }));
       }
@@ -98,10 +107,17 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
       if (aborted) return;
       if (isTimeoutError(error)) {
         quoteUsed = true;
-        unknownReasons.push(errorMessage(error) || "send timed out");
+        const reason = errorMessage(error) || "send timed out";
+        ctx.logger.debug("message.send: adapter timeout: %s", reason);
+        unknownReasons.push(reason);
         return;
       }
       const retryable = isRetryableSendError(error);
+      ctx.logger.debug(
+        "message.send: adapter error retryable=%s: %s",
+        retryable,
+        errorMessage(error) || "send failed",
+      );
       failuresRetryable = failuresRetryable && retryable;
       failures.push(errorMessage(error) || "send failed");
     }
@@ -115,9 +131,12 @@ export async function sendMessage(ctx: Context, request: SendParams): Promise<Se
     } catch (error) {
       if (aborted) return;
       if (isTimeoutError(error)) {
-        unknownReasons.push(errorMessage(error) || "media fetch timed out");
+        const reason = errorMessage(error) || "media fetch timed out";
+        ctx.logger.debug("message.send: media timeout: %s", reason);
+        unknownReasons.push(reason);
         return;
       }
+      ctx.logger.debug("message.send: media error: %s", errorMessage(error) || "media fetch failed");
       failuresRetryable = failuresRetryable && isRetryableSendError(error);
       failures.push(errorMessage(error) || "media fetch failed");
       return;
@@ -261,6 +280,7 @@ async function fetchMediaElement(ctx: Context, kind: MediaKind, uri: string): Pr
   if (typeof http?.file !== "function") {
     throw mediaFetchError(kind, uri, new Error("Koishi http service is required to send media"));
   }
+  ctx.logger.debug("message.send: fetch %s %s", kind, displayUri(uri));
   let file: { data?: unknown; mime?: string; type?: string };
   try {
     file = await http.file(uri);
@@ -277,6 +297,7 @@ async function fetchMediaElement(ctx: Context, kind: MediaKind, uri: string): Pr
     throw mediaFetchError(kind, uri, new Error("empty body"));
   }
   const mime = (file.mime ?? file.type ?? "").trim() || MEDIA_FALLBACK_TYPE[kind];
+  ctx.logger.debug("message.send: fetched %s bytes=%d mime=%s", kind, buffer.length, mime);
   if (kind === "image") return h.image(buffer, mime);
   if (kind === "video") return h.video(buffer, mime);
   return h.audio(buffer, mime);

@@ -34,15 +34,24 @@ export async function recallMessage(ctx: Context, params: RecallParams): Promise
     return failed("target id is empty", false);
   }
 
+  ctx.logger.debug("message.recall: deleteMessage channel=%s message=%s", channelId, messageId);
   try {
     await withTimeout(Promise.resolve(bot.deleteMessage(channelId, messageId)), RECALL_TIMEOUT_MS);
+    ctx.logger.debug("message.recall: adapter ok");
     return create(RecallResultSchema, {
       status: SendStatus.OK,
       reason: "",
       retryable: false,
     });
   } catch (error) {
-    return classifyRecallError(error);
+    const result = classifyRecallError(error);
+    ctx.logger.debug(
+      "message.recall: adapter error status=%s retryable=%s: %s",
+      SendStatus[result.status] ?? result.status,
+      result.retryable,
+      result.reason || errorMessage(error) || "message.recall failed",
+    );
+    return result;
   }
 }
 

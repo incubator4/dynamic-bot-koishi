@@ -44,6 +44,7 @@ internal class ForwardWsKoishiGateway(
         val next = DbkForwardClient(uri)
         client = next
         next.connectionLostTimeout = 0
+        logger.debug { "Koishi 正向 WebSocket 正在连接 ${config.url}" }
         next.connect()
     }
 
@@ -76,6 +77,7 @@ internal class ForwardWsKoishiGateway(
 
         override fun onOpen(handshakedata: ServerHandshake) {
             reconnectAttempts = 0
+            logger.debug { "Koishi 正向 WebSocket 已打开，开始握手" }
             val scope = scope ?: return
             scope.launch {
                 runCatching {
