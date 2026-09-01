@@ -1,9 +1,9 @@
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
-    kotlin("jvm") version "2.4.0"
-    kotlin("plugin.serialization") version "2.4.0"
-    id("com.squareup.wire") version "5.4.0"
+    kotlin("jvm") version "2.4.10"
+    kotlin("plugin.serialization") version "2.4.10"
+    id("com.squareup.wire") version "6.4.7"
 }
 
 apply(from = "gradle/dynamic-plugin-fatjar.gradle.kts")
@@ -102,9 +102,9 @@ dependencies {
     val coroutinesVersion = "1.11.0"
     val coreVersion = "0.0.4"
     val kotlinLoggingVersion = "8.0.4"
-    val log4jVersion = "2.26.0"
+    val log4jVersion = "2.26.1"
     val slf4jVersion = "2.0.18"
-    val wireVersion = "5.4.0"
+    val wireVersion = "6.4.7"
 
     compileOnly("top.colter.dynamic:dynamic-bot-core:$coreVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -120,7 +120,7 @@ dependencies {
     testImplementation("org.apache.logging.log4j:log4j-api:$log4jVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
     testRuntimeOnly("org.slf4j:slf4j-api:$slf4jVersion")
-    testRuntimeOnly("ch.qos.logback:logback-classic:1.5.34")
+    testRuntimeOnly("ch.qos.logback:logback-classic:1.6.3")
     testRuntimeOnly("org.apache.logging.log4j:log4j-to-slf4j:$log4jVersion")
 }
 
