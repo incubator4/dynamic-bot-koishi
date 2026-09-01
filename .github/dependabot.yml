@@ -7,6 +7,15 @@ updates:
     directory: /jvm
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+    allow:
+      - dependency-type: "direct"
+    groups:
+      gradle:
+        patterns:
+          - "*"
     commit-message:
       prefix: "chore"
       include: scope
@@ -16,6 +25,15 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+    allow:
+      - dependency-type: "direct"
+    groups:
+      npm:
+        patterns:
+          - "*"
     commit-message:
       prefix: "chore"
       include: scope
@@ -25,6 +43,15 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+    allow:
+      - dependency-type: "direct"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     commit-message:
       prefix: "chore"
       include: scope
