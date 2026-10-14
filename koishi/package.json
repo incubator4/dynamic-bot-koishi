@@ -31,14 +31,14 @@
     "koishi": "^4.18.7"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.12.1"
+    "@bufbuild/protobuf": "^2.16.0"
   },
   "devDependencies": {
     "@koishijs/plugin-http": "^0.6.3",
     "@koishijs/plugin-server": "^3.2.4",
-    "@types/node": "^24.5.2",
-    "esbuild": "^0.23.1",
-    "typescript": "^5.9.2"
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
   },
   "koishi": {
     "description": {
