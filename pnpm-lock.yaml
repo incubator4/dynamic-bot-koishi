@@ -10,152 +10,152 @@ importers:
     dependencies:
       '@koishijs/plugin-http':
         specifier: ^0.6.3
-        version: 0.6.3(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 0.6.3(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-proxy-agent':
         specifier: ^0.3.3
-        version: 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       koishi:
-        specifier: 4.18.9
-        version: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+        specifier: 4.18.11
+        version: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       koishi-plugin-dynamic-bot:
         specifier: workspace:*
         version: link:koishi
     devDependencies:
       '@koishijs/client':
         specifier: ^5.30.4
-        version: 5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3)
+        version: 5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2)
       '@koishijs/plugin-actions':
         specifier: ^0.0.2
-        version: 0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-adapter-discord':
         specifier: ^4.5.10
-        version: 4.6.2(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 4.6.2(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-adapter-kook':
         specifier: ^4.6.5
-        version: 4.8.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 4.8.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-adapter-qq':
         specifier: ^4.9.2
-        version: 4.14.0(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 4.14.0(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-adapter-satori':
         specifier: ^1.5.1
-        version: 1.5.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.5.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-adapter-telegram':
         specifier: ^4.5.8
-        version: 4.5.11(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 4.5.11(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-admin':
         specifier: ^2.0.0-beta.4
-        version: 2.0.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.0.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-analytics':
         specifier: ^2.0.6
-        version: 2.0.6(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.0.6(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-auth':
         specifier: ^4.1.6
-        version: 4.1.7(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 4.1.7(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-bind':
         specifier: ^1.5.1
-        version: 1.5.1(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.5.1(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-commands':
         specifier: ^3.5.4
-        version: 3.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 3.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-config':
-        specifier: ^2.8.6
-        version: 2.8.6(@koishijs/loader@4.6.11(@koishijs/core@4.18.9))(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        specifier: ^2.8.7
+        version: 2.8.7(@koishijs/loader@4.6.11(@koishijs/core@4.18.11))(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-console':
         specifier: ^5.30.4
-        version: 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-database-sqlite':
         specifier: ^4.6.0
-        version: 4.7.0(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))(minato@3.7.0(cordis@3.18.1))
+        version: 4.7.0(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))(minato@3.7.0(cordis@4.0.0-rc.10))
       '@koishijs/plugin-echo':
         specifier: ^2.2.5
-        version: 2.2.5(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.2.5(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-explorer':
         specifier: ^1.5.5
-        version: 1.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-help':
         specifier: ^2.4.5
-        version: 2.4.6(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.4.6(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-hmr':
         specifier: ^1.2.9
-        version: 1.2.9(@koishijs/loader@4.6.11(@koishijs/core@4.18.9))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.2.9(@koishijs/loader@4.6.11(@koishijs/core@4.18.11))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-insight':
         specifier: ^3.5.2
-        version: 3.5.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 3.5.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-inspect':
         specifier: ^1.1.7
-        version: 1.1.7(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.1.7(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-locales':
         specifier: ^2.5.3
-        version: 2.5.3(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.5.3(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-logger':
         specifier: ^2.6.9
-        version: 2.6.9(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.6.9(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-market':
-        specifier: ^2.11.4
-        version: 2.11.11(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        specifier: ^2.11.12
+        version: 2.11.12(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-notifier':
         specifier: ^1.2.1
-        version: 1.2.1(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.2.1(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-oobe':
         specifier: ^0.0.2
-        version: 0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-sandbox':
         specifier: ^3.4.2
-        version: 3.4.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 3.4.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-server':
         specifier: ^3.2.4
-        version: 3.2.9(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 3.2.9(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-server-satori':
         specifier: ^2.9.0
-        version: 2.9.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.9.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-server-temp':
         specifier: ^1.5.0
-        version: 1.5.0(@cordisjs/plugin-server@0.2.9(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.5.0(@cordisjs/plugin-server@0.2.9(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-status':
         specifier: ^7.4.10
-        version: 7.4.10(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 7.4.10(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/scripts':
         specifier: ^4.6.1
-        version: 4.6.2(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))
+        version: 4.6.2(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))
       '@types/node':
-        specifier: ^24.5.2
-        version: 24.13.3
+        specifier: ^26.6.5
+        version: 26.6.5
       '@types/react':
-        specifier: ^18.2.70
-        version: 18.3.31
+        specifier: ^19.3.0
+        version: 19.3.0
       cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
+        specifier: ^10.1.0
+        version: 10.1.0
       esbuild:
-        specifier: ^0.23.1
-        version: 0.23.1
+        specifier: ^0.28.2
+        version: 0.28.2
       esbuild-register:
         specifier: npm:@shigma/esbuild-register@^1.1.1
-        version: '@shigma/esbuild-register@1.1.1(esbuild@0.23.1)'
+        version: '@shigma/esbuild-register@1.1.1(esbuild@0.28.2)'
       koishi-plugin-adapter-onebot:
-        specifier: ^6.9.0
-        version: 6.9.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        specifier: ^6.9.5
+        version: 6.9.5(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       koishi-plugin-dataview:
         specifier: ^2.6.1
-        version: 2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       koishi-plugin-rate-limit:
         specifier: ^2.0.4
-        version: 2.0.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 2.0.4(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       koishi-plugin-theme-vanilla:
         specifier: ^1.1.0
-        version: 1.1.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 1.1.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       typescript:
-        specifier: ^5.9.2
-        version: 5.9.3
+        specifier: ^7.0.2
+        version: 7.0.2
       yakumo:
-        specifier: ^1.0.0-beta.21
-        version: 1.0.0(cordis@3.18.1)
+        specifier: ^3.2.1
+        version: 3.2.1
       yakumo-esbuild:
-        specifier: ^1.0.0-beta.7
-        version: 1.0.0(esbuild@0.23.1)(typescript@5.9.3)(yakumo@1.0.0(cordis@3.18.1))
+        specifier: ^3.0.2
+        version: 3.0.2(esbuild@0.28.2)(typescript@7.0.2)(yakumo@3.2.1)
       yakumo-tsc:
-        specifier: ^1.0.0-beta.5
-        version: 1.0.0(typescript@5.9.3)(yakumo@1.0.0(cordis@3.18.1))
+        specifier: ^3.0.1
+        version: 3.0.1(typescript@7.0.2)(yakumo@3.2.1)
       yml-register:
         specifier: ^1.2.5
         version: 1.2.5
@@ -163,40 +163,40 @@ importers:
   koishi:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: ^2.12.1
-        version: 2.12.1
+        specifier: ^2.16.0
+        version: 2.16.0
       koishi:
         specifier: ^4.18.7
-        version: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+        version: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     devDependencies:
       '@koishijs/plugin-http':
         specifier: ^0.6.3
-        version: 0.6.3(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 0.6.3(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/plugin-server':
         specifier: ^3.2.4
-        version: 3.2.9(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+        version: 3.2.9(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@types/node':
-        specifier: ^24.5.2
-        version: 24.13.3
+        specifier: ^26.6.5
+        version: 26.6.5
       esbuild:
-        specifier: ^0.23.1
-        version: 0.23.1
+        specifier: ^0.28.2
+        version: 0.28.2
       typescript:
-        specifier: ^5.9.2
-        version: 5.9.3
+        specifier: ^7.0.2
+        version: 7.0.2
 
   proto:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: ^2.12.1
-        version: 2.12.1
+        specifier: ^2.16.0
+        version: 2.16.0
     devDependencies:
       '@bufbuild/buf':
-        specifier: ^1.72.0
-        version: 1.72.0
+        specifier: ^1.73.0
+        version: 1.73.0
       '@bufbuild/protoc-gen-es':
-        specifier: 2.12.1
-        version: 2.12.1(@bufbuild/protobuf@2.12.1)
+        specifier: 2.16.0
+        version: 2.16.0(@bufbuild/protobuf@2.16.0)
 
 packages:
 
@@ -231,68 +231,68 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bufbuild/buf-darwin-arm64@1.72.0':
-    resolution: {integrity: sha512-rKHRvjwAThapxIoOn92vIoTjYSz5FmRemDRLU4BYT4T6QWMEC13PM3/pPnqVgsNKZ5aW7iYDm9ztnisEqSi5yA==}
+  '@bufbuild/buf-darwin-arm64@1.73.0':
+    resolution: {integrity: sha512-cDd3y376ecClhyytNLlY3AtsZqsqXvEkQjMvrahrv/xUWWhEIX3efD8y0uufXDe8Yuk3sEmj7J1Xlx73Y46SkA==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
 
-  '@bufbuild/buf-darwin-x64@1.72.0':
-    resolution: {integrity: sha512-4TQ1AGft8sGspNg9NMsEjsKKis7nGaVV8tZLnNa3cKUBmx22gwOnB6VRhgKWwjf+BDqr85lUEzQ6wHCboNUutg==}
+  '@bufbuild/buf-darwin-x64@1.73.0':
+    resolution: {integrity: sha512-VTBTCwaqT7otsMGXlk3MRu6x5hp+YH9PaLKcyWAa8wEt0NnMzbXdkE8GiLgI8Qkl7S3+pC9YSTCE/I+O87Fvrw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
 
-  '@bufbuild/buf-linux-aarch64@1.72.0':
-    resolution: {integrity: sha512-cbIsUcgM5bHhbZWcDaAXqaYOAi8N0c0u+NiDydwVmZ04Et3s1EZ3TDqfQDRzwvoBPDP+lsO6YuTRXX6nI28x4w==}
+  '@bufbuild/buf-linux-aarch64@1.73.0':
+    resolution: {integrity: sha512-HjoQ3wbLiUv5N5XLM3EAR2FY51Yn6t5MEXLPnS/Hx0KDkK/5eyIBZZ6toHBLjczAr1RTA1LagF38+lglZI+kvA==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
 
-  '@bufbuild/buf-linux-armv7@1.72.0':
-    resolution: {integrity: sha512-v/bXVsFL8YNm2HgosGb9r3+nAt4jQiUc3r3JipYuiVY3DAJZAjoEvcak6/BkxQMTEQz9Zb8gRRlule9IFkbc5g==}
+  '@bufbuild/buf-linux-armv7@1.73.0':
+    resolution: {integrity: sha512-NsZuVg8hXfGcR96Is14ArKxZg6pdJb6kb63bx2g7q8Cjo+gRqZMBFKGvF/fnQMxTrRQAm6hzeF4a2vV4W3lszg==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
 
-  '@bufbuild/buf-linux-x64@1.72.0':
-    resolution: {integrity: sha512-4xHGXEjqFxo1wX1zMGq4CzhYt5++nrj4C7k30j+YmGtvqCnipfdSe+V6kknBYRfYswVZEUwUbQOh6pnMTcGcrA==}
+  '@bufbuild/buf-linux-x64@1.73.0':
+    resolution: {integrity: sha512-dMe6lBQrlHTU7DzqzaR7Udky7R78EDzzxtYZQdjkZun9jKdjGR4fLbPWEPyY4rLGVyk6UUnrtkf5qoIK2SC6qw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
 
-  '@bufbuild/buf-win32-arm64@1.72.0':
-    resolution: {integrity: sha512-WH7ClsoB9A0e/5fFhx0DLqLzillYPRdHBhlwzihgvjGci0bBdyJVHSQGf0B9uspCMU6sn6W/N1S9/2vvQBNMug==}
+  '@bufbuild/buf-win32-arm64@1.73.0':
+    resolution: {integrity: sha512-UmubCflc8zJ48bVW0WeGeVTkNuumJP//wCWKUmeTXT1iNlEqkpaXy6y7o8YJKHGWLfX0/1UV3oay9ti0EyojMw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
 
-  '@bufbuild/buf-win32-x64@1.72.0':
-    resolution: {integrity: sha512-X3eWqFzhDmu8CYQZz+Fu7i+PgH+yUl8UwJ5+x+bhZRYAIdcijikthodk60c5u/qq42m1Z2XAnAGyp/mTf7IffA==}
+  '@bufbuild/buf-win32-x64@1.73.0':
+    resolution: {integrity: sha512-/Buo10rXzqNLnFDh3BpzGdcrx6OalcU8o8gUyObCFZA5wKcUvBVNDhhpMmoB6YeiOPpPn47jHgW4bSSlypaaOQ==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
 
-  '@bufbuild/buf@1.72.0':
-    resolution: {integrity: sha512-BwBKTX/WXkhAhqWJGrEKnqU03/4tK1O0OozSlwUMBCOEo8pLL3xu3M24RT3+umExEeM0wjlANO6axqGWMqtt4Q==}
+  '@bufbuild/buf@1.73.0':
+    resolution: {integrity: sha512-W3whb4P1y3Hs9bqwCu9++W1v1ofHZ3dBUCe6JSZq0Ff5OK5UKKZuMN4iunPbgdyXY4+4ujEYf2ESrN/6MbcFSQ==}
     engines: {node: '>=12'}
     hasBin: true
 
-  '@bufbuild/protobuf@2.12.1':
-    resolution: {integrity: sha512-BvAMfS6LrgZiryOAZ4pBYucu4wG/Ei/9o9DZ9akbREnMLbPJiom2i8b9C8IsKErQoiKqVhrerzt3kOT/RrzLHg==}
+  '@bufbuild/protobuf@2.16.0':
+    resolution: {integrity: sha512-FWa0sPlqYGJgpTs6OxBRcL/AW4JT0OIO+W1ajerluoTVh8CV0B7XM1qsNCRgnkSCkRCgOICKHRQlY17jrsm0+Q==}
 
-  '@bufbuild/protoc-gen-es@2.12.1':
-    resolution: {integrity: sha512-SWa7XvRYRouMo+vBQmpNFZ+ZEqQ8AC0LpL4QWAo1gvstLhFh/Y7Nf/a+MK7ZxDq5LZSThwfk974L1sFxO3OaGw==}
-    engines: {node: '>=20'}
+  '@bufbuild/protoc-gen-es@2.16.0':
+    resolution: {integrity: sha512-LbPrEaGd7bOxKbJHllTR5439+PZjqd6fM7xyDZkDVtZ+Efzr7TMdMqShG9Qkf/nYVyiNS/SK5r9JhRaBTFkfZw==}
+    engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/protobuf': 2.12.1
+      '@bufbuild/protobuf': 2.16.0
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
 
-  '@bufbuild/protoplugin@2.12.1':
-    resolution: {integrity: sha512-PY58KxQVAD1BnnKtStOctsMoegEVGfBnY5AOqVQOIu711nA13oYtTqJM8df5lUQg2J1DR3XxUXptE+fWX5oLdA==}
+  '@bufbuild/protoplugin@2.16.0':
+    resolution: {integrity: sha512-3FdYJys34VhFnBQsjiV9wurBkX/DBACQAkAk+nCKdO1p8ROVNi7gmaRAcba+4qq8hQq8rYVukuutwvGCvd4kJA==}
 
   '@cordisjs/core@3.18.1':
     resolution: {integrity: sha512-yRuATOamFxeD1ztE2L3o1SaHuT2zw5DTXijQYxt9azVNeILbvtomfGG6sLZegrynJO9XZbNvXbOlQ7LBJDOlAg==}
@@ -307,10 +307,32 @@ packages:
     peerDependencies:
       '@cordisjs/core': ^3.17.1
 
+  '@cordisjs/plugin-cli@1.1.2':
+    resolution: {integrity: sha512-c8n40ZfhyT3D7QqL6M2OH0aSNF8pMDcqtyn8LGqzCeaFKMO/GxGoIKWJaN5VMABHlh0rBidRXR83KUxxRUJc0w==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      '@cordisjs/plugin-loader': ^1.0.0-rc.4
+      cordis: ^4.0.0-rc.5
+
   '@cordisjs/plugin-http@0.6.3':
     resolution: {integrity: sha512-kmw4G1t39ZZzFGpBKUNuTv2aefEUtxa1e4qu4+bTrM5Z8uYHTRzPpyJfkj9zuZwopP/Vz271OUr2UfDN5lrJKQ==}
     peerDependencies:
       cordis: ^3.18.1
+
+  '@cordisjs/plugin-include@1.1.0':
+    resolution: {integrity: sha512-c1JLjUu9oFizOrVDxlE7CEq3tkccT2O993+0crfa+GhzmN4JeO3BPbBIL/NY1r/UJ5Of4sqswcHEAnuADb5OZA==}
+    peerDependencies:
+      '@cordisjs/plugin-loader': ^1.0.0-rc.7
+      cordis: ^4.0.0-rc.10
+
+  '@cordisjs/plugin-loader@1.0.0-rc.7':
+    resolution: {integrity: sha512-7LB6n93zCwKnRzLiE11YCtpRJrNiOvtPrtA3McHy/bpcnml7VulvaVPHoFA39Je2MYQT1LxuNVLrUdO3bzudYQ==}
+    peerDependencies:
+      cordis: ^4.0.0-rc.10
+      node-addon-require-builtin: ^0.1.0
+    peerDependenciesMeta:
+      node-addon-require-builtin:
+        optional: true
 
   '@cordisjs/plugin-proxy-agent@0.3.3':
     resolution: {integrity: sha512-iOM44+bducWGdfF/eD+dH7Fhi3r5eBZqSNIXvfUjK9z0tZ06oeVk/655nAlNxff31umUXhgmRQ14KwG+ylggcQ==}
@@ -347,6 +369,9 @@ packages:
     resolution: {integrity: sha512-OzIuTaIfC8QXEPmJvB4Y4kw34rSXdCJzxcD1kFStBvr8bK6X1zQAYDo0CNMjojnfTqRQCJ0I7prlErcoRiET2A==}
     peerDependencies:
       vue: ^3.2.0
+
+  '@epic-web/invariant@1.0.0':
+    resolution: {integrity: sha512-lrTPqgvfFQtR/eY/qkIzp98OGdNJu0m5ji3q/nJI8v3SXkRKEnWiOxMmbvcSoAIzv/cGiuvRy57k4suKQSAdwA==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -851,9 +876,6 @@ packages:
   '@koishijs/core@4.18.11':
     resolution: {integrity: sha512-qzc1A14Y5C04a3/yDyz+xaQ90Uz9TeUUvScQuhOiuJNGKg9HUeFKqoNN/2IX5/vgAHauxJJi6eJcN2ZrLt4HeA==}
 
-  '@koishijs/core@4.18.9':
-    resolution: {integrity: sha512-s4ZW6/ia6ovPs3h0TgQ/OBX8g5AZ/qBtOJyO9Lfgyh9Xg0Vd6zn6Vd8aQGBRC0dxovrxwkS/0rMsmfWuy+6FYw==}
-
   '@koishijs/i18n-utils@1.0.1':
     resolution: {integrity: sha512-N58UAnhMMtqS4+VGW5IwJ6U9xwXZpzrcPaJrdEBzUJ4yBKKrkHfG1ck9tvQ99SnzxhZGGcBa/SKWnHQf/omrvg==}
 
@@ -861,11 +883,6 @@ packages:
     resolution: {integrity: sha512-0cJyHwtnFjtOx7jgIXOSuVjDriL12rv8CXsqSw+aqQyt0iuD8ChDqfwhiOFRsuVvq89ZS9PhxmZ0l+YqQ5ZrPg==}
     peerDependencies:
       '@koishijs/core': 4.18.11
-
-  '@koishijs/loader@4.6.9':
-    resolution: {integrity: sha512-3dAGRMjQ7b798mrenauGJ5yjIAVsM8+E3T6xFftQrgzPzFkdS9tqImjAv7Ye5syhRQ09JFdXAKAjbtOlGIVR8g==}
-    peerDependencies:
-      '@koishijs/core': 4.18.9
 
   '@koishijs/plugin-actions@0.0.2':
     resolution: {integrity: sha512-aYnj7An4vbN5Fbnj4Pm8MVjIT7KKwF7/k8Of7clqixuzZin0WtGAyDyWZ8+tQDQZ9MMea0dUDXvqtikIyXIZ6A==}
@@ -933,12 +950,12 @@ packages:
       '@koishijs/plugin-console':
         optional: true
 
-  '@koishijs/plugin-config@2.8.6':
-    resolution: {integrity: sha512-5oEzC6DsJtr7Ze65FkiVkslIs0a7MSEDTNXI/OrNKXwA4kKV9Xso68Ky2CbHYl1w5TJyTzKGtvWan+THJhSaIg==}
+  '@koishijs/plugin-config@2.8.7':
+    resolution: {integrity: sha512-dwRv+BoqvVTEPwpWTDbLdF47OTs42EiOb7G1s8DISJ1LlYIEGLREVCgwp3GBqPRrgzLdpLkNMDFj2MBOD/x6wA==}
     peerDependencies:
-      '@koishijs/loader': ^4.6.0
-      '@koishijs/plugin-console': ^5.30.0
-      koishi: ^4.18.0
+      '@koishijs/loader': ^4.6.11
+      '@koishijs/plugin-console': ^5.30.11
+      koishi: ^4.18.11
 
   '@koishijs/plugin-console@5.30.11':
     resolution: {integrity: sha512-K8CpYU4C+vfrX9VhFndS5jmJ9EqLxUYf7KKsM2RNxxQJ1NMk/hLyLQ82HPIY36lbyIbZsA0Mgxl6WIuewZKgQA==}
@@ -1010,8 +1027,8 @@ packages:
       '@koishijs/plugin-console':
         optional: true
 
-  '@koishijs/plugin-market@2.11.11':
-    resolution: {integrity: sha512-OowHsb/+UIC6AIUB6JD56FXOhuFTK5kVTPSKiAgktHpMawXgR8+cqJjI+JSjDJJUeYC+w0Tyl5sANdmYVGmByQ==}
+  '@koishijs/plugin-market@2.11.12':
+    resolution: {integrity: sha512-t4WrrgxVA8g6RXrLSRpJmkLG5xSv6gnLv8Rvi1nLQ8HIBfyrfydZPFlJUiFQ34o/aDjiiJhNcRu4XISM3R0ezQ==}
     peerDependencies:
       '@koishijs/plugin-console': ^5.30.11
       koishi: ^4.18.11
@@ -1063,8 +1080,8 @@ packages:
       '@koishijs/plugin-console': ^5.25.8
       koishi: ^4.16.6
 
-  '@koishijs/registry@7.0.3':
-    resolution: {integrity: sha512-Ze6cxfl1TlVFIdb6whWcdI5UT6xxeF5k1/RMUWM31gcegR09KtXGgky7N0gJRMcNByrx9o9VZyZu641jAhQNbQ==}
+  '@koishijs/registry@7.0.4':
+    resolution: {integrity: sha512-KOYa1/AWFcuSSgmh5DRxFhIrOS7RiEWH0WBVowcfCcKxdxlLx49fBgUohcKqstcYEjz5zuOidfJWJsbZRVmC4Q==}
 
   '@koishijs/scripts@4.6.2':
     resolution: {integrity: sha512-zHXSc57E9hYwJWAnYH7Kv1wYwPVprcow0ndbspRgs2Xn6OlSVL6K7SJSa2nd5bTeJxffjxMVD0tCq7K6DFYgvA==}
@@ -1099,6 +1116,7 @@ packages:
     engines: {node: ^22.20 || ^24.12 || >=25}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@noble/hashes@1.8.0':
     resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
@@ -1115,6 +1133,10 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@npm/types@2.1.0':
+    resolution: {integrity: sha512-humQVe2BrWR7Yum5hGDYBnIPnnZJvKSOH/I4QN1ZL2bdb4c4zQHaHupEJ3cOkSJ07G3YfN793ptbNh196BWLgA==}
+    engines: {node: '>=18.6.0'}
 
   '@paralleldrive/cuid2@2.3.1':
     resolution: {integrity: sha512-XO7cAxhnTZl0Yggq6jOgjiOHhbgcO4NqFqwSmQpjK3b6TEE6Uj/jfSk6wzYyemh3+I0sHirKSetjQwn5cZktFw==}
@@ -1148,36 +1170,42 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-arm-musl@2.6.0':
     resolution: {integrity: sha512-9c6AUHgHoG+IY88MRIHupztQiQnrbqHYQjkM2btA+Bf/wQnQMuiD0Wfk1EVv3TlNT3x41uU71rn6E4xh/+zvkw==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-linux-arm64-glibc@2.6.0':
     resolution: {integrity: sha512-yHRqS2owEXe6Hic9z6Mh1ECsCd+ODVOGvZDyciqRd21+v+o+DnXMOrw50DSpIG2sb8GPEaPPmfeCAWKPJdq46g==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-arm64-musl@2.6.0':
     resolution: {integrity: sha512-WhB2e/V7rqdHHWZusBSPuy5Ei8S6lSz6FE5TKKQz5h3a0O+C+mhY7vxU9b/stqvMb8beLnPY82ZrFTLKs+SrKA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-linux-x64-glibc@2.6.0':
     resolution: {integrity: sha512-ulGE6x6Oz6iAwg75T8YQSoguBWasniIbX+QWpaYPcCnDOpdWX3k+4xbEYPZVLxOuoJI+svJJPD3sEj8G7lrQ3A==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-x64-musl@2.6.0':
     resolution: {integrity: sha512-tkBYKt7YQrjIJWYDnto2YgO8MRkjlMTSNoRHzsXinBqbLdeOM3L32wPZJvIZxqaLMfSlS/4sUjH/6STVP/XDLw==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-win32-arm64@2.6.0':
     resolution: {integrity: sha512-gIZAP23jaHjGWasY/TY6yL7NHFClf0Ga7FN+iINvk+KN94rhm94lYZhFsbYFNcA04/onvGD9kKmiJLJB2HbNwQ==}
@@ -1250,66 +1278,79 @@ packages:
     resolution: {integrity: sha512-YDUNvVM85TI3g/1OpnqKP1h4NeW/j64DfWMf+G3M809xNk1bJSnpFp4sh83NpmVE5DXnkh8ULor4LTVZKoYLHw==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.63.1':
     resolution: {integrity: sha512-7Mcn71p9ZuQFAj+h+dhQXy/yeLePRS2yKRnmW1DijA9thKO5qap0GNOIQK4yQ6iP3SU0Mrb/yWo8h8vgRba8lw==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.63.1':
     resolution: {integrity: sha512-4YiLQTX6U4CSl0L9cluep9A9W6UmTfqBDc2/CH6wlu54pl4E7Jn3cOD8oxzvBDEGk/JMKgJ47C8g+radF7mwvg==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.63.1':
     resolution: {integrity: sha512-2ra8F7w8OquwZN9z2/fKFnli69wa8PLwaVzRMIPGb13ByMJwC28Fbp8YcVGoUhlYMTt7j5j9bNgpysrN2UM+vw==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.63.1':
     resolution: {integrity: sha512-Sy20ncyhjmBP0Ml+UvQbimjlk6VFgjW5uNP+qqwHB00mTE8Bl2C1TuHTlRwK2YoXeZbee5lP2XevBWVkAQAtSQ==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-loong64-musl@4.63.1':
     resolution: {integrity: sha512-noITLp8oNjYliPnGWmLyelIHwULGqbHloQHGw1rtxbWhTuWooRpnZarZQJ1y9EUC4szuCusCc+HEpUtxpIwYvA==}
     cpu: [loong64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-ppc64-gnu@4.63.1':
     resolution: {integrity: sha512-hlxxXd+F1mWiAcaFR7Sv9ZQT6m6UfI8+Vy/kFJzztq2pDMU/0wZ9sish0iszNZvsQDo8Gc0i5yuFEOz5dDf6fA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-musl@4.63.1':
     resolution: {integrity: sha512-EF7OpqQTQ/BvGqLzUi4rEHuagCV9MugAUXSHemwPW5vxZ75RR+jxO/2j95Ph2dalMpFHSVECjRoioHZgA9zOYA==}
     cpu: [ppc64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-riscv64-gnu@4.63.1':
     resolution: {integrity: sha512-wQO3JesW9PRkwlabQ27y7sPfVOOTLRG73I4F2UYHG5PXun3J9U3y+b7ezVKSYbsvSKGQ1k1cq8Qlun4C9kLt3w==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.63.1':
     resolution: {integrity: sha512-ouAGwhO6wHRXdnOVCOsB0tRFkA7nhNB2Nwax6oECXN0YiN8EYUTBAOudADOB1PI+yDL61TeNx/u7MVCzksNbkQ==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.63.1':
     resolution: {integrity: sha512-q2R38Sn+1J8RxhfJ+T54wSWmyKXWec+9jgDfqO2AtArEqHO5R2aeayp5H5OYLr5UYDVGsVaZPEFUooMhYCdz5A==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.63.1':
     resolution: {integrity: sha512-gfI5T24WLLuFfSKw7Go/zDXjAAV0fny0swTaDv+WjK7vqcw4cRhFfdsyKL1n+ukI+ooBxn3bVQnyrn06WpI50w==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.63.1':
     resolution: {integrity: sha512-4h6XqthmB4Hspji84wvgk+ElodTsGj+dbZqHJHHtKxj4mYq0ANSEEPX9ys3moJueqsRjwpaJYH7874Itwnj2ow==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-openbsd-x64@4.63.1':
     resolution: {integrity: sha512-dlfCOa87o1VAYegLQ9EKilx2JCeRofiyPGhTCmqnuXZ6bMPiycO1rq1+sKoulAp7pGLIsTIw+1x5R+zgh5LhhA==}
@@ -1382,6 +1423,9 @@ packages:
   '@satorijs/protocol@1.7.0':
     resolution: {integrity: sha512-ODSBVzdn7s9tw3XGFGYZ1MnjbA1jctwSleJTsyk/lAjyNziOFKNP5nIBAcw0r547dvXBweZNudnCqod6Ts+hqw==}
 
+  '@sec-ant/readable-stream@0.4.1':
+    resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
+
   '@shigma/esbuild-register@1.1.1':
     resolution: {integrity: sha512-BHnWxTaoaIKip0m5//A0h2k7UTAveDkSnvXSSrnYWCE9OljgLwkm6rjYo/WXgUrCSgZisSYcTraDS4t7V1bfzA==}
     peerDependencies:
@@ -1389,6 +1433,10 @@ packages:
 
   '@sindresorhus/merge-streams@2.3.0':
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
+    engines: {node: '>=18'}
+
+  '@sindresorhus/merge-streams@4.0.0':
+    resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
   '@standard-schema/spec@1.1.0':
@@ -1454,11 +1502,8 @@ packages:
   '@types/lodash@4.17.25':
     resolution: {integrity: sha512-+K1NIO8I+F9/wNulfVvu23QYd0Pe9/OCqRrim4NoYIf1VoEDL90Ve4ClzpyqBLc7NpGGWRvYNCKZ1BE/Jpf8dQ==}
 
-  '@types/node@24.13.3':
-    resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
-
-  '@types/prop-types@15.7.15':
-    resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
+  '@types/node@26.6.5':
+    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
 
   '@types/qs@6.15.1':
     resolution: {integrity: sha512-GZHUBZR9hckSUhrxmp1nG6NwdpM9fCunJwyThLW1X3AyHgd9IlHb6VANpQQqDr2o/qQp6McZ3y/IA2rVzKzSbw==}
@@ -1466,8 +1511,8 @@ packages:
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
 
-  '@types/react@18.3.31':
-    resolution: {integrity: sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw==}
+  '@types/react@19.3.0':
+    resolution: {integrity: sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==}
 
   '@types/send@1.2.1':
     resolution: {integrity: sha512-arsCikDvlU99zl1g69TcAB3mzZPpxgw0UQnaHeC1Nwb015xp8bknZv5rIfri9xTOcMuaVgvabfIRA7PSZVuZIQ==}
@@ -1484,8 +1529,128 @@ packages:
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
-  '@typescript/vfs@1.6.4':
-    resolution: {integrity: sha512-PJFXFS4ZJKiJ9Qiuix6Dz/OwEIqHD7Dme1UwZhTK11vR+5dqW2ACbdndWQexBzCx+CPuMe5WBYQWCsFyGlQLlQ==}
+  '@typescript/typescript-aix-ppc64@7.0.2':
+    resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [ppc64]
+    os: [aix]
+
+  '@typescript/typescript-darwin-arm64@7.0.2':
+    resolution: {integrity: sha512-gowzar9MwS/aRWp6f3a4KUqzRjAZjOsmGNCM6LcTgXum+dBfgsBVMN+AgvOCCbguXyick6LJhpBszxMebJ8syA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@typescript/typescript-darwin-x64@7.0.2':
+    resolution: {integrity: sha512-SZ9xZInqApNlNGc9s0W1VSsktYSOe9cFqNOIqmN1Gs8SmkjKZYFt017G4VwPxASInODuAdbTW7sXiFUf893RgA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@typescript/typescript-freebsd-arm64@7.0.2':
+    resolution: {integrity: sha512-W5NH4y/J0plIIS5b2xvTEkU7JFxyqdMAOgf+Ilhl0vHQXKO5dZoxd+C/jEtq56c4F3wk71RB4BMRQ2XdI+bwYQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [freebsd]
+
+  '@typescript/typescript-freebsd-x64@7.0.2':
+    resolution: {integrity: sha512-UMGDx5sTpzNw3WiPebH7l90IWfJggEd+egHt/q6p7/Cm3zqoV7VxkGXt+3DxPIw8CcmvAB0j3sVVfbhX+M4Tpw==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [freebsd]
+
+  '@typescript/typescript-linux-arm64@7.0.2':
+    resolution: {integrity: sha512-Qh4eU4/y3yDjnfjjyPYihMj5/ODIlmt+Bzu17OI+fiSRDW57QmU5SiN63exPRNJPKUzcc1INa1NXdrJ+MqHjUQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@typescript/typescript-linux-arm@7.0.2':
+    resolution: {integrity: sha512-gffT3xPz9sR7j/YJExkyPntrI0P2EP9XbOyWzth2/Gs0RstK+90RBcO0ncXoXy/beYll1SXw846Nf2zdnEz0QQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm]
+    os: [linux]
+
+  '@typescript/typescript-linux-loong64@7.0.2':
+    resolution: {integrity: sha512-uEHck9i8hoAzXPiYRib1O7miOnz23SxIeVl6F4LXox+qov1K35jHcEW6VHKvZI+pyvl7fZEP4MCU5LYvIq1GuQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [loong64]
+    os: [linux]
+
+  '@typescript/typescript-linux-mips64el@7.0.2':
+    resolution: {integrity: sha512-R4KvAMnE43W5Qeqb0Ly56O3mWMWIAgsMyz36DCaycd5nbg/9kzm0liw3JocfRqyJY0KPmzFjbswozXyW0DnIYA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [mips64el]
+    os: [linux]
+
+  '@typescript/typescript-linux-ppc64@7.0.2':
+    resolution: {integrity: sha512-DORx5b3sd/4S7eayxm4FQv+A7CrkUIGRaHiwI8oiHTAI1fAPWhF4J0vAlkC8biAlHSVVwxMQ3tjZ2/DVbnQiiA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [ppc64]
+    os: [linux]
+
+  '@typescript/typescript-linux-riscv64@7.0.2':
+    resolution: {integrity: sha512-wf0jqEDOjrPRnKwYRyyJDRo11KMbvMFrU+q4zqKyChODBzvlkbhNQfKvLxQCcwTpdDaXSHZTVuh0JoCrKCUMHQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [riscv64]
+    os: [linux]
+
+  '@typescript/typescript-linux-s390x@7.0.2':
+    resolution: {integrity: sha512-IkwJc3L7yhytWd/ewjyxNDfOmswCm9GWMJT/ue/dU4aZNbwZeYAetq42VyLmsmSjvoX7z74X6ZaYCtzAr0EuGw==}
+    engines: {node: '>=16.20.0'}
+    cpu: [s390x]
+    os: [linux]
+
+  '@typescript/typescript-linux-x64@7.0.2':
+    resolution: {integrity: sha512-EYdf2cNg7rgCWJnxCdJ+F3V39O8ihb37eHAu1LK8oAFizgTQbPOK7zHHXbPt8rX24COqODXeI3sIf0fCXG7H/A==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [linux]
+
+  '@typescript/typescript-netbsd-arm64@7.0.2':
+    resolution: {integrity: sha512-+polYF4MF04aPpO5FTkHran9yUQDSXqy5GiSDKpsll5jy3l3+g9QLhpf39T+ePtefhXLOGrLl0QIjkQP6VnelA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [netbsd]
+
+  '@typescript/typescript-netbsd-x64@7.0.2':
+    resolution: {integrity: sha512-8YIT0EHM/3dq10ZOVF/A7pc/YSMtbcecct4rWtexrnSCHOPcpC2KTLXfTCR6vDpnSiY12heNb1GiN/wu+T/FyA==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [netbsd]
+
+  '@typescript/typescript-openbsd-arm64@7.0.2':
+    resolution: {integrity: sha512-APT8+ClYnuYm1u9+kgGXoMj2VzWzcymwh2gNSQVySHfkRDGOTVkoWLjCmOQSaO+PoqQ57B0flRp9SA+7GnnkzQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [openbsd]
+
+  '@typescript/typescript-openbsd-x64@7.0.2':
+    resolution: {integrity: sha512-yX7s+Q0Dln0Dt9tEzZsAjXXR/+ytBM7AlglaqyeMPxQszJ1JhlJdZ6jLA+IzldHtflX81em7lDao1xXu+aRRkg==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [openbsd]
+
+  '@typescript/typescript-sunos-x64@7.0.2':
+    resolution: {integrity: sha512-dLJDGaLZ1D4HPQn62u1n8mBDkJREwMsAkCdkwd4Ieqw+x3TUyTsqY0YiBCtE6H6OzzgGk3iuZ3vFWRS+E8/d1g==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [sunos]
+
+  '@typescript/typescript-win32-arm64@7.0.2':
+    resolution: {integrity: sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ==}
+    engines: {node: '>=16.20.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@typescript/typescript-win32-x64@7.0.2':
+    resolution: {integrity: sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g==}
+    engines: {node: '>=16.20.0'}
+    cpu: [x64]
+    os: [win32]
+
+  '@typescript/vfs@1.6.5':
+    resolution: {integrity: sha512-gobLHQLmvQGJInFk31NvgMd1uYzRXsd8qgnOssyLD055R2QPnw1ubRbBQ4+T+5qC7IQVuYXdvNDE2G7tMDVHgw==}
     peerDependencies:
       typescript: '*'
 
@@ -1645,13 +1810,9 @@ packages:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
     engines: {node: '>=8'}
 
-  ansi-regex@5.0.1:
-    resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
-    engines: {node: '>=8'}
-
-  ansi-styles@4.3.0:
-    resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
-    engines: {node: '>=8'}
+  ansi-regex@6.4.0:
+    resolution: {integrity: sha512-KzTVk2tCWAHtYrvvvaP8bJKJq2pVinhLcGEQdtLIYPbmNGNyYe8QwNaTUYQp2J7/vIsUKt5QCqAfUkYyG9DkOw==}
+    engines: {node: '>=12'}
 
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
@@ -1683,15 +1844,9 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
-  bl@4.1.0:
-    resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
-
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
-
-  buffer@5.7.1:
-    resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
 
   buffer@6.0.3:
     resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
@@ -1722,13 +1877,9 @@ packages:
     resolution: {integrity: sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==}
     engines: {node: '>= 0.4'}
 
-  camelcase@6.3.0:
-    resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
-    engines: {node: '>=10'}
-
-  chalk@4.1.2:
-    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
-    engines: {node: '>=10'}
+  chalk@5.6.2:
+    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   chardet@2.2.0:
     resolution: {integrity: sha512-rddelWYNPRrXq6PtNEN2S3f6t9ILzvqaN5pVgi4kqt9jHQaXIial9PznB5iSPVlQSLNaaH22ItWz3EJtQ10+OA==}
@@ -1745,17 +1896,13 @@ packages:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
 
-  cli-cursor@3.1.0:
-    resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
-    engines: {node: '>=8'}
+  cli-cursor@5.0.0:
+    resolution: {integrity: sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==}
+    engines: {node: '>=18'}
 
   cli-spinners@2.9.2:
     resolution: {integrity: sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==}
     engines: {node: '>=6'}
-
-  clone@1.0.4:
-    resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
-    engines: {node: '>=0.8'}
 
   co-body@6.2.0:
     resolution: {integrity: sha512-Kbpv2Yd1NdL1V/V4cwLVxraHDV6K8ayohr2rmH0J87Er8+zJjcTa6dAn9QMPC9CRgU8+aNajKbSf1TzDB1yKPA==}
@@ -1764,13 +1911,6 @@ packages:
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
-
-  color-convert@2.0.1:
-    resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
-    engines: {node: '>=7.0.0'}
-
-  color-name@1.1.4:
-    resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -1805,12 +1945,24 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
+  cordis@4.0.0-rc.10:
+    resolution: {integrity: sha512-xG90nPNQxR272cC4lR/m5LHevegIJvdddQBlKdEAdGz3n+zgH5lsgkg8o9fc2P3T/f+pO5D7FN1HZvkNBiABnw==}
+    hasBin: true
+    peerDependencies:
+      '@cordisjs/plugin-include': ^1.1.0
+      '@cordisjs/plugin-loader': ^1.0.0-rc.7
+    peerDependenciesMeta:
+      '@cordisjs/plugin-include':
+        optional: true
+      '@cordisjs/plugin-loader':
+        optional: true
+
   cosmokit@1.8.1:
     resolution: {integrity: sha512-PDBv4l90xZKrUsZ0vtoycgZpO/j4iFsqJXrAxsyBDsnQRI7ZMJXIjgDJsKNjd5L8jnVnnlrDCdhkFbTncgCVjQ==}
 
-  cross-env@7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+  cross-env@10.1.0:
+    resolution: {integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==}
+    engines: {node: '>=20'}
     hasBin: true
 
   cross-spawn@7.0.6:
@@ -1839,15 +1991,8 @@ packages:
       supports-color:
         optional: true
 
-  decamelize@4.0.0:
-    resolution: {integrity: sha512-9iE1PgSik9HeIIw2JO94IidnE3eBoQrFJ3w7sFuzSX4DpmZ3v5sZpUiV5Swcf6mQEF+Y0ru8Neo+p+nyh2J+hQ==}
-    engines: {node: '>=10'}
-
   deep-equal@1.0.1:
     resolution: {integrity: sha512-bHtC0iYvWhyaTzvV3CZgPeZQqCOBGyGsVV7v4eevpdkLHfiSrXUdBG+qAuSz4RI70sszvjQ1QSZ98An1yNwpSw==}
-
-  defaults@1.0.4:
-    resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
 
   define-lazy-prop@2.0.0:
     resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
@@ -1874,9 +2019,9 @@ packages:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
-  detect-indent@6.1.0:
-    resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
-    engines: {node: '>=8'}
+  detect-indent@7.0.2:
+    resolution: {integrity: sha512-y+8xyqdGLL+6sh0tVeHcfP/QDd8gUgbasolJJpY7NgeQGSZ739bDtSiaiDgtoicy+mtYB81dKLxO9xRhCyIB3A==}
+    engines: {node: '>=12.20'}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -1920,6 +2065,9 @@ packages:
     resolution: {integrity: sha512-7ucUiDAxevyBE8JbXBTe9ofHhS047VmWMLoksE45zZ08XSnhnyG7WUuk3gmDbAklfVMHedb9sEV3OovPUWt+Sw==}
     peerDependencies:
       vue: ^3.2.0
+
+  emoji-regex@10.6.0:
+    resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
 
   encodeurl@1.0.2:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
@@ -1979,6 +2127,10 @@ packages:
     resolution: {integrity: sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==}
     engines: {node: '>=10'}
 
+  execa@9.6.1:
+    resolution: {integrity: sha512-9Be3ZoN4LmYR90tUoVu2te2BsbzHfhJyfEiAVfz7N5/zv+jduIfLrV2xdQXOHbaD6KgpGdO9PRPM1Y4Q9QkPkA==}
+    engines: {node: ^18.19.0 || >=20.5.0}
+
   exsolve@1.1.1:
     resolution: {integrity: sha512-9U/jZUgjnSGyntRr6y5Muu1MJcwFl6kPu7k8qLF0IMNfLqvw0NZ4nnVDq0RVoZ0RvCyumib4Ez3KYrVfilrw+g==}
 
@@ -2002,6 +2154,10 @@ packages:
       picomatch:
         optional: true
 
+  figures@6.1.0:
+    resolution: {integrity: sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==}
+    engines: {node: '>=18'}
+
   file-type@16.5.4:
     resolution: {integrity: sha512-/yFHK0aGjFEgDJjEKP0pWCplsPFPhwyfwevf/pVxiN0tmE4L9LmwWxWukdJSHdoCli4VgQLehjJtwQBnqmsKcw==}
     engines: {node: '>=10'}
@@ -2009,10 +2165,6 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
-
-  flat@5.0.2:
-    resolution: {integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==}
-    hasBin: true
 
   formidable@2.1.5:
     resolution: {integrity: sha512-Oz5Hwvwak/DCaXVVUtPn4oLMLLy1CdclLKO1LFgU7XzDpVMUU5UjlSLpGMocyQNNk8F6IJW9M/YdooSn2MRI+Q==}
@@ -2037,6 +2189,10 @@ packages:
     resolution: {integrity: sha512-SFdFmIJi+ybC0vjlHN0ZGVGHc3lgE0DxPAT0djjVg+kjOnSqclqmj0KQ7ykTOLP6YxoqOvuAODGdcHJn+43q3g==}
     engines: {node: '>= 0.4'}
 
+  get-east-asian-width@1.7.0:
+    resolution: {integrity: sha512-XjH1AECxf0giL2V1aU8vKyRR2ppRUb5c0EvT7zuJTokQ74bNo52zOtghqdWIqrhUD79fo3x0WfKZdOqxF6LG1Q==}
+    engines: {node: '>=18'}
+
   get-intrinsic@1.3.0:
     resolution: {integrity: sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==}
     engines: {node: '>= 0.4'}
@@ -2051,6 +2207,10 @@ packages:
   get-stream@6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
+
+  get-stream@9.0.1:
+    resolution: {integrity: sha512-kVCxPF3vQM/N0B1PmoqVUqgHP+EeVjmZSQn+1oCRPxd2P21P2F19lIgbR3HBosbB1PUhOAoctJnfEn2GbN2eZA==}
+    engines: {node: '>=18'}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -2119,6 +2279,10 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
 
+  human-signals@8.0.1:
+    resolution: {integrity: sha512-eKCa6bwnJhvxj14kZk5NCPc6Hb6BdsU9DZcOnmQKSnO1VKrfV0zCvtttPZUsBvjmNDn8rpcJfpwSYnHBjc95MQ==}
+    engines: {node: '>=18.18.0'}
+
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -2130,8 +2294,8 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
-  ignore@7.0.7:
-    resolution: {integrity: sha512-dML0wP6oak21rsNYCJpJB6O1BJIEwNpGrTw0URPfAk4hm0e3pRfCtzkfB6olBcXcVlU2rouCyz7lCyRB0OMVCA==}
+  ignore@7.0.12:
+    resolution: {integrity: sha512-/8UvqAPU9DGTI9k4mxtf49U37Isfwr8Uts96+SBHIkFxPJnHS0Ew4f00sM4Scd8V8EjM0jUNtVDdv1kPdt35lg==}
     engines: {node: '>= 4'}
 
   immutable@5.1.9:
@@ -2179,17 +2343,17 @@ packages:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
 
-  is-interactive@1.0.0:
-    resolution: {integrity: sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==}
-    engines: {node: '>=8'}
+  is-interactive@2.0.0:
+    resolution: {integrity: sha512-qP1vozQRI+BMOPcjFzrjXuQvdak2pHNUMZoeG2eRbiSqyvbEf/wQtEOTOX1guk6E3t36RkaqiSt8A/6YElNxLQ==}
+    engines: {node: '>=12'}
 
   is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
 
-  is-plain-obj@2.1.0:
-    resolution: {integrity: sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==}
-    engines: {node: '>=8'}
+  is-plain-obj@4.1.0:
+    resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
+    engines: {node: '>=12'}
 
   is-regex@1.2.1:
     resolution: {integrity: sha512-MjYsKHO5O7mCsmRGxWcLWheFqN9DJ/2TmngvjKXihe6efViPqc274+Fx/4fYj/r03+ESvBdTXK0V6tA3rgez1g==}
@@ -2199,9 +2363,17 @@ packages:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
     engines: {node: '>=8'}
 
-  is-unicode-supported@0.1.0:
-    resolution: {integrity: sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==}
-    engines: {node: '>=10'}
+  is-stream@4.0.1:
+    resolution: {integrity: sha512-Dnz92NInDqYckGEUJv689RbRiTSEHCQ7wOVeALbkOz999YpqT46yMRIGtSNl2iCL1waAZSx40+h59NV/EwzV/A==}
+    engines: {node: '>=18'}
+
+  is-unicode-supported@1.3.0:
+    resolution: {integrity: sha512-43r2mRvz+8JRIKnWJ+3j8JtjRKZ6GmjzfaE/qiBJnikNnYv/6bagRJ1kUhNk8R5EX/GkobD+r+sfxCPJsiKBLQ==}
+    engines: {node: '>=12'}
+
+  is-unicode-supported@2.1.0:
+    resolution: {integrity: sha512-mE00Gnza5EEB3Ds0HfMyllZzbBrmLOX3vfWoj9A9PEnTfratQ/BcaJOuMhnkhjXvb2+FkY3VuHqtAGpTPmglFQ==}
+    engines: {node: '>=18'}
 
   is-wsl@2.2.0:
     resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
@@ -2259,8 +2431,8 @@ packages:
     resolution: {integrity: sha512-3An0GCLDSR34tsCO4H8Tef8Pp2ngtaZDAZnsWJYelqXUK5wyiHvGItgK/xcSkmHLSTn1Jcho1mRQs2ehRzvKKw==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
 
-  koishi-plugin-adapter-onebot@6.9.4:
-    resolution: {integrity: sha512-Egr+Rbnr4UU68gQxyNNjbu9xNMnjdtRoigw4v0Af0AZ7JGpuu1wZFel+p8VOqabL7aqOyZ2jRikGpncKG/6MjQ==}
+  koishi-plugin-adapter-onebot@6.9.5:
+    resolution: {integrity: sha512-lyuoFqhAUyhaTe0OKXL3RPY7PTT9s31dkKy/O3k6eYdu3jYfrLzVe0pIod/drZxpiwIyXlwdItN+K0VGieMRtw==}
     peerDependencies:
       koishi: ^4.18.6
 
@@ -2283,10 +2455,6 @@ packages:
 
   koishi@4.18.11:
     resolution: {integrity: sha512-WPpPFb5G/bChcV+cKF4EU3o5kmdQHc0Wg9nWP2/QT4dTzADSIYOmgwssO706fo97tfGF8Xa716CINHTzAPbXlg==}
-    hasBin: true
-
-  koishi@4.18.9:
-    resolution: {integrity: sha512-RDPSjWr4eRi0dNHNFNO0Z38mkgIIl+tbjHTFIxdOYsLTG+obEn5PVYie7sPmmtGuL1mJU6oTBsWJ6cX3V/y1ZA==}
     hasBin: true
 
   kolorist@1.8.0:
@@ -2313,9 +2481,9 @@ packages:
   lodash@4.18.1:
     resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
-  log-symbols@4.1.0:
-    resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
-    engines: {node: '>=10'}
+  log-symbols@6.0.0:
+    resolution: {integrity: sha512-i24m8rpwhmPIS4zscNzK6MSEhk0DUWa/8iYQWxhffV8jkI4Phvs3F+quL5xvS0gdQR0FyTCMMH33Y78dDTzzIw==}
+    engines: {node: '>=18'}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -2375,6 +2543,10 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
+  mimic-function@5.0.1:
+    resolution: {integrity: sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==}
+    engines: {node: '>=18'}
+
   minato@3.7.0:
     resolution: {integrity: sha512-xAzwgAYq5oGVjIe+d5iSPhNjxqU6Pxp7C4d+W1ux5v5yvobCVZx88SQB53IrfIEUPJIsEwebd7DM/aCDhc+u4g==}
     peerDependencies:
@@ -2416,6 +2588,10 @@ packages:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
 
+  npm-run-path@6.0.0:
+    resolution: {integrity: sha512-9qny7Z9DsQU8Ou39ERsPU4OZQlSTP47ShQzuKZ6PRXpYLtIFgl/DEBYEXKlvcEa+9tHVcK8CF81Y2V72qaZhWA==}
+    engines: {node: '>=18'}
+
   ns-require@1.1.4:
     resolution: {integrity: sha512-Zk25pQj4u5i6DS0vaNO5aSSXewybVqqVVjz8AOxFy9DNPtmu3jlexMz6kUXLV2oB+X6iQeAnHXSzj5Qz/IeDaQ==}
 
@@ -2437,6 +2613,10 @@ packages:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==}
     engines: {node: '>=6'}
 
+  onetime@7.0.0:
+    resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
+    engines: {node: '>=18'}
+
   only@0.0.2:
     resolution: {integrity: sha512-Fvw+Jemq5fjjyWz6CpKx6w9s7xxqo3+JCyM0WXWeCSOboZ8ABkyvP8ID4CZuChA/wxSx+XSJmdOm8rGVyJ1hdQ==}
 
@@ -2444,16 +2624,24 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  ora@5.4.1:
-    resolution: {integrity: sha512-5b6Y85tPxZZ7QytO+BQzysW31HJku27cRIlkbAXaNx+BdcVi+LlRFmVXzeF6a7JCwJpyw5c4b+YSVImQIrBpuQ==}
-    engines: {node: '>=10'}
+  ora@8.2.0:
+    resolution: {integrity: sha512-weP+BZ8MVNnlCm8c0Qdc1WSWq4Qn7I+9CJGm7Qali6g44e/PUzbjNqJX5NJ9ljlNMosfJvg1fKEGILklK9cwnw==}
+    engines: {node: '>=18'}
 
   p-map@4.0.0:
     resolution: {integrity: sha512-/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==}
     engines: {node: '>=10'}
 
+  p-map@7.1.1:
+    resolution: {integrity: sha512-6Lh3jQPLthYujSrlw6ccWXBGZTkoTCz27Hd92g79LH/kjAbgoEu0t442cCCNbegPSJsA0lwDX8z0bcKtkpA32g==}
+    engines: {node: '>=18'}
+
   package-manager-detector@1.8.0:
     resolution: {integrity: sha512-yQA4H19AmPEoMUeavPMDIe1higySl/gH/yaQrkT/s07Qp+7pp2hYz30N3z2l5BkjVkF9Ow6o0wjJamm2y7Sn0A==}
+
+  parse-ms@4.0.0:
+    resolution: {integrity: sha512-TXfryirbmq34y8QBwgqCVLi+8oA3oWx2eAnSn62ITyEhEYaWRlVZ2DvMM9eZbMs/RfxPu/PK/aBLyGj4IrqMHw==}
+    engines: {node: '>=18'}
 
   parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
@@ -2462,6 +2650,10 @@ packages:
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
+
+  path-key@4.0.0:
+    resolution: {integrity: sha512-haREypq7xkM7ErfgIyA0z+Bj4AGKlMSdlQE2jvJo6huWD1EdkKYV+G/T4nq0YEF2vgTT8kqMFKo1uHn950r4SQ==}
+    engines: {node: '>=12'}
 
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
@@ -2511,6 +2703,10 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  pretty-ms@9.3.1:
+    resolution: {integrity: sha512-HzMy3Geq23nVALD/M2LliU+F+M+gVNsvkQWWqeBZ8HDiCgzo6YPJ/Omrmtq24EFrIsk0a3EkQGEd7bDOo+IhGA==}
+    engines: {node: '>=18'}
+
   process@0.11.10:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
@@ -2536,10 +2732,6 @@ packages:
     resolution: {integrity: sha512-s4VSOf6yN0rvbRZGxs8Om5CWj6seneMwK3oDb4lWDH0UPhWcxwOWw5+qk24bxq87szX1ydrwylIOp2uG1ojUpA==}
     engines: {node: '>= 0.8'}
 
-  readable-stream@3.6.2:
-    resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
-    engines: {node: '>= 6'}
-
   readable-stream@4.7.0:
     resolution: {integrity: sha512-oIGGmcpTLwPga8Bn6/Z75SVaH1z5dUut2ibSyAMVhmUggWpmDn2dapB0n7f8nwaSiRtepAsfJyfXIO5DCVAODg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2559,9 +2751,9 @@ packages:
   reggol@1.7.1:
     resolution: {integrity: sha512-0Vr1vRYDFnsA14BipkHRn3+4FxlZxQJ4VQG2pFE2obSrR68hTHVbbQzS3/ZAHNb6l/+ThaJrc5BPgrYDM3yNyg==}
 
-  restore-cursor@3.1.0:
-    resolution: {integrity: sha512-l+sSefzHpj5qimhFSE5a8nufZYAM3sBSVMAPtYkmC+4EH2anSGaEMXSD0izRQbu9nfyQ9y5JrVmp7E8oZrUjvA==}
-    engines: {node: '>=8'}
+  restore-cursor@5.1.0:
+    resolution: {integrity: sha512-oMA2dcrw6u0YfxJQXm342bFKX/E4sG9rbTzO9ptUcR/e8A33cHuvStiYOwH7fszkZlZ1z/ta9AAoPk2F4qIOHA==}
+    engines: {node: '>=18'}
 
   reusify@1.1.0:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
@@ -2635,6 +2827,10 @@ packages:
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
+  signal-exit@4.1.0:
+    resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
+    engines: {node: '>=14'}
+
   sirv@3.0.2:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
@@ -2674,24 +2870,32 @@ packages:
     resolution: {integrity: sha512-DvEy55V3DB7uknRo+4iOGT5fP1slR8wQohVdknigZPMpMstaKJQWhwiYBACJE3Ul2pTnATihhBYnRhZQHGBiRw==}
     engines: {node: '>= 0.8'}
 
+  stdin-discarder@0.2.2:
+    resolution: {integrity: sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==}
+    engines: {node: '>=18'}
+
+  string-width@7.2.0:
+    resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
+    engines: {node: '>=18'}
+
   string_decoder@1.3.0:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
 
-  strip-ansi@6.0.1:
-    resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
-    engines: {node: '>=8'}
+  strip-ansi@7.2.0:
+    resolution: {integrity: sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==}
+    engines: {node: '>=12'}
 
   strip-final-newline@2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
     engines: {node: '>=6'}
 
+  strip-final-newline@4.0.0:
+    resolution: {integrity: sha512-aulFJcD6YK8V1G7iRB5tigAP4TsHBZZrOV8pjV++zdUwmeV8uzbY7yn6h9MswN62adStNZFuCIx4haBnRuMDaw==}
+    engines: {node: '>=18'}
+
   strtok3@6.3.0:
     resolution: {integrity: sha512-fZtbhtvI9I48xDSywd/somNqgUHl2L2cstmXCCif0itOf96jeW18MBSyrLuNicYQVkvpOxkZtkzujiTJ9LW5Jw==}
     engines: {node: '>=10'}
-
-  supports-color@7.2.0:
-    resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
-    engines: {node: '>=8'}
 
   supports-color@8.1.1:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
@@ -2752,9 +2956,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
-    engines: {node: '>=14.17'}
+  typescript@7.0.2:
+    resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
+    engines: {node: '>=16.20.0'}
     hasBin: true
 
   ufo@1.6.4:
@@ -2763,8 +2967,8 @@ packages:
   unconfig@0.6.1:
     resolution: {integrity: sha512-cVU+/sPloZqOyJEAfNwnQSFCzFrZm85vcVkryH7lnlB/PiTycUkAjt5Ds79cfIshGOZ+M5v3PBDnKgpmlE5DtA==}
 
-  undici-types@7.18.2:
-    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   undici@6.28.0:
     resolution: {integrity: sha512-LIY910g9TI13YS95lrMFrs8Rm/u/irgHeTWoKCoteeJ04CUJ92eEfj0rVn+7VKMPBpUPiUoBKfhNyLI23EE/KA==}
@@ -2793,9 +2997,6 @@ packages:
   unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
-
-  util-deprecate@1.0.2:
-    resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
@@ -2873,9 +3074,6 @@ packages:
       typescript:
         optional: true
 
-  wcwidth@1.0.1:
-    resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
-
   which-pm-runs@1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
     engines: {node: '>=4'}
@@ -2905,32 +3103,23 @@ packages:
     engines: {node: '>= 0.10.0'}
     hasBin: true
 
-  yakumo-esbuild@1.0.0:
-    resolution: {integrity: sha512-3HBvLm16mry/QeCfy2uogtd5zF7GpbEATttQ8HjXsQnflFV1jNeLGrMrEu/HfaGxwBwRT0OJOtktUrt3EjnToQ==}
+  yakumo-esbuild@3.0.2:
+    resolution: {integrity: sha512-o9bFv9Y6HYe+4e1e1YnGKlGHROzU1Hh98lKR49XpgFYQDvb7IP17oqJ73YEDR4z5Lt/0QbxlqIlsdih0akHbKg==}
     peerDependencies:
       esbuild: '*'
-      yakumo: ^1.0.0
+      typescript: '*'
+      yakumo: ^3.1.1
 
-  yakumo-tsc@1.0.0:
-    resolution: {integrity: sha512-GXKTNaCmVVTPgZKbD+Nb3+sbGEXKZeALlRjRkDUxE27Artk+4ny8bwcimbWFvvPJk57LnzCMWqefzNz4jBiBlQ==}
+  yakumo-tsc@3.0.1:
+    resolution: {integrity: sha512-ZFGYlJaVcI7m9r1NKybXn752SXnRVvc2hzzIu/RMt6+Fbn2oNkL5n/lMYxnaP0SLF/Vkr37Oig4TFDH5zLhDVA==}
     peerDependencies:
       typescript: '*'
-      yakumo: ^1.0.0
+      yakumo: ^3.0.2
 
-  yakumo@1.0.0:
-    resolution: {integrity: sha512-ayEj07jQR4OsvZlTKstzU8x7X5+ey/3/HR/5+ZPTFnAR0Pc30IPteub87LU3loqli3Kzj+isVHRW1oa1MA8eAw==}
-    engines: {node: ^18.0.0 || >=20.0.0}
+  yakumo@3.2.1:
+    resolution: {integrity: sha512-9U+MDwuYHDqc30GfnsoNk6Tzze4tBnTKY2/2HoIXDSF6g0vHKSjgqO7pnTdsEDpiAy/2o05wu/4Gw0zRn3kAzA==}
+    engines: {node: ^20.0.0 || >=22.0.0}
     hasBin: true
-    peerDependencies:
-      cordis: ^3.18.1
-
-  yargs-parser@21.1.1:
-    resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}
-    engines: {node: '>=12'}
-
-  yargs-unparser@2.0.0:
-    resolution: {integrity: sha512-7pRTIA9Qc1caZ0bZ6RYRGbHJthJWuakf+WmHK0rVeLkNrrGhfoabBNdue6kdINI6r4if7ocq9aD/n7xwKOdzOA==}
-    engines: {node: '>=10'}
 
   ylru@1.4.0:
     resolution: {integrity: sha512-2OQsPNEmBCvXuFlIni/a+Rn+R2pHW9INm0BxXJ4hVDA8TirqMj+J/Rp9ItLatT/5pZqWwefVrTQcHpixsxnVlA==}
@@ -2938,6 +3127,10 @@ packages:
 
   yml-register@1.2.5:
     resolution: {integrity: sha512-Elz+U+fPS04GmMn+y8b8Sm7Za99aG+kEMwN08hiHU6WB3VSNXHW5uiJOMKTb3QwZf/WVk2obfh8irMDVHFbkpw==}
+
+  yoctocolors@2.2.0:
+    resolution: {integrity: sha512-xYqdZFUK/VYazNl/oCDYN+3WloWQwMfZxBoiNt6qNyk+xfOdi598muWE42rNZFp1kNOiqW936q5RhUdnpqElSg==}
+    engines: {node: '>=18'}
 
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
@@ -2975,51 +3168,51 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bufbuild/buf-darwin-arm64@1.72.0':
+  '@bufbuild/buf-darwin-arm64@1.73.0':
     optional: true
 
-  '@bufbuild/buf-darwin-x64@1.72.0':
+  '@bufbuild/buf-darwin-x64@1.73.0':
     optional: true
 
-  '@bufbuild/buf-linux-aarch64@1.72.0':
+  '@bufbuild/buf-linux-aarch64@1.73.0':
     optional: true
 
-  '@bufbuild/buf-linux-armv7@1.72.0':
+  '@bufbuild/buf-linux-armv7@1.73.0':
     optional: true
 
-  '@bufbuild/buf-linux-x64@1.72.0':
+  '@bufbuild/buf-linux-x64@1.73.0':
     optional: true
 
-  '@bufbuild/buf-win32-arm64@1.72.0':
+  '@bufbuild/buf-win32-arm64@1.73.0':
     optional: true
 
-  '@bufbuild/buf-win32-x64@1.72.0':
+  '@bufbuild/buf-win32-x64@1.73.0':
     optional: true
 
-  '@bufbuild/buf@1.72.0':
+  '@bufbuild/buf@1.73.0':
     optionalDependencies:
-      '@bufbuild/buf-darwin-arm64': 1.72.0
-      '@bufbuild/buf-darwin-x64': 1.72.0
-      '@bufbuild/buf-linux-aarch64': 1.72.0
-      '@bufbuild/buf-linux-armv7': 1.72.0
-      '@bufbuild/buf-linux-x64': 1.72.0
-      '@bufbuild/buf-win32-arm64': 1.72.0
-      '@bufbuild/buf-win32-x64': 1.72.0
+      '@bufbuild/buf-darwin-arm64': 1.73.0
+      '@bufbuild/buf-darwin-x64': 1.73.0
+      '@bufbuild/buf-linux-aarch64': 1.73.0
+      '@bufbuild/buf-linux-armv7': 1.73.0
+      '@bufbuild/buf-linux-x64': 1.73.0
+      '@bufbuild/buf-win32-arm64': 1.73.0
+      '@bufbuild/buf-win32-x64': 1.73.0
 
-  '@bufbuild/protobuf@2.12.1': {}
+  '@bufbuild/protobuf@2.16.0': {}
 
-  '@bufbuild/protoc-gen-es@2.12.1(@bufbuild/protobuf@2.12.1)':
+  '@bufbuild/protoc-gen-es@2.16.0(@bufbuild/protobuf@2.16.0)':
     dependencies:
-      '@bufbuild/protoplugin': 2.12.1
+      '@bufbuild/protoplugin': 2.16.0
     optionalDependencies:
-      '@bufbuild/protobuf': 2.12.1
+      '@bufbuild/protobuf': 2.16.0
     transitivePeerDependencies:
       - supports-color
 
-  '@bufbuild/protoplugin@2.12.1':
+  '@bufbuild/protoplugin@2.16.0':
     dependencies:
-      '@bufbuild/protobuf': 2.12.1
-      '@typescript/vfs': 1.6.4(typescript@5.4.5)
+      '@bufbuild/protobuf': 2.16.0
+      '@typescript/vfs': 1.6.5(typescript@5.4.5)
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
@@ -3041,6 +3234,13 @@ snapshots:
       cosmokit: 1.8.1
       reggol: 1.7.1
 
+  '@cordisjs/plugin-cli@1.1.2(@cordisjs/plugin-loader@1.0.0-rc.7)(cordis@4.0.0-rc.10)':
+    dependencies:
+      '@cordisjs/plugin-loader': 1.0.0-rc.7(cordis@4.0.0-rc.10)
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
+      cosmokit: 1.8.1
+      kleur: 4.1.5
+
   '@cordisjs/plugin-http@0.6.3(cordis@3.18.1)':
     dependencies:
       cordis: 3.18.1
@@ -3052,10 +3252,33 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@cordisjs/plugin-proxy-agent@0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)':
+  '@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10)':
     dependencies:
-      '@cordisjs/plugin-http': 0.6.3(cordis@3.18.1)
-      cordis: 3.18.1
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
+      cosmokit: 1.8.1
+      file-type: 16.5.4
+      mime-db: 1.54.0
+      ws: 8.21.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@cordisjs/plugin-include@1.1.0(@cordisjs/plugin-loader@1.0.0-rc.7)(cordis@4.0.0-rc.10)':
+    dependencies:
+      '@cordisjs/plugin-loader': 1.0.0-rc.7(cordis@4.0.0-rc.10)
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
+      cosmokit: 1.8.1
+      js-yaml: 4.3.2
+
+  '@cordisjs/plugin-loader@1.0.0-rc.7(cordis@4.0.0-rc.10)':
+    dependencies:
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
+      cosmokit: 1.8.1
+
+  '@cordisjs/plugin-proxy-agent@0.3.3(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)':
+    dependencies:
+      '@cordisjs/plugin-http': 0.6.3(cordis@4.0.0-rc.10)
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
       socks: 2.8.9
@@ -3064,19 +3287,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@cordisjs/plugin-server-temp@0.5.0(@cordisjs/plugin-server@0.2.9(cordis@3.18.1))(cordis@3.18.1)':
+  '@cordisjs/plugin-server-temp@0.5.0(@cordisjs/plugin-server@0.2.9(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7))':
     dependencies:
-      '@cordisjs/plugin-server': 0.2.9(cordis@3.18.1)
-      cordis: 3.18.1
+      '@cordisjs/plugin-server': 0.2.9(cordis@4.0.0-rc.10)
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
       cosmokit: 1.8.1
 
-  '@cordisjs/plugin-server@0.2.9(cordis@3.18.1)':
+  '@cordisjs/plugin-server@0.2.9(cordis@4.0.0-rc.10)':
     dependencies:
       '@koa/router': 10.1.1
       '@types/koa': 2.15.2
       '@types/koa__router': 8.0.11
       '@types/ws': 8.18.1
-      cordis: 3.18.1
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
       cosmokit: 1.8.1
       koa: 2.16.4
       koa-body: 6.0.1
@@ -3103,9 +3326,11 @@ snapshots:
 
   '@ctrl/tinycolor@3.6.1': {}
 
-  '@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@5.9.3))':
+  '@element-plus/icons-vue@2.3.2(vue@3.5.42(typescript@7.0.2))':
     dependencies:
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
+
+  '@epic-web/invariant@1.0.0': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -3390,25 +3615,25 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3)':
+  '@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2)':
     dependencies:
-      '@koishijs/components': 1.5.22(@vueuse/core@11.3.0(vue@3.5.42(typescript@5.9.3)))(element-plus@2.7.7(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
-      '@maikolib/vite-plugin-yaml': 1.1.1(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))
+      '@koishijs/components': 1.5.22(@vueuse/core@11.3.0(vue@3.5.42(typescript@7.0.2)))(element-plus@2.7.7(vue@3.5.42(typescript@7.0.2)))(vue@3.5.42(typescript@7.0.2))
+      '@maikolib/vite-plugin-yaml': 1.1.1(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))
       '@satorijs/protocol': 1.7.0
-      '@vitejs/plugin-vue': 5.2.4(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))
-      '@vueuse/core': 11.3.0(vue@3.5.42(typescript@5.9.3))
+      '@vitejs/plugin-vue': 5.2.4(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))
+      '@vueuse/core': 11.3.0(vue@3.5.42(typescript@7.0.2))
       cac: 6.7.14
       cordis: 3.18.1
       cosmokit: 1.8.1
-      element-plus: 2.7.7(vue@3.5.42(typescript@5.9.3))
-      marked-vue: 1.3.0(vue@3.5.42(typescript@5.9.3))
+      element-plus: 2.7.7(vue@3.5.42(typescript@7.0.2))
+      marked-vue: 1.3.0(vue@3.5.42(typescript@7.0.2))
       ns-require: 1.1.4
       sass: 1.103.1
-      unocss: 0.65.4(postcss@8.5.26)(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
-      vue: 3.5.42(typescript@5.9.3)
-      vue-i18n: 9.14.5(vue@3.5.42(typescript@5.9.3))
-      vue-router: 4.6.4(vue@3.5.42(typescript@5.9.3))
+      unocss: 0.65.4(postcss@8.5.26)(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
+      vue: 3.5.42(typescript@7.0.2)
+      vue-i18n: 9.14.5(vue@3.5.42(typescript@7.0.2))
+      vue-router: 4.6.4(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - '@types/node'
       - '@unocss/webpack'
@@ -3424,34 +3649,21 @@ snapshots:
       - terser
       - typescript
 
-  '@koishijs/components@1.5.22(@vueuse/core@11.3.0(vue@3.5.42(typescript@5.9.3)))(element-plus@2.7.7(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))':
+  '@koishijs/components@1.5.22(@vueuse/core@11.3.0(vue@3.5.42(typescript@7.0.2)))(element-plus@2.7.7(vue@3.5.42(typescript@7.0.2)))(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@satorijs/element': 3.2.0
       cosmokit: 1.8.1
-      schemastery-vue: 7.3.15(@vueuse/core@11.3.0(vue@3.5.42(typescript@5.9.3)))(element-plus@2.7.7(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
+      schemastery-vue: 7.3.15(@vueuse/core@11.3.0(vue@3.5.42(typescript@7.0.2)))(element-plus@2.7.7(vue@3.5.42(typescript@7.0.2)))(vue@3.5.42(typescript@7.0.2))
+      vue: 3.5.42(typescript@7.0.2)
     transitivePeerDependencies:
       - '@vueuse/core'
       - element-plus
 
-  '@koishijs/console@5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/console@5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
   '@koishijs/core@4.18.11':
-    dependencies:
-      '@koishijs/i18n-utils': 1.0.1
-      '@koishijs/utils': 7.3.2
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
-      cordis: 3.18.1
-      cosmokit: 1.8.1
-      fastest-levenshtein: 1.0.16
-      minato: 3.7.0(cordis@3.18.1)
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-
-  '@koishijs/core@4.18.9':
     dependencies:
       '@koishijs/i18n-utils': 1.0.1
       '@koishijs/utils': 7.3.2
@@ -3475,289 +3687,247 @@ snapshots:
       js-yaml: 4.3.2
       ns-require: 1.1.4
 
-  '@koishijs/loader@4.6.11(@koishijs/core@4.18.9)':
+  '@koishijs/plugin-actions@0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/core': 4.18.9
-      dotenv: 16.6.1
-      js-yaml: 4.3.2
-      ns-require: 1.1.4
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/loader@4.6.9(@koishijs/core@4.18.9)':
+  '@koishijs/plugin-adapter-discord@4.6.2(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/core': 4.18.9
-      dotenv: 16.6.1
-      js-yaml: 4.3.2
-      ns-require: 1.1.4
-
-  '@koishijs/plugin-actions@0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
-    dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-
-  '@koishijs/plugin-adapter-discord@4.6.2(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
-    dependencies:
-      '@satorijs/adapter-discord': 4.6.2(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/adapter-discord': 4.6.2(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-adapter-kook@4.8.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-adapter-kook@4.8.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/adapter-kook': 4.8.1(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/adapter-kook': 4.8.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-adapter-qq@4.14.0(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-adapter-qq@4.14.0(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/adapter-qq': 4.14.0(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/adapter-qq': 4.14.0(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-adapter-satori@1.5.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-adapter-satori@1.5.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/adapter-satori': 1.5.1(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/adapter-satori': 1.5.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-adapter-telegram@4.5.11(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-adapter-telegram@4.5.11(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/adapter-telegram': 4.5.11(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/adapter-telegram': 4.5.11(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-admin@2.0.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-admin@2.0.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       throttle-debounce: 3.0.1
     optionalDependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
 
-  '@koishijs/plugin-analytics@2.0.6(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-analytics@2.0.6(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-auth@4.1.7(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-auth@4.1.7(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-bind@1.5.1(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-bind@1.5.1(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-commands@3.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-commands@3.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     optionalDependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
 
-  '@koishijs/plugin-config@2.8.6(@koishijs/loader@4.6.11(@koishijs/core@4.18.9))(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-config@2.8.7(@koishijs/loader@4.6.11(@koishijs/core@4.18.11))(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/loader': 4.6.11(@koishijs/core@4.18.9)
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/registry': 7.0.3
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/loader': 4.6.11(@koishijs/core@4.18.11)
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/registry': 7.0.4
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       open: 8.4.2
       uuid: 8.3.2
       ws: 8.21.3
     optionalDependencies:
-      '@koishijs/client': 5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3)
+      '@koishijs/client': 5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  '@koishijs/plugin-database-sqlite@4.7.0(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))(minato@3.7.0(cordis@3.18.1))':
+  '@koishijs/plugin-database-sqlite@4.7.0(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))(minato@3.7.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@minatojs/driver-sqlite': 4.7.0(minato@3.7.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@minatojs/driver-sqlite': 4.7.0(minato@3.7.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - minato
 
-  '@koishijs/plugin-echo@2.2.5(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-echo@2.2.5(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-explorer@1.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-explorer@1.5.5(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       anymatch: 3.1.3
       chardet: 2.2.0
       chokidar: 3.6.0
       file-type: 16.5.4
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       throttle-debounce: 3.0.1
 
-  '@koishijs/plugin-help@2.4.6(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-help@2.4.6(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-hmr@1.2.9(@koishijs/loader@4.6.11(@koishijs/core@4.18.9))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-hmr@1.2.9(@koishijs/loader@4.6.11(@koishijs/core@4.18.11))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
       '@babel/code-frame': 7.29.7
-      '@koishijs/loader': 4.6.11(@koishijs/core@4.18.9)
+      '@koishijs/loader': 4.6.11(@koishijs/core@4.18.11)
       chokidar: 3.6.0
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-http@0.6.3(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-http@0.6.3(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-http': 0.6.3(cordis@3.18.1)
-      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@cordisjs/plugin-http': 0.6.3(cordis@4.0.0-rc.10)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - bufferutil
       - cordis
       - utf-8-validate
 
-  '@koishijs/plugin-http@0.6.3(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-insight@3.5.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-http': 0.6.3(cordis@3.18.1)
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-    transitivePeerDependencies:
-      - bufferutil
-      - cordis
-      - utf-8-validate
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-insight@3.5.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-inspect@1.1.7(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-inspect@1.1.7(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-locales@2.5.3(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-
-  '@koishijs/plugin-locales@2.5.3(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
-    dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       js-yaml: 4.3.2
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     optionalDependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
 
-  '@koishijs/plugin-logger@2.6.9(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-logger@2.6.9(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     optionalDependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
 
-  '@koishijs/plugin-market@2.11.11(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-market@2.11.12(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/registry': 7.0.3
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/registry': 7.0.4
       execa: 5.1.1
       get-registry: 1.2.0
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       ns-require: 1.1.4
       p-map: 4.0.0
       semver: 7.8.5
       which-pm-runs: 1.1.0
     optionalDependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
 
-  '@koishijs/plugin-notifier@1.2.1(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-notifier@1.2.1(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-oobe@0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-oobe@0.0.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-proxy-agent@0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-proxy-agent@0.3.3(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@cordisjs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@cordisjs/plugin-http'
       - cordis
       - supports-color
 
-  '@koishijs/plugin-proxy-agent@0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-sandbox@3.4.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-    transitivePeerDependencies:
-      - '@cordisjs/plugin-http'
-      - cordis
-      - supports-color
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  '@koishijs/plugin-sandbox@3.4.2(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-server-satori@2.9.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-
-  '@koishijs/plugin-server-satori@2.9.1(@satorijs/core@4.6.0(cordis@3.18.1))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
-    dependencies:
-      '@satorijs/plugin-server': 2.9.1(@satorijs/core@4.6.0(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@satorijs/plugin-server': 2.9.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@satorijs/core'
 
-  '@koishijs/plugin-server-temp@1.5.0(@cordisjs/plugin-server@0.2.9(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-server-temp@1.5.0(@cordisjs/plugin-server@0.2.9(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-server-temp': 0.5.0(@cordisjs/plugin-server@0.2.9(cordis@3.18.1))(cordis@3.18.1)
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@cordisjs/plugin-server-temp': 0.5.0(@cordisjs/plugin-server@0.2.9(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - '@cordisjs/plugin-server'
       - cordis
 
-  '@koishijs/plugin-server@3.2.9(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-server@3.2.9(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-server': 0.2.9(cordis@3.18.1)
-      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@cordisjs/plugin-server': 0.2.9(cordis@4.0.0-rc.10)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
     transitivePeerDependencies:
       - bufferutil
       - cordis
       - supports-color
       - utf-8-validate
 
-  '@koishijs/plugin-server@3.2.9(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
+  '@koishijs/plugin-status@7.4.10(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))':
     dependencies:
-      '@cordisjs/plugin-server': 0.2.9(cordis@3.18.1)
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
-    transitivePeerDependencies:
-      - bufferutil
-      - cordis
-      - supports-color
-      - utf-8-validate
-
-  '@koishijs/plugin-status@7.4.10(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))':
-    dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       envinfo: 7.21.0
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       which-pm-runs: 1.1.0
 
-  '@koishijs/registry@7.0.3':
+  '@koishijs/registry@7.0.4':
     dependencies:
       cosmokit: 1.8.1
       p-map: 4.0.0
       semver: 7.8.5
 
-  '@koishijs/scripts@4.6.2(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))':
+  '@koishijs/scripts@4.6.2(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))':
     dependencies:
-      '@koishijs/client': 5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3)
+      '@koishijs/client': 5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2)
       cac: 6.7.14
       fs-extra: 10.1.0
       globby: 11.1.0
@@ -3771,26 +3941,26 @@ snapshots:
       cosmokit: 1.8.1
       inaba: 1.1.1
 
-  '@maikolib/vite-plugin-yaml@1.1.1(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))':
+  '@maikolib/vite-plugin-yaml@1.1.1(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))':
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.63.1)
       js-yaml: 4.1.0
       tosource: 2.0.0-alpha.3
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
     transitivePeerDependencies:
       - rollup
 
-  '@minatojs/driver-sqlite@4.7.0(minato@3.7.0(cordis@3.18.1))':
+  '@minatojs/driver-sqlite@4.7.0(minato@3.7.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@minatojs/sql-utils': 5.6.0(minato@3.7.0(cordis@3.18.1))
+      '@minatojs/sql-utils': 5.6.0(minato@3.7.0(cordis@4.0.0-rc.10))
       '@minatojs/sql.js': 3.1.0
       cosmokit: 1.8.1
-      minato: 3.7.0(cordis@3.18.1)
+      minato: 3.7.0(cordis@4.0.0-rc.10)
 
-  '@minatojs/sql-utils@5.6.0(minato@3.7.0(cordis@3.18.1))':
+  '@minatojs/sql-utils@5.6.0(minato@3.7.0(cordis@4.0.0-rc.10))':
     dependencies:
       cosmokit: 1.8.1
-      minato: 3.7.0(cordis@3.18.1)
+      minato: 3.7.0(cordis@4.0.0-rc.10)
 
   '@minatojs/sql.js@3.1.0': {}
 
@@ -3810,6 +3980,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.3
+
+  '@npm/types@2.1.0': {}
 
   '@paralleldrive/cuid2@2.3.1':
     dependencies:
@@ -3965,25 +4137,25 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.63.1':
     optional: true
 
-  '@satorijs/adapter-discord@4.6.2(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/adapter-discord@4.6.2(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
 
-  '@satorijs/adapter-kook@4.8.1(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/adapter-kook@4.8.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
 
-  '@satorijs/adapter-qq@4.14.0(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/adapter-qq@4.14.0(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
 
-  '@satorijs/adapter-satori@1.5.1(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/adapter-satori@1.5.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
 
-  '@satorijs/adapter-telegram@4.5.11(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/adapter-telegram@4.5.11(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
       file-type: 16.5.4
 
   '@satorijs/core@4.6.0(cordis@3.18.1)':
@@ -3998,13 +4170,25 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
+  '@satorijs/core@4.6.0(cordis@4.0.0-rc.10)':
+    dependencies:
+      '@cordisjs/plugin-http': 0.6.3(cordis@4.0.0-rc.10)
+      '@satorijs/element': 3.2.0
+      '@satorijs/protocol': 1.7.0
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
+      cosmokit: 1.8.1
+      path-to-regexp: 8.4.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@satorijs/element@3.2.0':
     dependencies:
       cosmokit: 1.8.1
 
-  '@satorijs/plugin-server@2.9.1(@satorijs/core@4.6.0(cordis@3.18.1))':
+  '@satorijs/plugin-server@2.9.1(@satorijs/core@4.6.0(cordis@4.0.0-rc.10))':
     dependencies:
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
       cosmokit: 1.8.1
 
   '@satorijs/protocol@1.7.0':
@@ -4012,14 +4196,18 @@ snapshots:
       '@satorijs/element': 3.2.0
       cosmokit: 1.8.1
 
-  '@shigma/esbuild-register@1.1.1(esbuild@0.23.1)':
+  '@sec-ant/readable-stream@0.4.1': {}
+
+  '@shigma/esbuild-register@1.1.1(esbuild@0.28.2)':
     dependencies:
       debug: 4.4.3
-      esbuild: 0.23.1
+      esbuild: 0.28.2
     transitivePeerDependencies:
       - supports-color
 
   '@sindresorhus/merge-streams@2.3.0': {}
+
+  '@sindresorhus/merge-streams@4.0.0': {}
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -4029,21 +4217,21 @@ snapshots:
 
   '@types/accepts@1.3.7':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/co-body@6.1.3':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
       '@types/qs': 6.15.1
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/content-disposition@0.5.9': {}
 
@@ -4052,13 +4240,13 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/express': 5.0.6
       '@types/keygrip': 1.0.6
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/estree@1.0.9': {}
 
   '@types/express-serve-static-core@5.1.3':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
       '@types/qs': 6.15.1
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -4071,7 +4259,7 @@ snapshots:
 
   '@types/formidable@2.0.6':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/http-assert@1.5.6': {}
 
@@ -4092,7 +4280,7 @@ snapshots:
       '@types/http-errors': 2.0.5
       '@types/keygrip': 1.0.6
       '@types/koa-compose': 3.2.9
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/koa__router@8.0.11':
     dependencies:
@@ -4104,29 +4292,26 @@ snapshots:
 
   '@types/lodash@4.17.25': {}
 
-  '@types/node@24.13.3':
+  '@types/node@26.6.5':
     dependencies:
-      undici-types: 7.18.2
-
-  '@types/prop-types@15.7.15': {}
+      undici-types: 8.9.0
 
   '@types/qs@6.15.1': {}
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react@18.3.31':
+  '@types/react@19.3.0':
     dependencies:
-      '@types/prop-types': 15.7.15
       csstype: 3.2.3
 
   '@types/send@1.2.1':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/serve-static@2.2.0':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
   '@types/web-bluetooth@0.0.16': {}
 
@@ -4134,22 +4319,82 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
 
-  '@typescript/vfs@1.6.4(typescript@5.4.5)':
+  '@typescript/typescript-aix-ppc64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-darwin-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-darwin-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-freebsd-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-freebsd-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-arm@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-loong64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-mips64el@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-ppc64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-riscv64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-s390x@7.0.2':
+    optional: true
+
+  '@typescript/typescript-linux-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-netbsd-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-netbsd-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-openbsd-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-openbsd-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-sunos-x64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-win32-arm64@7.0.2':
+    optional: true
+
+  '@typescript/typescript-win32-x64@7.0.2':
+    optional: true
+
+  '@typescript/vfs@1.6.5(typescript@5.4.5)':
     dependencies:
       debug: 4.4.3
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
 
-  '@unocss/astro@0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))':
+  '@unocss/astro@0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@unocss/core': 0.65.4
       '@unocss/reset': 0.65.4
-      '@unocss/vite': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))
+      '@unocss/vite': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))
     optionalDependencies:
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -4187,14 +4432,14 @@ snapshots:
     dependencies:
       '@unocss/core': 0.65.4
 
-  '@unocss/inspector@0.65.4(vue@3.5.42(typescript@5.9.3))':
+  '@unocss/inspector@0.65.4(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@unocss/core': 0.65.4
       '@unocss/rule-utils': 0.65.4
       colorette: 2.0.20
       gzip-size: 6.0.0
       sirv: 3.0.2
-      vue-flow-layout: 0.1.1(vue@3.5.42(typescript@5.9.3))
+      vue-flow-layout: 0.1.1(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - vue
 
@@ -4279,26 +4524,26 @@ snapshots:
     dependencies:
       '@unocss/core': 0.65.4
 
-  '@unocss/vite@0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))':
+  '@unocss/vite@0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@rollup/pluginutils': 5.4.0(rollup@4.63.1)
       '@unocss/config': 0.65.4
       '@unocss/core': 0.65.4
-      '@unocss/inspector': 0.65.4(vue@3.5.42(typescript@5.9.3))
+      '@unocss/inspector': 0.65.4(vue@3.5.42(typescript@7.0.2))
       chokidar: 3.6.0
       magic-string: 0.30.21
       tinyglobby: 0.2.17
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - vue
 
-  '@vitejs/plugin-vue@5.2.4(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))':
+  '@vitejs/plugin-vue@5.2.4(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))':
     dependencies:
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
-      vue: 3.5.42(typescript@5.9.3)
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
+      vue: 3.5.42(typescript@7.0.2)
 
   '@vue/compiler-core@3.5.42':
     dependencies:
@@ -4356,22 +4601,22 @@ snapshots:
 
   '@vue/shared@3.5.42': {}
 
-  '@vueuse/core@11.3.0(vue@3.5.42(typescript@5.9.3))':
+  '@vueuse/core@11.3.0(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@types/web-bluetooth': 0.0.20
       '@vueuse/metadata': 11.3.0
-      '@vueuse/shared': 11.3.0(vue@3.5.42(typescript@5.9.3))
-      vue-demi: 0.14.10(vue@3.5.42(typescript@5.9.3))
+      '@vueuse/shared': 11.3.0(vue@3.5.42(typescript@7.0.2))
+      vue-demi: 0.14.10(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/core@9.13.0(vue@3.5.42(typescript@5.9.3))':
+  '@vueuse/core@9.13.0(vue@3.5.42(typescript@7.0.2))':
     dependencies:
       '@types/web-bluetooth': 0.0.16
       '@vueuse/metadata': 9.13.0
-      '@vueuse/shared': 9.13.0(vue@3.5.42(typescript@5.9.3))
-      vue-demi: 0.14.10(vue@3.5.42(typescript@5.9.3))
+      '@vueuse/shared': 9.13.0(vue@3.5.42(typescript@7.0.2))
+      vue-demi: 0.14.10(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -4380,16 +4625,16 @@ snapshots:
 
   '@vueuse/metadata@9.13.0': {}
 
-  '@vueuse/shared@11.3.0(vue@3.5.42(typescript@5.9.3))':
+  '@vueuse/shared@11.3.0(vue@3.5.42(typescript@7.0.2))':
     dependencies:
-      vue-demi: 0.14.10(vue@3.5.42(typescript@5.9.3))
+      vue-demi: 0.14.10(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/shared@9.13.0(vue@3.5.42(typescript@5.9.3))':
+  '@vueuse/shared@9.13.0(vue@3.5.42(typescript@7.0.2))':
     dependencies:
-      vue-demi: 0.14.10(vue@3.5.42(typescript@5.9.3))
+      vue-demi: 0.14.10(vue@3.5.42(typescript@7.0.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -4412,11 +4657,7 @@ snapshots:
       clean-stack: 2.2.0
       indent-string: 4.0.0
 
-  ansi-regex@5.0.1: {}
-
-  ansi-styles@4.3.0:
-    dependencies:
-      color-convert: 2.0.1
+  ansi-regex@6.4.0: {}
 
   anymatch@3.1.3:
     dependencies:
@@ -4431,31 +4672,20 @@ snapshots:
 
   async-validator@4.2.5: {}
 
-  atsc@2.1.0(typescript@5.9.3):
+  atsc@2.1.0(typescript@7.0.2):
     dependencies:
       globby: 11.1.0
       js-yaml: 4.3.2
-      tsconfig-utils: 4.2.0(typescript@5.9.3)
-      typescript: 5.9.3
+      tsconfig-utils: 4.2.0(typescript@7.0.2)
+      typescript: 7.0.2
 
   base64-js@1.5.1: {}
 
   binary-extensions@2.3.0: {}
 
-  bl@4.1.0:
-    dependencies:
-      buffer: 5.7.1
-      inherits: 2.0.4
-      readable-stream: 3.6.2
-
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
-
-  buffer@5.7.1:
-    dependencies:
-      base64-js: 1.5.1
-      ieee754: 1.2.1
 
   buffer@6.0.3:
     dependencies:
@@ -4486,12 +4716,7 @@ snapshots:
       call-bind-apply-helpers: 1.0.2
       get-intrinsic: 1.3.0
 
-  camelcase@6.3.0: {}
-
-  chalk@4.1.2:
-    dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
+  chalk@5.6.2: {}
 
   chardet@2.2.0: {}
 
@@ -4513,13 +4738,11 @@ snapshots:
 
   clean-stack@2.2.0: {}
 
-  cli-cursor@3.1.0:
+  cli-cursor@5.0.0:
     dependencies:
-      restore-cursor: 3.1.0
+      restore-cursor: 5.1.0
 
   cli-spinners@2.9.2: {}
-
-  clone@1.0.4: {}
 
   co-body@6.2.0:
     dependencies:
@@ -4530,12 +4753,6 @@ snapshots:
       type-is: 1.6.18
 
   co@4.6.0: {}
-
-  color-convert@2.0.1:
-    dependencies:
-      color-name: 1.1.4
-
-  color-name@1.1.4: {}
 
   colorette@2.0.20: {}
 
@@ -4570,10 +4787,19 @@ snapshots:
       kleur: 4.1.5
       reggol: 1.7.1
 
+  cordis@4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7):
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      cosmokit: 1.8.1
+    optionalDependencies:
+      '@cordisjs/plugin-include': 1.1.0(@cordisjs/plugin-loader@1.0.0-rc.7)(cordis@4.0.0-rc.10)
+      '@cordisjs/plugin-loader': 1.0.0-rc.7(cordis@4.0.0-rc.10)
+
   cosmokit@1.8.1: {}
 
-  cross-env@7.0.3:
+  cross-env@10.1.0:
     dependencies:
+      '@epic-web/invariant': 1.0.0
       cross-spawn: 7.0.6
 
   cross-spawn@7.0.6:
@@ -4597,13 +4823,7 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  decamelize@4.0.0: {}
-
   deep-equal@1.0.1: {}
-
-  defaults@1.0.4:
-    dependencies:
-      clone: 1.0.4
 
   define-lazy-prop@2.0.0: {}
 
@@ -4619,7 +4839,7 @@ snapshots:
 
   destroy@1.2.0: {}
 
-  detect-indent@6.1.0: {}
+  detect-indent@7.0.2: {}
 
   detect-libc@2.1.2:
     optional: true
@@ -4635,20 +4855,20 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dtsc@3.1.0(typescript@5.9.3):
+  dtsc@3.1.0(typescript@7.0.2):
     dependencies:
-      tsconfig-utils: 4.2.0(typescript@5.9.3)
-      typescript: 5.9.3
+      tsconfig-utils: 4.2.0(typescript@7.0.2)
+      typescript: 7.0.2
 
-  dumble@0.2.3(esbuild@0.23.1)(typescript@5.9.3):
+  dumble@0.2.3(esbuild@0.28.2)(typescript@7.0.2):
     dependencies:
       cac: 6.7.14
-      esbuild: 0.23.1
+      esbuild: 0.28.2
       globby: 14.1.0
       js-yaml: 4.3.2
       kleur: 4.1.5
-      tsconfig-utils: 4.2.0(typescript@5.9.3)
-      typescript: 5.9.3
+      tsconfig-utils: 4.2.0(typescript@7.0.2)
+      typescript: 7.0.2
 
   dunder-proto@1.0.1:
     dependencies:
@@ -4660,15 +4880,15 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  element-plus@2.7.7(vue@3.5.42(typescript@5.9.3)):
+  element-plus@2.7.7(vue@3.5.42(typescript@7.0.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
-      '@element-plus/icons-vue': 2.3.2(vue@3.5.42(typescript@5.9.3))
+      '@element-plus/icons-vue': 2.3.2(vue@3.5.42(typescript@7.0.2))
       '@floating-ui/dom': 1.8.0
       '@popperjs/core': '@sxzz/popperjs-es@2.11.8'
       '@types/lodash': 4.17.25
       '@types/lodash-es': 4.17.12
-      '@vueuse/core': 9.13.0(vue@3.5.42(typescript@5.9.3))
+      '@vueuse/core': 9.13.0(vue@3.5.42(typescript@7.0.2))
       async-validator: 4.2.5
       dayjs: 1.11.23
       escape-html: 1.0.3
@@ -4677,9 +4897,11 @@ snapshots:
       lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.18.1)(lodash@4.18.1)
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
     transitivePeerDependencies:
       - '@vue/composition-api'
+
+  emoji-regex@10.6.0: {}
 
   encodeurl@1.0.2: {}
 
@@ -4797,6 +5019,21 @@ snapshots:
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
 
+  execa@9.6.1:
+    dependencies:
+      '@sindresorhus/merge-streams': 4.0.0
+      cross-spawn: 7.0.6
+      figures: 6.1.0
+      get-stream: 9.0.1
+      human-signals: 8.0.1
+      is-plain-obj: 4.1.0
+      is-stream: 4.0.1
+      npm-run-path: 6.0.0
+      pretty-ms: 9.3.1
+      signal-exit: 4.1.0
+      strip-final-newline: 4.0.0
+      yoctocolors: 2.2.0
+
   exsolve@1.1.1: {}
 
   fast-glob@3.3.3:
@@ -4817,6 +5054,10 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.7
 
+  figures@6.1.0:
+    dependencies:
+      is-unicode-supported: 2.1.0
+
   file-type@16.5.4:
     dependencies:
       readable-web-to-node-stream: 3.0.4
@@ -4826,8 +5067,6 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
-
-  flat@5.0.2: {}
 
   formidable@2.1.5:
     dependencies:
@@ -4850,6 +5089,8 @@ snapshots:
   function-bind@1.1.2: {}
 
   generator-function@2.0.1: {}
+
+  get-east-asian-width@1.7.0: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -4875,6 +5116,11 @@ snapshots:
 
   get-stream@6.0.1: {}
 
+  get-stream@9.0.1:
+    dependencies:
+      '@sec-ant/readable-stream': 0.4.1
+      is-stream: 4.0.1
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -4894,7 +5140,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
       fast-glob: 3.3.3
-      ignore: 7.0.7
+      ignore: 7.0.12
       path-type: 6.0.0
       slash: 5.1.0
       unicorn-magic: 0.3.0
@@ -4956,6 +5202,8 @@ snapshots:
 
   human-signals@2.1.0: {}
 
+  human-signals@8.0.1: {}
+
   iconv-lite@0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -4964,7 +5212,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  ignore@7.0.7: {}
+  ignore@7.0.12: {}
 
   immutable@5.1.9: {}
 
@@ -5009,11 +5257,11 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
 
-  is-interactive@1.0.0: {}
+  is-interactive@2.0.0: {}
 
   is-number@7.0.0: {}
 
-  is-plain-obj@2.1.0: {}
+  is-plain-obj@4.1.0: {}
 
   is-regex@1.2.1:
     dependencies:
@@ -5024,7 +5272,11 @@ snapshots:
 
   is-stream@2.0.1: {}
 
-  is-unicode-supported@0.1.0: {}
+  is-stream@4.0.1: {}
+
+  is-unicode-supported@1.3.0: {}
+
+  is-unicode-supported@2.1.0: {}
 
   is-wsl@2.2.0:
     dependencies:
@@ -5104,53 +5356,35 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  koishi-plugin-adapter-onebot@6.9.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
+  koishi-plugin-adapter-onebot@6.9.5(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)):
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
       qface: 1.4.1
 
-  koishi-plugin-dataview@2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
+  koishi-plugin-dataview@2.7.8(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)):
     dependencies:
-      '@koishijs/console': 5.30.11(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/console': 5.30.11(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  koishi-plugin-rate-limit@2.0.4(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
+  koishi-plugin-rate-limit@2.0.4(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)):
     dependencies:
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  koishi-plugin-theme-vanilla@1.1.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)):
+  koishi-plugin-theme-vanilla@1.1.0(@koishijs/plugin-console@5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)):
     dependencies:
-      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@24.13.3)(postcss@8.5.26)(rollup@4.63.1)(typescript@5.9.3))(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      koishi: 4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)
+      '@koishijs/plugin-console': 5.30.11(@koishijs/client@5.30.11(@types/node@26.6.5)(postcss@8.5.26)(rollup@4.63.1)(typescript@7.0.2))(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      koishi: 4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)
 
-  koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1):
+  koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10):
     dependencies:
       '@koishijs/core': 4.18.11
       '@koishijs/loader': 4.6.11(@koishijs/core@4.18.11)
-      '@koishijs/plugin-http': 0.6.3(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-server': 3.2.9(cordis@3.18.1)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
+      '@koishijs/plugin-http': 0.6.3(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
+      '@koishijs/plugin-server': 3.2.9(cordis@4.0.0-rc.10)(koishi@4.18.11(@cordisjs/plugin-http@0.6.3(cordis@4.0.0-rc.10))(cordis@4.0.0-rc.10))
       '@koishijs/utils': 7.3.2
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
-      cac: 6.7.14
-      kleur: 4.1.5
-    transitivePeerDependencies:
-      - '@cordisjs/plugin-http'
-      - bufferutil
-      - cordis
-      - supports-color
-      - utf-8-validate
-
-  koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1):
-    dependencies:
-      '@koishijs/core': 4.18.9
-      '@koishijs/loader': 4.6.9(@koishijs/core@4.18.9)
-      '@koishijs/plugin-http': 0.6.3(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-proxy-agent': 0.3.3(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/plugin-server': 3.2.9(cordis@3.18.1)(koishi@4.18.9(@cordisjs/plugin-http@0.6.3(cordis@3.18.1))(cordis@3.18.1))
-      '@koishijs/utils': 7.3.2
-      '@satorijs/core': 4.6.0(cordis@3.18.1)
+      '@satorijs/core': 4.6.0(cordis@4.0.0-rc.10)
       cac: 6.7.14
       kleur: 4.1.5
     transitivePeerDependencies:
@@ -5180,19 +5414,19 @@ snapshots:
 
   lodash@4.18.1: {}
 
-  log-symbols@4.1.0:
+  log-symbols@6.0.0:
     dependencies:
-      chalk: 4.1.2
-      is-unicode-supported: 0.1.0
+      chalk: 5.6.2
+      is-unicode-supported: 1.3.0
 
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  marked-vue@1.3.0(vue@3.5.42(typescript@5.9.3)):
+  marked-vue@1.3.0(vue@3.5.42(typescript@7.0.2)):
     dependencies:
       marked: 9.1.6
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
       xss: 1.0.15
 
   marked@9.1.6: {}
@@ -5226,9 +5460,16 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
+  mimic-function@5.0.1: {}
+
   minato@3.7.0(cordis@3.18.1):
     dependencies:
       cordis: 3.18.1
+      cosmokit: 1.8.1
+
+  minato@3.7.0(cordis@4.0.0-rc.10):
+    dependencies:
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
       cosmokit: 1.8.1
 
   mlly@1.8.2:
@@ -5259,6 +5500,11 @@ snapshots:
     dependencies:
       path-key: 3.1.1
 
+  npm-run-path@6.0.0:
+    dependencies:
+      path-key: 4.0.0
+      unicorn-magic: 0.3.0
+
   ns-require@1.1.4: {}
 
   object-inspect@1.13.4: {}
@@ -5281,6 +5527,10 @@ snapshots:
     dependencies:
       mimic-fn: 2.1.0
 
+  onetime@7.0.0:
+    dependencies:
+      mimic-function: 5.0.1
+
   only@0.0.2: {}
 
   open@8.4.2:
@@ -5289,27 +5539,33 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  ora@5.4.1:
+  ora@8.2.0:
     dependencies:
-      bl: 4.1.0
-      chalk: 4.1.2
-      cli-cursor: 3.1.0
+      chalk: 5.6.2
+      cli-cursor: 5.0.0
       cli-spinners: 2.9.2
-      is-interactive: 1.0.0
-      is-unicode-supported: 0.1.0
-      log-symbols: 4.1.0
-      strip-ansi: 6.0.1
-      wcwidth: 1.0.1
+      is-interactive: 2.0.0
+      is-unicode-supported: 2.1.0
+      log-symbols: 6.0.0
+      stdin-discarder: 0.2.2
+      string-width: 7.2.0
+      strip-ansi: 7.2.0
 
   p-map@4.0.0:
     dependencies:
       aggregate-error: 3.1.0
 
+  p-map@7.1.1: {}
+
   package-manager-detector@1.8.0: {}
+
+  parse-ms@4.0.0: {}
 
   parseurl@1.3.3: {}
 
   path-key@3.1.1: {}
+
+  path-key@4.0.0: {}
 
   path-to-regexp@6.3.0: {}
 
@@ -5351,6 +5607,10 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  pretty-ms@9.3.1:
+    dependencies:
+      parse-ms: 4.0.0
+
   process@0.11.10: {}
 
   prompts@2.4.2:
@@ -5376,12 +5636,6 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  readable-stream@3.6.2:
-    dependencies:
-      inherits: 2.0.4
-      string_decoder: 1.3.0
-      util-deprecate: 1.0.2
-
   readable-stream@4.7.0:
     dependencies:
       abort-controller: 3.0.0
@@ -5406,10 +5660,10 @@ snapshots:
       object-inspect: 1.13.4
       supports-color: 8.1.1
 
-  restore-cursor@3.1.0:
+  restore-cursor@5.1.0:
     dependencies:
-      onetime: 5.1.2
-      signal-exit: 3.0.7
+      onetime: 7.0.0
+      signal-exit: 4.1.0
 
   reusify@1.1.0: {}
 
@@ -5467,12 +5721,12 @@ snapshots:
     optionalDependencies:
       '@parcel/watcher': 2.6.0
 
-  schemastery-vue@7.3.15(@vueuse/core@11.3.0(vue@3.5.42(typescript@5.9.3)))(element-plus@2.7.7(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)):
+  schemastery-vue@7.3.15(@vueuse/core@11.3.0(vue@3.5.42(typescript@7.0.2)))(element-plus@2.7.7(vue@3.5.42(typescript@7.0.2)))(vue@3.5.42(typescript@7.0.2)):
     dependencies:
-      '@vueuse/core': 11.3.0(vue@3.5.42(typescript@5.9.3))
-      element-plus: 2.7.7(vue@3.5.42(typescript@5.9.3))
+      '@vueuse/core': 11.3.0(vue@3.5.42(typescript@7.0.2))
+      element-plus: 2.7.7(vue@3.5.42(typescript@7.0.2))
       schemastery: 3.18.0
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
 
   schemastery@3.18.0:
     dependencies:
@@ -5519,6 +5773,8 @@ snapshots:
 
   signal-exit@3.0.7: {}
 
+  signal-exit@4.1.0: {}
+
   sirv@3.0.2:
     dependencies:
       '@polka/url': 1.0.0-next.29
@@ -5552,24 +5808,30 @@ snapshots:
 
   statuses@2.0.2: {}
 
+  stdin-discarder@0.2.2: {}
+
+  string-width@7.2.0:
+    dependencies:
+      emoji-regex: 10.6.0
+      get-east-asian-width: 1.7.0
+      strip-ansi: 7.2.0
+
   string_decoder@1.3.0:
     dependencies:
       safe-buffer: 5.2.1
 
-  strip-ansi@6.0.1:
+  strip-ansi@7.2.0:
     dependencies:
-      ansi-regex: 5.0.1
+      ansi-regex: 6.4.0
 
   strip-final-newline@2.0.0: {}
+
+  strip-final-newline@4.0.0: {}
 
   strtok3@6.3.0:
     dependencies:
       '@tokenizer/token': 0.3.0
       peek-readable: 4.1.0
-
-  supports-color@7.2.0:
-    dependencies:
-      has-flag: 4.0.0
 
   supports-color@8.1.1:
     dependencies:
@@ -5599,10 +5861,10 @@ snapshots:
 
   totalist@3.0.1: {}
 
-  tsconfig-utils@4.2.0(typescript@5.9.3):
+  tsconfig-utils@4.2.0(typescript@7.0.2):
     dependencies:
       json5: 2.2.3
-      typescript: 5.9.3
+      typescript: 7.0.2
 
   tsscmp@1.0.6: {}
 
@@ -5619,7 +5881,28 @@ snapshots:
 
   typescript@5.4.5: {}
 
-  typescript@5.9.3: {}
+  typescript@7.0.2:
+    optionalDependencies:
+      '@typescript/typescript-aix-ppc64': 7.0.2
+      '@typescript/typescript-darwin-arm64': 7.0.2
+      '@typescript/typescript-darwin-x64': 7.0.2
+      '@typescript/typescript-freebsd-arm64': 7.0.2
+      '@typescript/typescript-freebsd-x64': 7.0.2
+      '@typescript/typescript-linux-arm': 7.0.2
+      '@typescript/typescript-linux-arm64': 7.0.2
+      '@typescript/typescript-linux-loong64': 7.0.2
+      '@typescript/typescript-linux-mips64el': 7.0.2
+      '@typescript/typescript-linux-ppc64': 7.0.2
+      '@typescript/typescript-linux-riscv64': 7.0.2
+      '@typescript/typescript-linux-s390x': 7.0.2
+      '@typescript/typescript-linux-x64': 7.0.2
+      '@typescript/typescript-netbsd-arm64': 7.0.2
+      '@typescript/typescript-netbsd-x64': 7.0.2
+      '@typescript/typescript-openbsd-arm64': 7.0.2
+      '@typescript/typescript-openbsd-x64': 7.0.2
+      '@typescript/typescript-sunos-x64': 7.0.2
+      '@typescript/typescript-win32-arm64': 7.0.2
+      '@typescript/typescript-win32-x64': 7.0.2
 
   ufo@1.6.4: {}
 
@@ -5631,7 +5914,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  undici-types@7.18.2: {}
+  undici-types@8.9.0: {}
 
   undici@6.28.0: {}
 
@@ -5639,9 +5922,9 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unocss@0.65.4(postcss@8.5.26)(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3)):
+  unocss@0.65.4(postcss@8.5.26)(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2)):
     dependencies:
-      '@unocss/astro': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))
+      '@unocss/astro': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))
       '@unocss/cli': 0.65.4(rollup@4.63.1)
       '@unocss/core': 0.65.4
       '@unocss/postcss': 0.65.4(postcss@8.5.26)
@@ -5657,9 +5940,9 @@ snapshots:
       '@unocss/transformer-compile-class': 0.65.4
       '@unocss/transformer-directives': 0.65.4
       '@unocss/transformer-variant-group': 0.65.4
-      '@unocss/vite': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@24.13.3)(sass@1.103.1))(vue@3.5.42(typescript@5.9.3))
+      '@unocss/vite': 0.65.4(rollup@4.63.1)(vite@5.4.21(@types/node@26.6.5)(sass@1.103.1))(vue@3.5.42(typescript@7.0.2))
     optionalDependencies:
-      vite: 5.4.21(@types/node@24.13.3)(sass@1.103.1)
+      vite: 5.4.21(@types/node@26.6.5)(sass@1.103.1)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -5668,43 +5951,41 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  util-deprecate@1.0.2: {}
-
   uuid@8.3.2: {}
 
   vary@1.1.2: {}
 
-  vite@5.4.21(@types/node@24.13.3)(sass@1.103.1):
+  vite@5.4.21(@types/node@26.6.5)(sass@1.103.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.26
       rollup: 4.63.1
     optionalDependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.6.5
       fsevents: 2.3.3
       sass: 1.103.1
 
-  vue-demi@0.14.10(vue@3.5.42(typescript@5.9.3)):
+  vue-demi@0.14.10(vue@3.5.42(typescript@7.0.2)):
     dependencies:
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
 
-  vue-flow-layout@0.1.1(vue@3.5.42(typescript@5.9.3)):
+  vue-flow-layout@0.1.1(vue@3.5.42(typescript@7.0.2)):
     dependencies:
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
 
-  vue-i18n@9.14.5(vue@3.5.42(typescript@5.9.3)):
+  vue-i18n@9.14.5(vue@3.5.42(typescript@7.0.2)):
     dependencies:
       '@intlify/core-base': 9.14.5
       '@intlify/shared': 9.14.5
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
 
-  vue-router@4.6.4(vue@3.5.42(typescript@5.9.3)):
+  vue-router@4.6.4(vue@3.5.42(typescript@7.0.2)):
     dependencies:
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.42(typescript@5.9.3)
+      vue: 3.5.42(typescript@7.0.2)
 
-  vue@3.5.42(typescript@5.9.3):
+  vue@3.5.42(typescript@7.0.2):
     dependencies:
       '@vue/compiler-dom': 3.5.42
       '@vue/compiler-sfc': 3.5.42
@@ -5712,11 +5993,7 @@ snapshots:
       '@vue/server-renderer': 3.5.42
       '@vue/shared': 3.5.42
     optionalDependencies:
-      typescript: 5.9.3
-
-  wcwidth@1.0.1:
-    dependencies:
-      defaults: 1.0.4
+      typescript: 7.0.2
 
   which-pm-runs@1.1.0: {}
 
@@ -5733,55 +6010,51 @@ snapshots:
       commander: 2.20.3
       cssfilter: 0.0.10
 
-  yakumo-esbuild@1.0.0(esbuild@0.23.1)(typescript@5.9.3)(yakumo@1.0.0(cordis@3.18.1)):
+  yakumo-esbuild@3.0.2(esbuild@0.28.2)(typescript@7.0.2)(yakumo@3.2.1):
     dependencies:
-      dumble: 0.2.3(esbuild@0.23.1)(typescript@5.9.3)
-      esbuild: 0.23.1
+      dumble: 0.2.3(esbuild@0.28.2)(typescript@7.0.2)
+      esbuild: 0.28.2
       schemastery: 3.18.0
-      tsconfig-utils: 4.2.0(typescript@5.9.3)
-      yakumo: 1.0.0(cordis@3.18.1)
-    transitivePeerDependencies:
-      - typescript
+      tsconfig-utils: 4.2.0(typescript@7.0.2)
+      typescript: 7.0.2
+      yakumo: 3.2.1
 
-  yakumo-tsc@1.0.0(typescript@5.9.3)(yakumo@1.0.0(cordis@3.18.1)):
+  yakumo-tsc@3.0.1(typescript@7.0.2)(yakumo@3.2.1):
     dependencies:
-      atsc: 2.1.0(typescript@5.9.3)
-      dtsc: 3.1.0(typescript@5.9.3)
-      tsconfig-utils: 4.2.0(typescript@5.9.3)
-      typescript: 5.9.3
-      yakumo: 1.0.0(cordis@3.18.1)
+      atsc: 2.1.0(typescript@7.0.2)
+      dtsc: 3.1.0(typescript@7.0.2)
+      tsconfig-utils: 4.2.0(typescript@7.0.2)
+      typescript: 7.0.2
+      yakumo: 3.2.1
 
-  yakumo@1.0.0(cordis@3.18.1):
+  yakumo@3.2.1:
     dependencies:
-      cordis: 3.18.1
+      '@cordisjs/plugin-cli': 1.1.2(@cordisjs/plugin-loader@1.0.0-rc.7)(cordis@4.0.0-rc.10)
+      '@cordisjs/plugin-include': 1.1.0(@cordisjs/plugin-loader@1.0.0-rc.7)(cordis@4.0.0-rc.10)
+      '@cordisjs/plugin-loader': 1.0.0-rc.7(cordis@4.0.0-rc.10)
+      '@npm/types': 2.1.0
+      cordis: 4.0.0-rc.10(@cordisjs/plugin-include@1.1.0)(@cordisjs/plugin-loader@1.0.0-rc.7)
       cosmokit: 1.8.1
-      detect-indent: 6.1.0
-      execa: 5.1.1
+      detect-indent: 7.0.2
+      execa: 9.6.1
       get-registry: 1.2.0
-      globby: 11.1.0
+      globby: 14.1.0
       kleur: 4.1.5
-      ora: 5.4.1
-      p-map: 4.0.0
-      picomatch: 2.3.2
+      ora: 8.2.0
+      p-map: 7.1.1
+      picomatch: 4.0.7
       prompts: 2.4.2
       semver: 7.8.5
       which-pm-runs: 1.1.0
-      yargs-parser: 21.1.1
-      yargs-unparser: 2.0.0
-
-  yargs-parser@21.1.1: {}
-
-  yargs-unparser@2.0.0:
-    dependencies:
-      camelcase: 6.3.0
-      decamelize: 4.0.0
-      flat: 5.0.2
-      is-plain-obj: 2.1.0
+    transitivePeerDependencies:
+      - node-addon-require-builtin
 
   ylru@1.4.0: {}
 
   yml-register@1.2.5:
     dependencies:
       js-yaml: 4.3.2
+
+  yoctocolors@2.2.0: {}
 
   zod@3.25.76: {}
